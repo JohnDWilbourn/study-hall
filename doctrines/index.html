@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrines — Study Hall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --card-bg: #fdfbf5;
+  --card-bg-hover: #f9f3e4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+.home-bar {
+  padding: 0.5rem 1.2rem;
+  background: var(--ink);
+  border-bottom: 2px solid var(--gold);
+  display: flex;
+  gap: 1.5rem;
+}
+.home-bar a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+}
+.home-bar a:hover { text-decoration: underline; }
+.page {
+  width: 100%;
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 4rem;
+}
+.door-mark {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+h1 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  text-align: center;
+  margin-bottom: 0.65rem;
+}
+.subtitle {
+  text-align: center;
+  color: #4a3f2c;
+  font-style: italic;
+  max-width: 38rem;
+  margin: 0 auto 2.4rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+.card {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 4px;
+  padding: 1rem 1.1rem;
+  min-height: 10rem;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.card:hover { background: var(--card-bg-hover); transform: translateX(2px); }
+.label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+.tag {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.4rem;
+}
+.desc {
+  display: block;
+  color: #5c5036;
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+footer {
+  margin-top: 2.5rem;
+  text-align: center;
+  color: var(--gold-dim);
+  font-size: 0.85rem;
+}
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { min-height: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Home</a>
+  <a href="../index.html">&#8592; Study Hall</a>
+</div>
+
+<main class="page">
+  <div class="door-mark">Study Hall — Doctrines</div>
+  <h1>Doctrine Reference</h1>
+  <p class="subtitle">A systematic library of Christian doctrines, cross-referenced with Scripture and indexed for study.</p>
+
+  <section class="grid" aria-label="Doctrine reference tools">
+
+    <a class="card" href="doctrine-library.html">
+      <span class="tag">Reference Library</span>
+      <span class="label">Library of Christian Doctrines</span>
+      <span class="desc">Forty-five doctrines indexed, searchable, and filterable by category and tag — with live ESV verse lookup and cross-reference engine.</span>
+    </a>
+
+    <a class="card" href="scripture-index.html">
+      <span class="tag">Scripture Index</span>
+      <span class="label">Scripture Index</span>
+      <span class="desc">All scripture references from the doctrine library, organized by book and searchable — with live ESV verse preview on hover.</span>
+    </a>
+
+  </section>
+
+  <footer>JohnDavid Wilbourn</footer>
+</main>
+
+</body>
+</html>
