@@ -5012,112 +5012,67 @@ a:hover { color: var(--ink); }
 })();
 </script>
 <script>
-// WordPress-safe DOM ready wrapper
+// Tag filter functionality
 (function() {
-    function initScript() {
-    const filterButtons = document.querySelectorAll('.tag-filter-btn');
-    const sections = document.querySelectorAll('main section[id]');
-    const filterResults = document.getElementById('filterResults');
-    const doctrineTags = {'sustaining-ministry': ['Christ', 'Doctrine', 'Holy Spirit', 'Mental Attitude', 'Sin'], 'holy-spirit-ministry': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Holy Spirit', 'Priesthood', 'Salvation', 'Sin'], 'divine-essence': ['Christ', 'Church Age', 'Divine Attributes', 'Divine Discipline', 'Doctrine', 'Faith', 'Holy Spirit', 'Salvation', 'Sin'], 'hypostatic-union': ['Angels', 'Christ', 'Divine Attributes', 'Doctrine', 'Holy Spirit', 'Mental Attitude', 'Priesthood', 'Sin'], 'angel-yahweh': ['Angels', 'Christ', 'Doctrine', 'Sin'], 'imputation': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Salvation', 'Sin'], 'grace': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Giving', 'Grace', 'Holy Spirit', 'Salvation', 'Sin', 'Spiritual Growth'], 'justification': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Grace', 'Salvation'], 'unlimited-atonement': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Salvation', 'Sin'], 'position-in-christ': ['Christ', 'Church Age', 'Divine Attributes', 'Doctrine', 'Faith', 'Holy Spirit', 'Sin'], 'propitiation': ['Christ', 'Doctrine', 'Faith', 'Salvation', 'Sin'], 'reconciliation': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Holy Spirit', 'Salvation', 'Sin'], 'blood-of-christ': ['Christ', 'Doctrine', 'Faith', 'Holy Spirit', 'Sin'], 'eternal-security': ['Christ', 'Church Age', 'Divine Attributes', 'Doctrine', 'Faith', 'Grace', 'Holy Spirit', 'Priesthood', 'Salvation', 'Sin'], 'regeneration': ['Doctrine', 'Holy Spirit', 'Salvation'], 'rebound': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Grace', 'Holy Spirit', 'Salvation', 'Sin'], 'mental-attitude': ['Church Age', 'Doctrine', 'Faith', 'Grace', 'Mental Attitude', 'Sin'], 'heart': ['Church Age', 'Doctrine', 'Faith', 'Grace', 'Happiness', 'Holy Spirit', 'Mental Attitude', 'Sin', 'Spiritual Growth'], 'conscience': ['Doctrine', 'Mental Attitude'], 'witnessing': ['Angels', 'Christ', 'Church Age', 'Divine Attributes', 'Doctrine', 'Faith', 'Grace', 'Happiness', 'Holy Spirit', 'Prayer', 'Prophecy', 'Salvation', 'Sin'], 'operation-footstool': ['Angels', 'Christ', 'Church Age', 'Doctrine', 'Faith', 'Holy Spirit', 'Sin'], 'days': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Salvation'], 'science-bible': ['Angels', 'Holy Spirit'], 'scientific-laws': ['Angels', 'Christ', 'Church Age', 'Doctrine', 'Faith'], 'divine-guidance': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Holy Spirit', 'Mental Attitude'], 'absolutes': ['Angels', 'Christ', 'Church Age', 'Divine Attributes', 'Faith', 'Grace', 'Holy Spirit', 'Priesthood', 'Salvation', 'Sin'], 'absolutes-delineation': ['Christ', 'Church Age', 'Faith', 'Holy Spirit', 'Salvation', 'Sin'], 'repentance': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Holy Spirit', 'Mental Attitude', 'Salvation', 'Sin'], 'divine-discipline': ['Church Age', 'Divine Discipline', 'Doctrine', 'Faith', 'Happiness', 'Mental Attitude', 'Sin'], 'levitical-priesthood': ['Doctrine', 'Priesthood', 'Salvation', 'Sin'], 'giving': ['Christ', 'Church Age', 'Doctrine', 'Faith', 'Giving', 'Grace', 'Happiness', 'Holy Spirit', 'Mental Attitude', 'Sin'], 'happiness': ['Angels', 'Christ', 'Church Age', 'Divine Attributes', 'Divine Discipline', 'Doctrine', 'Faith', 'Grace', 'Happiness', 'Holy Spirit', 'Mental Attitude', 'Salvation', 'Sin', 'Spiritual Growth'], 'evil': ['Angels', 'Christ', 'Church Age', 'Divine Discipline', 'Doctrine', 'Faith', 'Grace', 'Happiness', 'Holy Spirit', 'Mental Attitude', 'Sin', 'Spiritual Growth'], 'seven-deaths': ['Christ', 'Church Age', 'Divine Discipline', 'Doctrine', 'Faith', 'Holy Spirit', 'Mental Attitude', 'Sin'], 'sin-unto-death': ['Church Age', 'Doctrine', 'Faith', 'Mental Attitude', 'Sin'], 'money': ['Church Age', 'Doctrine', 'Faith', 'Grace', 'Happiness', 'Holy Spirit', 'Salvation']};
-    
-    // Add hover effects to filter buttons
-    filterButtons.forEach(btn => {
-        btn.addEventListener('mouseenter', function() {
-            if (!this.classList.contains('active')) {
-                this.style.transform = 'translateY(-2px)';
-                this.style.boxShadow = '0 4px 8px rgba(59, 130, 246, 0.3)';
-            }
-        });
-        
-        btn.addEventListener('mouseleave', function() {
-            if (!this.classList.contains('active')) {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = 'none';
-            }
-        });
-    });
-    
-    // Add click listeners to tag filter buttons
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            
-            // Update active state
-            filterButtons.forEach(b => {
-                b.classList.remove('active');
-                b.style.background = 'white';
-                b.style.color = '#3b82f6';
-                b.style.border = '2px solid #3b82f6';
-                b.style.boxShadow = 'none';
+    function initTagFilter() {
+        const tagBtns = document.querySelectorAll('.tag-btn');
+        const sections = document.querySelectorAll('main section[id]');
+        const resetBtn = document.getElementById('resetFilters');
+
+        if (!tagBtns.length) return;
+
+        // Build tag→section map directly from DOM
+        function getSectionTags(section) {
+            return Array.from(section.querySelectorAll('.doctrine-tags .tag'))
+                        .map(t => t.getAttribute('data-tag'));
+        }
+
+        // Also wire inline .tag spans to filter
+        document.querySelectorAll('.doctrine-tags .tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                const tagValue = this.getAttribute('data-tag');
+                applyTagFilter(tagValue);
+                // Sync the tag-btn active state
+                tagBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-tag') === tagValue));
             });
-            
-            this.classList.add('active');
-            this.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
-            this.style.color = 'white';
-            this.style.border = 'none';
-            this.style.boxShadow = '0 2px 4px rgba(16, 185, 129, 0.3)';
-            
-            // Filter sections
-            let visibleCount = 0;
-            
+        });
+
+        function applyTagFilter(tagValue) {
             sections.forEach(section => {
-                const sectionId = section.getAttribute('id');
-                const sectionTags = doctrineTags[sectionId] || [];
-                
-                if (filter === 'all' || sectionTags.includes(filter)) {
+                if (!tagValue) {
                     section.style.display = '';
-                    section.style.opacity = '1';
-                    visibleCount++;
                 } else {
-                    section.style.display = 'none';
-                    section.style.opacity = '0';
+                    const tags = getSectionTags(section);
+                    section.style.display = tags.includes(tagValue) ? '' : 'none';
                 }
             });
-            
-            // Update results
-            if (filter === 'all') {
-                filterResults.textContent = '';
-            } else {
-                filterResults.textContent = `Showing ${visibleCount} doctrine(s) tagged with "${filter}"`;
-                filterResults.style.color = '#10b981';
-            }
-        });
-    });
-    
-    // Add click listeners to inline tags
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('tag')) {
-            const tag = e.target.getAttribute('data-tag');
-            const filterBtn = document.querySelector(`[data-filter="${tag}"]`);
-            if (filterBtn) {
-                filterBtn.click();
-                // Scroll to filter section
-                document.querySelector('.tag-filter-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
         }
-    });
-    
-    // Add hover effect to inline tags
-    document.querySelectorAll('.tag').forEach(tag => {
-        tag.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-            this.style.boxShadow = '0 2px 6px rgba(37, 99, 235, 0.4)';
+
+        tagBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const isActive = this.classList.contains('active');
+                tagBtns.forEach(b => b.classList.remove('active'));
+                if (!isActive) {
+                    this.classList.add('active');
+                    applyTagFilter(this.getAttribute('data-tag'));
+                } else {
+                    applyTagFilter(null);
+                }
+            });
         });
-        
-        tag.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = 'none';
-        });
-    });
-    
-    // console.log('✓ Keyword tagging system enabled with 18 categories');
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function() {
+                tagBtns.forEach(b => b.classList.remove('active'));
+                applyTagFilter(null);
+            });
+        }
     }
-    
-    // Execute when DOM is ready
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initScript);
+        document.addEventListener('DOMContentLoaded', initTagFilter);
     } else {
-        initScript();
+        initTagFilter();
     }
 })();
 </script>
