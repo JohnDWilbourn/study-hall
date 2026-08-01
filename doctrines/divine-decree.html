@@ -36,11 +36,10 @@ body {
 }
 .site-header h1 {
   font-family: 'Cinzel', serif;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 600;
   color: var(--parchment);
-  letter-spacing: 0.04em;
-  margin-bottom: 0.25rem;
+  letter-spacing: 0.03em;
 }
 .site-header .subtitle {
   font-size: 0.95rem;
@@ -76,42 +75,56 @@ section[id] {
   padding: 1.5rem 1.75rem;
   margin-bottom: 1.5rem;
 }
-section[id] h2 {
+.doc-title {
   font-family: 'Cinzel', serif;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--ink);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  letter-spacing: 0.03em;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
 }
-section[id] h2.outline-title {
-  font-size: 0.9rem;
-  color: var(--gold-dim);
+.outline-header {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-bottom: none;
-  margin-top: 0.5rem;
+  color: var(--gold-dim);
+  margin-bottom: 0.75rem;
 }
-section[id] h3 {
-  font-family: 'EB Garamond', serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--ink-soft);
-  margin: 0.3rem 0;
-  display: inline;
+.outline-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
 }
-ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
-  padding-left: 1.6rem;
-  margin: 0.4rem 0;
+.outline-list li { font-size: 0.95rem; color: var(--ink-soft); padding: 0.1rem 0; }
+.outline-list li.sub { padding-left: 2rem; }
+.level-roman {
+  margin: 1.5rem 0 0.4rem 0;
+  padding-left: 1.8rem;
+  text-indent: -1.8rem;
 }
-ol.roman { list-style-type: upper-roman; }
-ol.alpha { list-style-type: lower-alpha; }
-ol.decimal { list-style-type: decimal; }
-ol.lower-alpha { list-style-type: lower-alpha; }
-li { margin-bottom: 0.35rem; }
-li > ol { margin-top: 0.35rem; }
+.level-cap {
+  margin: 0.6rem 0 0.2rem 0;
+  padding-left: 3.2rem;
+  text-indent: -1.8rem;
+}
+.level-arabic {
+  margin: 0.5rem 0 0.2rem 0;
+  padding-left: 4.6rem;
+  text-indent: -1.8rem;
+}
+.level-lower {
+  margin: 0.4rem 0 0.15rem 0;
+  padding-left: 6rem;
+  text-indent: -1.8rem;
+}
+.level-paren {
+  margin: 0.35rem 0 0.1rem 0;
+  padding-left: 7.4rem;
+  text-indent: -1.8rem;
+}
+.level-body { margin: 0.5rem 0; }
 .doctrine-tags {
   margin-top: 1rem;
   padding-top: 0.6rem;
@@ -130,26 +143,6 @@ li > ol { margin-top: 0.35rem; }
   border-radius: 2px;
   font-size: 0.82rem;
 }
-.verse-preview-tooltip {
-  background: var(--ink);
-  color: var(--parchment);
-  border: 1px solid var(--gold);
-  border-radius: 4px;
-  padding: 0.75rem 1rem;
-  font-size: 0.88rem;
-  line-height: 1.6;
-  max-width: 420px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-p.footnote {
-  font-size: 0.82rem;
-  color: var(--gold-dim);
-  border-top: 1px solid var(--border);
-  padding-top: 0.5rem;
-  margin-top: 0.5rem;
-  font-style: italic;
-}
-sup { font-size: 0.7em; color: var(--gold-dim); }
 a { color: var(--gold-dim); }
 a:hover { color: var(--ink); }
 .back-link {
@@ -163,14 +156,6 @@ a:hover { color: var(--ink); }
   text-decoration: none;
   border-bottom: 1px solid var(--gold-dim);
 }
-.back-link:hover { color: var(--ink); border-color: var(--ink); }
-@media (max-width: 640px) {
-  .site-header h1 { font-size: 1.4rem; }
-  .main-wrap { padding: 1rem 0.75rem 3rem; }
-  section[id] { padding: 1rem 1rem; }
-}
-
-/* ── Action buttons ── */
 .doc-actions {
   display: flex;
   gap: 0.5rem;
@@ -192,25 +177,17 @@ a:hover { color: var(--ink); }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  text-decoration: none;
   transition: border-color 0.15s, color 0.15s, background 0.15s;
   white-space: nowrap;
 }
-.doc-btn:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-  background: rgba(184,151,58,0.08);
-}
-.doc-btn svg {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-}
+.doc-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(184,151,58,0.08); }
+.doc-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
 @media (max-width: 640px) {
-  .doc-actions { flex-wrap: wrap; gap: 0.35rem; padding: 0.5rem 0.75rem 0; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+  .doc-actions { flex-wrap: wrap; }
   .doc-btn .btn-label { display: none; }
 }
-
 </style>
 </head>
 <body>
@@ -220,889 +197,289 @@ a:hover { color: var(--ink); }
   <a href="doctrine-library.html">Doctrine Library</a>
 </div>
 <header class="site-header">
+<div class="doc-actions">
+  <button class="doc-btn" onclick="docAction('pdf')" title="Export to PDF"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,152a8,8,0,0,1-8,8H192v16h16a8,8,0,0,1,0,16H192v16a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8h32A8,8,0,0,1,224,152ZM92,172a28,28,0,0,1-28,28H56v8a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8H64A28,28,0,0,1,92,172Zm-16,0a12,12,0,0,0-12-12H56v24h8A12,12,0,0,0,76,172Zm88,8a36,36,0,0,1-36,36H112a8,8,0,0,1-8-8V152a8,8,0,0,1,8-8h16A36,36,0,0,1,164,180Zm-16,0a20,20,0,0,0-20-20h-8v40h8A20,20,0,0,0,148,180ZM40,116V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88v28a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v76a8,8,0,0,1-16,0ZM160,80h28.69L160,51.31Z"/></svg><span class="btn-label">PDF</span></button>
+  <button class="doc-btn" onclick="docAction('link')" title="Copy link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M137.54,186.36a8,8,0,0,1,0,11.31l-9.94,10A56,56,0,0,1,48.38,128.4L72.5,104.28A56,56,0,0,1,149.31,102a8,8,0,1,1-10.64,12,40,40,0,0,0-54.85,1.63L59.7,139.72a40,40,0,1,0,56.58,56.58l9.94-9.94A8,8,0,0,1,137.54,186.36Zm70.08-138a56.08,56.08,0,0,0-79.22,0l-9.94,9.95a8,8,0,0,0,11.32,11.31l9.94-9.94a40,40,0,1,1,56.58,56.58L172.18,140.4A40,40,0,0,1,117.33,142a8,8,0,0,0-10.64,12,56,56,0,0,0,76.81-2.26l24.12-24.12A56.08,56.08,0,0,0,207.62,48.38Z"/></svg><span class="btn-label">Link</span></button>
+  <button class="doc-btn" onclick="docAction('clipboard')" title="Copy text"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M165.66,2.34a8,8,0,0,0-11.32,0L136,20.69l-6.34-6.35a8,8,0,0,0-11.32,11.32L128,35.31l-96,96V224a8,8,0,0,0,8,8H232a8,8,0,0,0,8-8V131.31Zm-128,201,75.51-75.51,18.34,18.34L56,221.37ZM224,216H179.31l-30.62-30.63,18.34-18.34L224,224Zm0-42.63-82.34-82.34,16-16L224,151.37ZM152,69,51.31,169.66,40,158.34,140.69,57.66ZM165.66,56,144,77.66,139.31,73l21.66-21.65Z"/></svg><span class="btn-label">Copy</span></button>
+  <button class="doc-btn" onclick="docAction('image')" title="Download image"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,200V172l52-52,44,44,28-28,52,52.07V200Zm84-104a12,12,0,1,1,12,12A12,12,0,0,1,124,96Z"/></svg><span class="btn-label">Image</span></button>
+  <button class="doc-btn" onclick="docAction('html')" title="Copy HTML"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,88H152V40a8,8,0,0,0-8-8H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V96A8,8,0,0,0,216,88Zm-56,0V51.31L208.69,88ZM56,208V48h80V96a8,8,0,0,0,8,8h56V208Zm130.34-82.34a8,8,0,0,1,0,11.31L165.66,158l20.68,20.69a8,8,0,0,1-11.32,11.31l-26.34-26.34a8,8,0,0,1,0-11.32l26.34-26.34A8,8,0,0,1,186.34,125.66Zm-96,11.31L110.34,158,89.66,178.69A8,8,0,0,1,78.34,167.38L99,146.66,78.34,126a8,8,0,1,1,11.32-11.31Z"/></svg><span class="btn-label">HTML</span></button>
+  <button class="doc-btn" onclick="docAction('embed')" title="Embed code"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"/></svg><span class="btn-label">Embed</span></button>
+</div>
   <h1>Doctrine of the Divine Decree</h1>
   <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
 </header>
-<div class="doc-actions">
-  <!-- Export to PDF -->
-  <button class="doc-btn" onclick="docAction('pdf')" title="Export to PDF">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,152a8,8,0,0,1-8,8H192v16h16a8,8,0,0,1,0,16H192v16a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8h32A8,8,0,0,1,224,152ZM92,172a28,28,0,0,1-28,28H56v8a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8H64A28,28,0,0,1,92,172Zm-16,0a12,12,0,0,0-12-12H56v24h8A12,12,0,0,0,76,172Zm88,8a36,36,0,0,1-36,36H112a8,8,0,0,1-8-8V152a8,8,0,0,1,8-8h16A36,36,0,0,1,164,180Zm-16,0a20,20,0,0,0-20-20h-8v40h8A20,20,0,0,0,148,180ZM40,116V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88v28a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v76a8,8,0,0,1-16,0ZM160,80h28.69L160,51.31Z"/></svg>
-    <span class="btn-label">PDF</span>
-  </button>
-  <!-- Share / Copy Link -->
-  <button class="doc-btn" onclick="docAction('link')" title="Copy link">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M137.54,186.36a8,8,0,0,1,0,11.31l-9.94,10A56,56,0,0,1,48.38,128.4L72.5,104.28A56,56,0,0,1,149.31,102a8,8,0,1,1-10.64,12,40,40,0,0,0-54.85,1.63L59.7,139.72a40,40,0,1,0,56.58,56.58l9.94-9.94A8,8,0,0,1,137.54,186.36Zm70.08-138a56.08,56.08,0,0,0-79.22,0l-9.94,9.95a8,8,0,0,0,11.32,11.31l9.94-9.94a40,40,0,1,1,56.58,56.58L172.18,140.4A40,40,0,0,1,117.33,142a8,8,0,0,0-10.64,12,56,56,0,0,0,76.81-2.26l24.12-24.12A56.08,56.08,0,0,0,207.62,48.38Z"/></svg>
-    <span class="btn-label">Link</span>
-  </button>
-  <!-- Copy to Clipboard -->
-  <button class="doc-btn" onclick="docAction('clipboard')" title="Copy text to clipboard">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M165.66,2.34a8,8,0,0,0-11.32,0L136,20.69l-6.34-6.35a8,8,0,0,0-11.32,11.32L128,35.31l-96,96V224a8,8,0,0,0,8,8H232a8,8,0,0,0,8-8V131.31Zm-128,201,75.51-75.51,18.34,18.34L56,221.37ZM224,216H179.31l-30.62-30.63,18.34-18.34L224,224Zm0-42.63-82.34-82.34,16-16L224,151.37ZM152,69,51.31,169.66,40,158.34,140.69,57.66ZM165.66,56,144,77.66,139.31,73l21.66-21.65Z"/></svg>
-    <span class="btn-label">Copy</span>
-  </button>
-  <!-- Download as Image -->
-  <button class="doc-btn" onclick="docAction('image')" title="Download as image">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,200V172l52-52,44,44,28-28,52,52.07V200Zm84-104a12,12,0,1,1,12,12A12,12,0,0,1,124,96Z"/></svg>
-    <span class="btn-label">Image</span>
-  </button>
-  <!-- Copy as HTML -->
-  <button class="doc-btn" onclick="docAction('html')" title="Copy as HTML">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,88H152V40a8,8,0,0,0-8-8H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V96A8,8,0,0,0,216,88Zm-56,0V51.31L208.69,88ZM56,208V48h80V96a8,8,0,0,0,8,8h56V208Zm130.34-82.34a8,8,0,0,1,0,11.31L165.66,158l20.68,20.69a8,8,0,0,1-11.32,11.31l-26.34-26.34a8,8,0,0,1,0-11.32l26.34-26.34A8,8,0,0,1,186.34,125.66Zm-96,11.31L110.34,158,89.66,178.69A8,8,0,0,1,78.34,167.38L99,146.66,78.34,126a8,8,0,1,1,11.32-11.31Z"/></svg>
-    <span class="btn-label">HTML</span>
-  </button>
-  <!-- Embed Code -->
-  <button class="doc-btn" onclick="docAction('embed')" title="Get embed code">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"/></svg>
-    <span class="btn-label">Embed</span>
-  </button>
+<div class="main-wrap">
+<section id="divine-decree">
+<div class="doc-title">THE DOCTRINE OF THE DIVINE DECREE</div>
+
+<p class="outline-header">General Outline of the Doctrine</p>
+<ul class="outline-list">
+<li class="">I. Definition and Description</li>
+<li class="">II. The Mechanical Function of the Computer</li>
+<li class="">III. The Characteristics of the Divine Decree</li>
+<li class="">IV. The Will of God and the Divine Decree</li>
+<li class="">V. The Blessing of Man and the Divine Decree</li>
+<li class="">VI. The Glory of God and the Divine Decree</li>
+<li class="">VII. Human Freedom and the Divine Decree</li>
+<li class="">VIII. The Practical Application of the Divine Decree</li>
+<li class="">IX. Different Theological Views of the Divine Decree Pertaining to Election</li>
+</ul>
+<p class="level-roman">I. Definition and Description</p>
+<p class="level-cap">A. The decree of God is His eternal, holy, wise, and sovereign purpose, comprehending simultaneously all things that ever were or will be in their causes, courses, conditions, successions, and relations and determining their certain futurition. Each phrase of this concise, technical definition carries a wealth of information. Various attributes of God’s essence are related to His “purpose” for angelic and human history. The source of the divine decree is identified as the omniscience of God “comprehending” all things in eternity past. Divine volition is depicted as “determining” or choosing, before anything existed, which things would actually become historical events. The doctrine of the divine decree develops the various aspects of this definition.</p>
+<p class="level-cap">B. The several contents of this one eternal purpose are, because of the limitations of our mentality and faculties, necessarily perceived by us in partial aspects in both logical and revealed relations from Scripture. For this reason we often use the plural “decrees” to express the many facets of God’s all-inclusive plan. In reality it is all one decree, given in eternity past in less than a second and covering everything in all of what to us is past, present, and future history (Ps. 2:7; 148:6; Dan. 9:24). At the time of the decree, all angelic and human history was yet future.</p>
+<p class="level-cap">C. The decree of God is His eternal and immutable will regarding the future existence of events which will happen in time and regarding the precise order and manner of their occurrence. Here, and throughout the doctrine of the divine decree, we use the term “will of God” in a technical sense. In common usage, the will of God refers to what God desires of an individual or group in a particular situation,84 but that is not the will in view here. The will of God here means the decision He made in eternity past sovereignty, which established that certain things would actually come into being while other things would not. This is His sovereign choice as to what will take place in time. We are so dependent on God that nothing can exist apart from God’s decision to make it exist! Many things that occur are results of angelic or human free will acting contrary to God’s desires. He nevertheless decided or willed that these things would take place. Thus, He makes our volition truly free. How He could do this without compromising His perfect essence is the story of the righteousness and justice of God. An example of something that God willed to exist is you! You are a responsible, rational, freewill individual who lives in the present. You and your freedom, etc., were decreed billions of years ago. You exist today because you are part of a very old, divine plan.</p>
+<p class="level-cap">D. The divine decree is the eternal plan by which God has rendered certain all of the events of the universe, including both angelic and human history—past, present, and future. God’s decree rendered all things as certain to occur; He decided that they would exist. In doing so, He did not interfere with angelic or human free will. In fact, He decreed that we would have free will! In giving us volition, He also decreed that our decisions, whatever they might be, would certainly take place—even those that are contrary to His desires. Being omniscient, He knew ahead of time precisely what we would decide. He not only decreed that those decisions would exist but He also decreed the exact manner, consistent with His character, in which He would handle our decisions.</p>
+<p class="level-cap">E. The decree of God is the chosen and adopted plan of all God’s works.</p>
+<p class="level-cap">F. The decree of God is His eternal purpose, according to the counsels of His own will, whereby for His own glory He has foreordained whatever comes to pass.</p>
+<p class="level-cap">G. The decree of God is the sovereign choice of the divine will (His attribute of sovereignty) and mentality (His omniscience) by which all things are brought into being and controlled, made subject to His pleasure, and producing His glorification (Isa. 46:10; Eph. 1:9). God has no origin. The Father, the Son, and the Holy Spirit preexisted everything. No one was above Them; no one originated Them. Anything the members of the Trinity decide to originate is decided with two concepts in mind.</p>
+<p class="level-arabic">1. What the Trinity decides is for their pleasure. We do a variety of things for our pleasure or entertainment, but God’s pleasure is infinitely broader in scope. His perfect happiness is part of His infinite character, so His pleasure is not impulsive, emotional, or frivolous. Nevertheless, He spoke and billions upon billions of light-years of space instantly came into being. He created creatures with free will—beautiful, powerful creatures called angels. Their history is largely undisclosed to us, but eventually, from their own free decisions, some of these creatures rebelled—the fall of Satan and the revolt that began the angelic conflict. God always knew that some of the angels would revolt. Therefore, in the same instant that He decreed to create the angels and the universe, He also decreed that at a certain point in time He would create another type of creature. Like the angels, this new person would have free will and would be designed to share God’s happiness. But he, and his progeny, would also become the demonstration of the fullness of God’s essence to those angels who had impugned God’s character. So, for God’s pleasure, He created Adam. Now, long after the fall of Adam, God’s pleasure is our adjustment to the justice of God. Salvation, spirituality, and spiritual maturity provide the capacity for the blessings of God.</p>
+<p class="level-arabic">2. What the Trinity decides is also for their glory. God has always existed in perfect glory; anything He does reflects His glory and results in His glorification. God does not depend on us for His pleasure or His glory; He enjoyed pleasure and glory in eternity past when no one else existed. God expresses His glory and pleasure in us and toward us: We are here as part of God’s pleasure and glory.</p>
+<p class="level-arabic">3. It is the pleasure of God to permit creatures to exercise free volition. We should have no illusions about ourselves. We are here, not to glorify ourselves, not to impress God, but to line up with His pleasure and glory.</p>
+<p class="level-cap">H. Picture the decree of God as a giant computer. In eternity past God fed facts from His omniscience into the computer. These facts are differentiated from mere potentialities, the alternatives, which He also knows in His omniscience but did not decree. The facts include every thought you would ever have, every decision you would ever make, every action you would ever take. When He decreed (or fed into the computer) the fact that you would exist as a free agent, He also decreed— simultaneously—that your every thought, decision, and action would take place. He fed into the computer the decisions He knew you would make about sin, about rebound, about human good and evil, about believing in Christ, about walking down the street, about the laws of divine establishment, about doctrine, about spiritual production, about everything. He also fed other facts into the computer. Based on knowing how you would use your free will, He fed in logistical grace and, for those who would advance to maturity, special blessings in time. He knew every situation you would face—every problem, every heartache, every personal or historical disaster, every failure or success—and He provided the solution to each problem. Moreover, He supplied everything you would need to face all problems in complete security with perfect orientation and inner happiness. Capacity for happiness comes from understanding these things, from having doctrine in your soul. One obvious conclusion: There is never an excuse for complaining.</p>
+<p class="level-roman">I. The computer of the divine decree prints out facts about believers under the categories of election, foreknowledge, and predestination. It also prints out facts about unbelievers under the categories of condemnation, reprobation, and retribution. No unbeliever is ever predestined to go to hell.</p>
+<p class="level-cap">J. The decree of God is the sum total of God’s plan, designed in eternity past, relating to all events of all classi fications, collected into one single all-comprehensive whole through God’s omniscience.</p>
+<p class="level-cap">K. The omniscience of God is the key to understanding the decree. God has three kinds of knowledge:</p>
+<p class="level-arabic">1. Self-knowledge: God knows Himself; He has never had to learn anything about Himself; His self-knowledge has always been total, perfect, complete. He is aware of His own essence and the unlimited capabilities of each member of the Trinity. Infinite and subjective in selfknowledge, the members of the Trinity know each other.</p>
+<p class="level-arabic">2. Omniscience: God knows simultaneously all things outside of Himself. God knows all things about believers and unbelievers, both the actual—which He Himself foreordained, decreed, programmed into the computer—and the possible—which could have happened but did not happen. God knew in eternity past that you would not make that decision and He did not decree it, did not enter it into the computer.</p>
+<p class="level-arabic">3. Foreknowledge: This subcategory of God’s cognizance acknowledges only what is decreed, but foreknowledge does not make the decree certain. It is a computer printout of the actual facts, not mere possibilities, regarding the volition of the believer. The term “foreknown” is used in Scripture only of believers and of Jesus Christ. God’s foreknowledge is related only to the actual.</p>
+<p class="level-roman">II. The Mechanical Function of the Computer</p>
+<p class="level-cap">A. Stage One, the Omniscience of God</p>
+<p class="level-arabic">1. In His omniscience, God knows perfectly, eternally, and simultaneously all that is knowable, both the actual and the possible.</p>
+<p class="level-arabic">2. Such perception and sagacity are totally compatible with His essence. God would not be God unless He always knew all about everything.</p>
+<p class="level-arabic">3. God is eternal; His knowledge is eternal. He is sovereign; His knowledge is in control and superior. The link between His superior knowledge and our inferior knowledge is Bible doctrine.</p>
+<p class="level-arabic">4. The Creator’s knowledge is infinitely superior to the creature’s knowledge or intellect.</p>
+<p class="level-arabic">5. Every minute detail of both angelic and human creation is completely and perfectly in His mind at all times.</p>
+<p class="level-arabic">6. The omniscience of God perceives the free as free, the necessary as necessary, together with all their causes, conditions, and relations, as one indivisible system of things, every link of which is essential to the integrity of the whole. Every cause and effect is related to another cause and effect and to another and another. In this one, all-comprehensive, interdependent system of cause and effect, man’s volition is the uncaused cause of human function so that the course of history is just as man thinks it, wills it, does it. When you understand this, you realize that you have no reason for complaining, for falling apart in a crisis, or for feeling left out and sorry for yourself. God never tampers with your volition; predestination does not mean that He forces you into a course of action, but that He knew in eternity past what you would do and so decreed it.</p>
+<p class="level-roman">. 7. Time does not limit God’s knowledge. To Him, the future is as perspicuous as the past.</p>
+<p class="level-arabic">8. The omniscience of God knows the alternatives to history—the possible as well as the actual.</p>
+<p class="level-arabic">9. God knows what would have been involved in every case in which a man’s decision might have been different from what it was. Imagine that you are confronted by twenty possible courses of action and must choose one. Even though God knew which way you would choose to go and decreed only that one to become reality, He knows all the repercussions of each alternative.</p>
+<p class="level-arabic">10. Omniscience is one of the three categories of divine knowledge.</p>
+<p class="level-arabic">11. Omniscience knows every thought, decision, and action in human history, how they all relate to each other, and how they relate to all the possible alternatives.</p>
+<p class="level-arabic">12. The foreknowledge of God makes nothing certain but merely acknowledges what is certain. His fore knowledge knows what is already in the decree regarding believers only.</p>
+<p class="level-arabic">13. For believers, there are at least three categories of printouts from the computer: foreknowledge, election, and predestination (sometimes called foreordination).</p>
+<p class="level-arabic">14. Foreknowledge means that nothing can be certain until it is first decreed; only then can what will happen be foreknown. God knows all actual events as certainly future because He has decreed them to be certainly future.</p>
+<p class="level-arabic">15. God’s decree relates equally to all future events of every kind—to the free actions of moral agents as well as to the actions of necessary agents; to the sinful, human-good, and evil as well as to the morally correct, divine-good, and honorable.</p>
+<p class="level-arabic">16. The decree alone establishes certainty. For the believer, foreordination and predestination are synonymous with the decree.</p>
+<p class="level-arabic">17. Foreordination is an act of the infinitely intelligent and wise God in determining the certain futurition of events in the life of the believer.</p>
+<p class="level-cap">B. Stage Two, the Decree Itself</p>
+<p class="level-arabic">1. The omniscience of God fed into the computer only the facts.</p>
+<p class="level-arabic">2. This was accomplished in eternity past simultaneously, not in stages.</p>
+<p class="level-arabic">3. The decree has become the complete and consummated right of the sovereignty of God determining the certain futurition of all things in human history.</p>
+<p class="level-lower">a. No decree can become complete without the sovereignty of God. Because He knows the end from the beginning, God wills certain things to happen.</p>
+<p class="level-lower">b. Since, in eternity past, God exercised His prerogative to make things certain, when we say “certain futurition” of events, we mean events which are future from eternity past. Thus, we mean all events throughout all time. Many areas of the decree have been fulfilled historically, up to and including this present moment; but all were future when decreed, including those still future today.</p>
+<p class="level-lower">c. Because of how infinitely complex this decree is, we must conclude with an eternal truth: God is smarter than we are!</p>
+<p class="level-arabic">4. No event is directly effected or caused by the decree. The decree merely establishes what will be caused, but the decree itself is not the cause. The fact that a thought or action on your part is in the decree does not mean that the decree caused you to think or do it. The cause is your own free will. Your thoughts are in the decree because, in eternity past, God had the wisdom to know what you would think and to not omit from His planning the fact that you would think it!</p>
+<p class="level-arabic">5. But the decree itself provides in every case that the events shall be effected by causes acting in a manner consistent with the nature of the event in question. As an example of this principle, the cause of some events is the free will of man.</p>
+<p class="level-arabic">6. In the case of every freewill act of a moral agent, the decree itself provides at the same time the following:</p>
+<p class="level-lower">a. The agent shall be a free agent. Far from coercing anyone’s volition, the decree establishes volition thereby making everyone accountable for his own decisions.</p>
+<p class="level-lower">b. The antecedents and all antecedents of the act in question shall be what they are. Whenever a decision is made, it shall be the result of decisions previously made. Once something happens, that’s it. It is part of the system of cause and effect; it becomes part of the basis for other things happening down the line. Wishful thinking cannot change what has already occurred.</p>
+<p class="level-lower">c. All present conditions of the act shall be what they are. God is not going to make reality suddenly vanish or become different or reverse itself. God enables us to orient to reality and to face the facts. If our arrogance or simple ignorance leads us to make decisions which overlook certain facts, those facts nevertheless are what they are. For example, if we do not adjust to the justice of God, the justice of God is still a reality, and His justice will adjust to us through discipline.</p>
+<p class="level-lower">d. The act shall be perfectly spontaneous and free on the part of the agent.</p>
+<p class="level-lower">e. The act shall be certainly future. That is, it will definitely take place, at a certain time, after the decree is given. These five points completely negate the theology of hyper-Calvinism and Arminianism. Hyper-Calvinism distorts the sovereignty of God to the point of excluding the free will of man. It is fatalism, in contrast to the specific teachings of the Word of God regarding divine sovereignty and human free will. Arminius and his followers distort the sovereignty of God in the opposite direction. They claim that man’s volition is beyond God’s control, that man can cause things that are not in the divine decree. This is totally false; nothing can be certain until God decrees it to be certain.85</p>
+<p class="level-arabic">7. The decree vested solely with the will of God what His creation should be. For example, God alone decided in eternity past what human beings would be like: We would be rational creatures with free will. Our souls would have self-consciousness, mentality, volition, and conscience; Adam would be body, soul, and spirit as he came from the Creator’s hand. By way of a ludicrous illustration, God did not decide to give us two heads, five legs, a thirty-foot tail, and the brains of a horse. Nor did He design us with a sin nature; that came from Adam’s negative volition.</p>
+<p class="level-arabic">8. Because God cannot contradict His own nature, the essence and attributes of God necessitated His willing the highest and best for mankind. When God created man, He created the highest and best compatible with His plan. Adam was not greater than the angels, but his body, soul, and spirit and his environment were all absolutely perfect. Of course, some of the highest and best that man received at creation has been lost through the Fall. The same perfect God who created mankind now condemns us. Yet He still wills the highest and best in that He now offers perfect salvation and magnificent blessings in time and eternity. Because we have free will, we may miss all of this, but it is still available.</p>
+<p class="level-cap">C. Stage Three, the Printouts</p>
+<p class="level-arabic">1. The printout from the computer of the divine decree, which relates to believers, includes election, foreknowledge, predestination.</p>
+<p class="level-arabic">2. Predestination, foreordination, and predetermination are synonyms and refer to the decree. These terms describe the act of the infinite, eternal omniscience of God which determined the certain futurition of events related to the believer.</p>
+<p class="level-arabic">3. Foreknowledge is not the same as omniscience but is more limited in scope. Omniscience knows both the actual and the possible; foreknowledge includes the actual only and is related to believers only.</p>
+<p class="level-arabic">4. Being omniscient, God knows all that would have been involved had He adopted any one of an infinite number of plans of action. He also knows all the consequences had man chosen a different course of action within the realm of his own volition.</p>
+<p class="level-arabic">5. Foreknowledge refers only to those things which God did decree or adopt as the plan of God—those things related to the believer only.</p>
+<p class="level-arabic">6. Only the decree establishes certainty or reality; only reality can be foreknown; nothing can be foreknown until first decreed. We can see where Arminianism departs from biblical theology: It holds falsely that events can occur without being decreed by God to occur.</p>
+<p class="level-arabic">7. God’s decree never originates from His foreknowledge. Although all three exist simultaneously in the mind of God, omniscience, the decree, and foreknowledge must be separated into a logical sequence for us to understand them. First comes omniscience, then the decree, then foreknowledge. The decree is based on omniscience; foreknowledge is based on the decree.</p>
+<p class="level-arabic">8. Election is the plan of God for believers only. All the elect are believers. Election means “chosen, selected, set apart for privilege.” Technically, election is God’s complete agreement with His own foreknowledge— He simply agrees with Himself (foreknowledge) and puts a stamp of approval (election) upon what He decreed (1 Pet. 1:2). God elected or chose believers in the sense, first, that He knew ahead of time that, if given free will, they would freely choose to believe in Christ; second, that He decreed that such an act of faith would actually occur; third, that He agreed not only that their positive volition to the Gospel would occur at a certain point in time but also that all the blessings of salvation plus certain unique blessings would be their eternal possessions (Eph. 1:4; 2 Thess. 2:13). There are three elections to privilege:</p>
+<p class="level-lower">a. The unique election of Christ (Isa. 42:1; 1 Pet. 2:4, 6). The election of Christ is the basis for the other two elections.</p>
+<p class="level-lower">b. The election of Israel (Isa. 45:3b–4).</p>
+<p class="level-paren">1) God’s gracious and unconditional covenants to Israel can be fulfilled only to the elect— to those physical Jews who are also spiritual Jews through faith in Christ, the Messiah. The true Jew is not merely the physical seed of Abraham but the spiritual seed as well. Unless the racial Jew follows the pattern of Abraham in salvation, he is not elected (Gen. 15:6; Rom. 4:3). A corrected translation of Romans 9:6a explains how God can have an elect nation: “All [racial] Israel is not [spiritual] Israel.”</p>
+<p class="level-paren">2) The unconditional covenants to Israel are promises for the elect Jews only, that is, for those who have believed in Christ and thus possess God’s imputed righteousness and to understand them. First comes omniscience, then the decree, then foreknowledge. The decree is based on omniscience; foreknowledge is based on the decree.</p>
+<p class="level-arabic">8. Election is the plan of God for believers only. All the elect are believers. Election means “chosen, selected, set apart for privilege.” Technically, election is God’s complete agreement with His own foreknowledge— He simply agrees with Himself (foreknowledge) and puts a stamp of approval (election) upon what He decreed (1 Pet. 1:2). God elected or chose believers in the sense, first, that He knew ahead of time that, if given free will, they would freely choose to believe in Christ; second, that He decreed that such an act of faith would actually occur; third, that He agreed not only that their positive volition to the Gospel would occur at a certain point in time but also that all the blessings of salvation plus certain unique blessings would be their eternal possessions (Eph. 1:4; 2 Thess. 2:13). There are three elections to privilege:</p>
+<p class="level-lower">a. The unique election of Christ (Isa. 42:1; 1 Pet. 2:4, 6). The election of Christ is the basis for the other two elections.</p>
+<p class="level-lower">b. The election of Israel (Isa. 45:3b–4).</p>
+<p class="level-paren">1) God’s gracious and unconditional covenants to Israel can be fulfilled only to the elect— to those physical Jews who are also spiritual Jews through faith in Christ, the Messiah. The true Jew is not merely the physical seed of Abraham but the spiritual seed as well. Unless the racial Jew follows the pattern of Abraham in salvation, he is not elected (Gen. 15:6; Rom. 4:3). A corrected translation of Romans 9:6a explains how God can have an elect nation: “All [racial] Israel is not [spiritual] Israel.”</p>
+<p class="level-paren">2) The unconditional covenants to Israel are promises for the elect Jews only, that is, for those who have believed in Christ and thus possess God’s imputed righteousness and eternal life. The covenants to Israel are eternal; their recipients and beneficiaries must have eternal life. To be a physical Jew but not a spiritual Jew is a great tragedy.</p>
+<p class="level-lower">c. The election of the Church (Eph. 1:4; Col. 3:12; 1 Thess. 1:4; 2 Tim. 1:9).</p>
+<p class="level-paren">1) The election of the Church includes both equal privilege and equal opportunity for every believer. a) Under election, equal privilege is the royal priesthood. b) Under election, equal opportunity is logistical grace support and blessing for both winners and losers.</p>
+<p class="level-paren">2) Election is declared through God’s foreknowledge; election is a function of predestination. Predestination permanently relates the Church Age believer to the plan of grace (2 Tim. 1:9). Furthermore, predestination means that, in union with Christ through retroactive and current positional truth, the Church Age believer shares the destiny of Christ (Eph. 1:5). We also share the election of Christ that occurred in eternity past (1 Pet. 2:4, 6).</p>
+<p class="level-roman">III. The Characteristics of the Divine Decree</p>
+<p class="level-cap">A. The decree includes all the facts of history. These are the facts which were fed into the computer by the omniscience of God.</p>
+<p class="level-cap">B. There is one all-inclusive will and purpose of God concerning all that ever was or will be. Think of it as a computer tape. Your entire life is on tape. Your tape begins with your first breath, and everything in your life from then on is recorded on the tape. You do not know what the future holds for you, but God does. He recorded it in eternity past.</p>
+<p class="level-cap">C. This divine will and purpose originated entirely within Himself before any creatures existed. The tape is in the mind of God; He alone designed it entirely for His pleasure, compatible with His essence, and related to His eternal glory. It pleases God to run your tape to the end. He knows what is on it, and He is running it for you.</p>
+<p class="level-cap">D. Space and time are the battlefield, the overall setting in which we live. These broad concepts are in the decree, but so are the details which reach down to the minutia of life. Even the minor detail of the fall of a sparrow is known to God; every hair that drops from your head is included in the decree (Luke 12:6–7).</p>
+<p class="level-cap">E. The doctrine of procession describes how the members of the Trinity function under the decree: The Father sends the Son (John 3:17); the Father and the Son send the Holy Spirit (John 14:16, 26; 15:26; 16:7). Among themselves, the members of the Godhead function in a way which is immanent (complete and changeless), intrinsic (within the Godhead), and subjective (subjectivity is perfect when God is dealing with Himself).</p>
+<p class="level-cap">F. How the Godhead maintains and supports the believer is transient (the tape keeps playing), extrinsic (these actions occur outside of the Godhead), and objective (our point of contact is the perfectly fair justice of God).</p>
+<p class="level-cap">G. The decree is efficacious. “Efficacious” refers to the direct work of God: His work always succeeds in having its intended effect; the decree actually determines all that ever was or will be.</p>
+<p class="level-cap">H. The decree guarantees certainty. The foreknowledge of God makes nothing certain; it merely perceives what is certain.</p>
+<p class="level-roman">I. The omniscience of God feeds the facts into the computer while foreknowledge reads what the computer prints out.</p>
+<p class="level-cap">J. The decree of God is all-comprehensive. Not the slightest confusion could exist as to one of even the smallest events without confusion to all events. All events are interwoven and interdependent. You might assume that the decree eliminates the need for prayer, but that is not true. God looked down the corridors of time to see what believers would ask in prayer. Effective prayer makes requests which God answers; these answers—the things we ask in time—are incorporated into the decree in eternity past (Isa. 65:24). Prayer is a powerful weapon in the angelic conflict when wielded by the mature believer who knows what he is doing (Phil. 4:6; Col. 4:2).86</p>
+<p class="level-cap">K. The decree is also eternal, which means that God never gains in knowledge.</p>
+<p class="level-cap">L. What God has known at any time He has always known.</p>
+<p class="level-cap">M. This means that all of the decree was decreed simultaneously in eternity past. God is never surprised by anything we do or fail to do. He knew everything simultaneously, built divine provisions around the free choices we would make, and included the entire plan in the decree billions of years ago. The decree existed before man, before angels, before the existence of the universe; the decree preexisted every creature and every thing.</p>
+<p class="level-cap">N. The decree of God is perfect. God is perfect; God’s plan is perfect. The only thing imperfect in God’s plan is man.</p>
+<p class="level-cap">O. God’s perfect plan includes all imperfect persons, but He maintains His perfection and integrity through His policy of grace. God never loses His perfection, and His plan never fails even though man is imperfect and often fails. Because we are imperfect creatures in a perfect plan, the plan must be based on God’s integrity. This is why we must believe in Christ, why we must rebound, why we must advance to maturity. We must adjust to His perfect justice.</p>
+<p class="level-cap">P. The decree of God is unchangeable and certain. Nothing will ever arise to necessitate a change in the decree. Everything was known and decreed (made certain) in eternity past. God’s decree is unchangeable because it deals only with reality. It is certain because omniscience always knew that these things would occur under the circumstances of their particular moment in history. The changelessness of the decree is one of the great blessings of logistical grace. There are no erasures, corrections, or deletions; no last-minute changes; no chance of becoming lost in the shuffle. All the provisions for all our needs are absolutely secure.If you do not accept that statement, your rejection of it was known to God and was decreed to actually exist at this time as your own expression of your free choice. But God also knew that the statement was nonetheless true.</p>
+<p class="level-cap">Q. The decree is the free choice of divine sovereignty. God is not bound to follow a necessary pattern or course, but once having decreed it in eternity past, once having said “This is it,” God is bound by His infinite faithfulness, truth, and incorruptibility to complete what He has begun. God will play out your tape to the end. Once He decreed you to exist, that became the plan; the future events in your life will occur—tomorrow, the next day, and the next. You will never suddenly cease to exist. God is bound by His eternal, infinite, perfect essence to play your tape.</p>
+<p class="level-cap">R. God has decreed ends as well as means, causes as well as effects, conditions and instrumentalities as well as the events which depend upon them. Let’s take an example from ancient history. The rise and fall of empires and the movements of entire populations are sweeping in scope and impressive from our human point of view. But they are just as much in the decree as are the daily occurrences in our individual lives. Long before He created the universe, God’s omniscience knew all about the historical role to be played by the Assyrians. Not only did He decree that they would be a great power, but—in the same instant—He also decreed that all the historical trends which led to their ascendancy would also occur. This included a complex chain of events. The western Aryans (or Indo-Aryans) would come out of the mountains of Asia to dominate the Hurrians who lived in Mesopotamia, while the eastern Aryans moved south into India to conquer the Dravidians. In Mesopotamia, these Indo-Aryans and Hurrians (together forming the vast kingdom of Mitanni) would become degenerate. From farther to the west (now called Turkey) would descend the attacking Hittites who, after conquering Mitanni, would mysteriously turn around for home, leaving a power vacuum. Into this vacuum would rise the Kassites from southern Mesopotamia, and these people would be absorbed by the Assyrians.There are no accidents in history. God knew all of these developments in the ancient world billions of years before they occurred. He knew the causes, conditions, and successions of history. He knew how all these events were interrelated and what their eventual effects would be upon the Jews (who were by this time settling into the Land after the Exodus) and upon the rest of mankind throughout human history. Even though some of these events preceded others chronologically, even though the rise of Assyria depended on the fall of Mitanni, all were decreed by God in the same instant. As an application from this glimpse of historical ebb and flow, we can have confidence in our Lord Jesus Christ, the God of history, who is so magnificent in His power as to make anything man does pale in comparison. If we are adjusted to the justice of God, who can be against us (Rom. 8:31)?</p>
+<p class="level-cap">S. Some things God decreed to do Himself. We call these “immediate” things, in contrast to “mediate” things which He decreed that some other agency, such as the free will of man, would perform. For example, creation is “immediate.” There had to be a place for God’s creatures to live, so He created space. Space is incomprehensibly vast, mindboggling in size. For a basic unit of measure we must use the distance light travels in a year, and then we must think in terms of billions of light-years with still no end in sight! Our awesomely powerful God produced space in a split second so that angels and man might have somewhere to live. The angels inhabit all of space, whereas we live in a very small part of it to resolve the angelic conflict. On this planet and on this planet only is the angelic conflict being resolved. God also decreed that He would “immediately” create time. He set the earth on its rotation and orbit to give us our standard for measuring time. Besides space and time, salvation was also decreed to be provided by God Himself. Likewise, control of history by Jesus Christ is “immediate”—He often takes a direct hand in a matter rather than relegating everything to secondary causes.T. God accomplishes some things, however, through the action of secondary causes acting under the law of necessity. Thus, the decree includes both primary and secondary causes.</p>
+<p class="level-cap">U. Other things God has decreed to promote or permit free agents to do in the exercise of their own free will and selfdetermination. On one hand, man’s own volition is responsible for sin, human good, and evil from the sin nature. On the other hand, man is free to believe in Christ through nonmeritorious positive volition resulting in eternal salvation.</p>
+<p class="level-roman">V. One category of events is rendered by the decree of God to be just as certainly future as any other category. All events are equally certain to occur whether caused directly by the sovereignty of God or caused by the free will of man. Primary, secondary, or tertiary, every cause for every event is equally in the decree and will occur. Therefore, the sovereignty of God and the free will of man coexist in human history as an extension of the angelic conflict.</p>
+<p class="level-roman">IV. The Will of God and the Divine Decree</p>
+<p class="level-cap">A. There is one all-inclusive will or purpose of God concerning all that ever was or will be from the beginning of human history until its termination on the last day of the Millennium. God has known every thought, decision, and action that has ever occurred or will occur; all these things come into being through the divine decree. In our computer analogy, many things are printed out by the computer of the divine decree, but first they were all in the computer. Remember that we are not referring to God’s will in the sense of divine guidance for the believer’s life. By “will of God” we mean His sovereign decision as to what would come into existence, in other words, the divine decree.</p>
+<p class="level-cap">B. This will and purpose of God originated within Himself long before any creature of any kind existed. His will is always consistent with His perfect essence.</p>
+<p class="level-cap">C. The will and purpose of God—the divine decree—was objectively designed for His own glory, pleasure, and satisfaction.</p>
+<p class="level-cap">D. All creatures have been placed in space and time; all events related to space and time were instantaneously and simultaneously decreed. The fact that all events weredecreed results in divine action. Of course, the divine action which is most interesting to us is His work of grace—the policy of His love and integrity in blessing believers. But there are many other categories of divine action; they fall under two classifications.</p>
+<p class="level-arabic">1. Divine actions within the Godhead are immanent, intrinsic, and subjective.</p>
+<p class="level-arabic">2. Divine actions related to creation are transient, extrinsic, and objective.</p>
+<p class="level-cap">E. God did not decree Himself to be. God existed prior to and outside of the decree, so that the divine decree does not act upon God; He acts upon the decree.</p>
+<p class="level-cap">F. God’s decree is efficacious—having the power to produce the intended effect: It actually determines all that ever was or will be. The decree includes God’s directive will, permissive will, and overruling will. These three categories of divine will describe the manner in which God’s sovereignty controls history; they are subcategories of divine action as related to His creation. In particular, these three categories show how divine sovereignty deals with human volition. The will of God (as to what would exist, that is, the divine decree) calls for God’s will (His attribute of sovereignty) to function toward us in certain ways:</p>
+<p class="level-arabic">1. Directly stating what He desires of us;</p>
+<p class="level-arabic">2. Permissively allowing us to go our own way;</p>
+<p class="level-arabic">3. Overruling our decisions—not letting them have their intended results—in order to protect us and the rest of mankind from our own negative volition and to preserve and perpetuate His own marvelous plan.</p>
+<p class="level-cap">G. All things depend on God’s will (the decree), and nothing is certain apart from God’s will.</p>
+<p class="level-cap">H. God’s decree originates from His own omniscience, and in eternity past the decree separated fact from fiction.</p>
+<p class="level-roman">I. We must make clear the distinction between God’s omniscience and His foreknowledge.</p>
+<p class="level-cap">J. God’s decree does not originate from His foreknowledge.</p>
+<p class="level-cap">K. God’s foreknowledge makes nothing certain; it merely perceives what the decree has made certain. Prophecy never determines history.L. Nothing can be foreknown until it is first decreed.</p>
+<p class="level-cap">M. Foreknowledge is God’s cognizance of what He has decreed regarding believers. In logical order: Omniscience programs the computer of the divine decree, and the computer prints out various categories of information for foreknowledge to read.</p>
+<p class="level-cap">N. We must also distinguish between the decree of God and the desires of God. The decree merely establishes the facts of history; many things are included which God does not desire. They are in the decree because the omniscience of God knew that, given free will, His creatures would reject the divine design. All sins are acts of volition, and although God never approves of sin, He put them in the decree because He knew we would commit them. The decree deals with reality, with certainty, with what actually happens. Just because God decrees a particular event to take place does not mean He approves of it.</p>
+<p class="level-cap">O. Sin, human good, and evil are not the desire of God, but they are in the decree because people do these things from their own volition.</p>
+<p class="level-cap">P. God desires His perfect will, but angels and men use their God-given freedom to violate the desires of God. The very fact that sin and evil are in the decree is proof that our volition is truly free. The decree is the all-inclusive will of God; it contains all the facts of history—both the decisions which please God and those which displease Him.</p>
+<p class="level-cap">Q. God does not desire to cast His creatures into the lake of fire, but it is decreed as certain for all men who reject Christ as Savior (2 Pet. 3:9). His desire is for all unbelievers to come to a change of mind toward Christ. For those with negative volition at God-consciousness or Gospelhearing, the lake of fire is decreed and becomes a computer printout called retribution.</p>
+<p class="level-cap">R. God does not desire to discipline believers, but it is decreed as certain for all believers in reversionism or carnality. Remember this principle before you start to misapply doctrine and say that because God is love He would never cause you misery and pain. God desires to express His perfect justice toward you; if you do not permit Hisjustice to bless you, His justice will not hesitate to discipline you. We were created as free agents responsible for our own decisions. Either we adjust to the justice of God or the justice of God will adjust to us.</p>
+<p class="level-cap">S. We must distinguish the decree of God in eternity past from the actions of God in time. The action of God in time is the execution of the decree.</p>
+<p class="level-cap">T. The execution is not the decree but logically follows the decree.</p>
+<p class="level-cap">U. Distinction must also be made between God’s decree and God’s laws.</p>
+<p class="level-roman">V. The laws of divine establishment regulate human conduct; they are set up for human volition to obey. By protecting and perpetuating the human race, these laws give each of us a chance to be evangelized and, after believing in Christ, we have the opportunity to grow spiritually without interference or coercion. The laws of establishment can be broken by our volition, but the decree cannot.</p>
+<p class="level-cap">W. We cannot violate the decree because any decision we make was known in eternity past and was included in the decree.</p>
+<p class="level-roman">X. The decree is the all-comprehensive will of God and is only partially revealed in Scripture; the laws of God regulate man’s conduct in time and space and are completely revealed.</p>
+<p class="level-roman">V. The Blessing of Man and the Divine Decree</p>
+<p class="level-cap">A. The omniscience of God in taking cognizance of the fall of man graciously provided a plan for blessing man based on imputations from divine justice.</p>
+<p class="level-cap">B. This plan involves the omniscience of God feeding into the computer of the divine decree seven imputations which provide maximum blessing for mankind in time and eternity.</p>
+<p class="level-arabic">1. The imputation of human life at birth.</p>
+<p class="level-arabic">2. The imputation of Adam’s original sin at birth.</p>
+<p class="level-arabic">3. The imputation of all personal sins to Christ on the cross.</p>
+<p class="level-arabic">4. The imputation of divine righteousness at the moment of salvation.5. The imputation of eternal life at the moment of salvation.</p>
+<p class="level-arabic">6. The imputation of blessings in time at spiritual maturity.</p>
+<p class="level-arabic">7. The imputation of blessings and rewards at the judgment seat of Christ.</p>
+<p class="level-cap">C. The decree of God contains the historical reality regarding every human being’s level of attainment in this grace plan. Freedom means that some attain all these imputations while others do not. Freedom ensures inequality. The road to equality is the road to slavery.</p>
+<p class="level-cap">D. Nonmeritorious human volition can fall short of any potential in God’s plan.</p>
+<p class="level-cap">E. The extent to which each individual advances in this plan was known to God in eternity past. This was fed into the computer. God knew that some would remain unbelievers, that others would believe but remain spiritually immature, that a few would advance to maturity. Those who reach maturity receive blessings in time and even greater blessings in eternity; they glorify God and bring Him pleasure.</p>
+<p class="level-cap">F. In too many cases, the potential exceeds the reality. The potential is totally known to God’s omniscience; only the reality is in the decree.</p>
+<p class="level-cap">G. The believer’s attainment of divine blessings through imputation is the means God has chosen to glorify Himself and to give Himself pleasure.</p>
+<p class="level-cap">H. The glory of God is related to the believer’s advance to maturity and the resultant imputation of divine blessings.</p>
+<p class="level-roman">VI. The Glory of God and the Divine Decree</p>
+<p class="level-cap">A. The decree unites in one all-inclusive and final objective the glory of God (Prov. 16:4; Rom. 11:36; Heb. 2:10; Rev. 4:11).</p>
+<p class="level-cap">B. Since the members of the Godhead were alone before all creation, the decree of God concerned no one but the Trinity. The decree was designed to glorify the members of the Godhead who were there when the decree was made, not to glorify us who were not there. The Father, Son, and Holy Spirit had infinite glory in eternity past and will have it in eternity future. Whatever they do in the interim—from the creation of the universe to the conclusion of history—must bring them infinite glory. Generally, the decree relates to the glory of the Lord Jesus Christ because He is the manifest person of the Trinity. When history terminates, God’s glory will be as perfect as it was before time began. Our failures do not compromise the glory of God. His glory does not depend on us; we depend on His glory. Grace is born of the glory of God. Grace means that God does all the work which adds up to our blessing. Whether in time or eternity, divine blessing is through grace. The only things related to us that can glorify God are what God Himself accomplishes, such as imputing His righteousness or providing doctrine. That is why He despises our self-righteousness and hypocrisy. He has no use for our legalism and human good, and He severely disciplines the legalist. When we begin to glorify ourselves, our accomplishments, our knowledge, or our experiences, we are deluding ourselves and setting ourselves up for divine discipline. Any time we are blessed of God, we can count on one thing: We did not earn or deserve it. Blessing is God’s doing, exhibiting His glory, and we do not have to keep looking over our shoulder expecting to lose it. Once we understand His glory, we will certainly not want to intrude on it; we will want to go along with it. Therein lies the blessing.</p>
+<p class="level-cap">C. Being infinite, God the Father, God the Son, and God the Holy Spirit are worthy of all glory.</p>
+<p class="level-cap">D. God’s glory is what He is. Here we have the entire doctrine of divine essence! Receiving glory is nothing new to the Trinity. All three Persons have always had it and always will. In eternity past, They did not need to add anything to what They already had; God has never suffered any kind of deficiency. They found infinite pleasure in each other; They were perfectly satisfied and perfectly happy. As part of that pleasure They simply decided to create a universe and put free creatures in it—first angels, then mankind. The members of the Trinity knew what such creatures would do, and based on that, They made many further decisions.</p>
+<p class="level-cap">E. Since He is the origin and subject (not the object) of the decree, God will inevitably be glorified by every thought, every decision, every action in human history. The good and the bad are included; sin, evil, everything will all add up to the glorification of God. Even “the wrath of man shall praise Him” (Ps. 76:10, corrected translation). In other words, the plan of God began with glory and will end with glory; the plan of God is never hindered; it never stops; it moves on with you or without you, no matter what you do. If you remain an unbeliever, you will go to hell, and God’s glory will remain uncompromised and untarnished. If you believe in Christ, you will go to heaven, again consistent with the glory of God. Both in time and in eternity God’s character is vindicated in everything that occurs.</p>
+<p class="level-cap">F. God is glorified not only in what He is but also in what He has decreed.</p>
+<p class="level-cap">G. To the finite mind, the decrees are many, but to God, they are all one plan embracing both cause and effect, means and end.</p>
+<p class="level-cap">H. The decree includes every detail in the experience of every creature, including such minute aspects as the number of hairs on your head. Even in a national disaster, when many mature believers will be isolated and alone, they can still do their jobs and live their lives as unto the Lord, knowing that God has not forgotten them.</p>
+<p class="level-roman">I. The decree of God is the sovereign purpose of God which is efficaciously accomplished by God alone, apart from all creature ability, mentality, talent, counsel, or cooperation.</p>
+<p class="level-cap">J. God is glorified and pleased in the momentum and advance of believers within His plan.</p>
+<p class="level-cap">K. The omniscience of God knew in eternity past what thoughts, motivations, decisions, and actions would carry one believer to maturity and another into reversionism. God has prepared the most phenomenal blessings and rewards for the mature believer—approved by the righteousness of God and imputed by the justice of God. He has also prepared severe discipline for the reversionist believer to bring him back into fellowship with Him (Heb. 12:6).</p>
+<p class="level-cap">L. While omniscience knew the actual and potential, only the actual was fed into the computer of the divine decree. Anything decreed by God will inevitably glorify God; it could not work out any other way.</p>
+<p class="level-cap">M. The divine decree is executed through imputation from the justice of God.</p>
+<p class="level-cap">N. The seven imputations—five real and two judicial—add up to the glory of God.</p>
+<p class="level-cap">O. The decree of God recognizes the volition of the believer to succeed or fail and has cognizance of the outcome.</p>
+<p class="level-cap">P. Only the response of the believer to doctrine can result in the maximum blessing desired by God for the believer.</p>
+<p class="level-cap">Q. The decree recognizes the extent to which a believer advances or retrogresses in his spiritual life. This is the extent to which the decree of eternity past was declared for that individual.</p>
+<p class="level-cap">R. God knew beforehand how far each believer would advance, and that was decreed.</p>
+<p class="level-cap">S. Despite equal opportunity and equal privilege to execute the spiritual life, in too many cases the potential far exceeds the reality.</p>
+<p class="level-roman">VII. Human Freedom and the Divine Decree</p>
+<p class="level-cap">A. The plan of God and the decree of God are totally consistent with human freedom. God does not limit, coerce, or violate man’s self-determination.</p>
+<p class="level-cap">B. We must distinguish between what God causes directly, such as Christ’s spiritual death on the cross, and what He permits indirectly, such as sin, human good, and evil.</p>
+<p class="level-cap">C. God created man with a free will—volition in his soul. God therefore permits that free will to function in human self-determination. Otherwise, man would never have fallen. God permitted the Fall. The Fall was not His directive will, but His permissive will is as much a part of the decree as is His directive will. Remember: The decree is human history in the mind of God in eternity past.</p>
+<p class="level-cap">D. God is not the author of sin, human good, or evil. Free will is the source of these things. The sovereignty of God and the free will of man coexist in human history.</p>
+<p class="level-cap">E. Both sin and the salvation work of Christ on the cross were fed into the computer of the divine decree. Sin is the permissive will of God; the cross, the directive will. Sin is neutralized by the cross; this is an example of how God permits man’s free will to oppose Him, yet He maintains His own integrity and is victorious in the end. God the Father, God the Son, and God the Holy Spirit knew that the two greatest systems of human law— Jewish and Roman—would meet at the cross and those administering the law would fail. The members of the Trinity knew that hearsay would be accepted as evidence, that the facts would be omitted, and that the whole succession of Christ’s six trials would be a violation of both Roman and Jewish law (Num. 35:29–30; Deut. 17:6; 19:15; Acts 25:16). Nevertheless, the precise manner in which Christ was convicted and crucified was decreed in eternity past because God knew the freewill decisions of every individual involved. He knew the mob mentality and the decisions of every member of the crowd that shouted, “Crucify Him!” He knew the conspiracy of the religious Pharisees. Christ’s execution was the sum total of human evil and reversionism. It was the quintessence of sinfulness— sinfulness related to religion.87 The religious crowd crucified the Lord, yet God’s purpose was carried out by the free choice of man—even by the free negative volition of the men in the Sanhedrin. It was religion that put Christ on the cross, but it was God the Father who, through His integrity, used the crucifixion for His own purpose. God used religion, the devil’s ace trump, to provide our salvation! Religion reached its evil peak only to inadvertently provide the grace way of salvation as the justice of God imputed the personal sins of mankind to Christ on the cross and judged them. This once again shows that no matter how great the creature may be—and Satan is the smartest of all creatures—God is infinitely greater. Satan finally came up with this ‘smart’ way to get rid of Jesus—Roman crucifixion, but through this supreme masterpiece of satanic conspiracy came our salvation. God not only uses the wrath of man to praise Him (Ps. 76:10), but He uses the antagonism of Satan as well! It was a combined satanichuman operation that put the Lord on the cross. Satan thought he had accomplished his objective, and in no way had his volition been coerced. But all he had done was to contribute to our Lord’s objective in hypostatic union. There is the wisdom of the divine decree!</p>
+<p class="level-cap">F. The divine decree does not oppose human freedom.</p>
+<p class="level-cap">G. Man is free to glorify and serve God, but the manner of glorification and service is prescribed by God and is not left to man’s freedom or imagination. God ordained the postsalvation spiritual life of the Church Age believer to function under the filling of the Spirit and perception of Bible doctrine. He did not ordain witnessing, prayer, or any other Christian production to be the means but the result of spiritual growth.88 We must understand what His plan is and what it is not. The daily function of GAP (grace apparatus for perception) is His plan for our growth.</p>
+<p class="level-cap">H. If the result is to be spiritual growth and divine blessing, our freedom is limited to positive volition toward Bible doctrine.</p>
+<p class="level-roman">I. Man’s use of his freedom to reject doctrine results in divine discipline. Either we adjust to the justice of God or the justice of God will adjust to us.</p>
+<p class="level-cap">J. The believer’s objective is to use Bible doctrine resident in his soul to determine the will and pleasure of God regarding his spiritual life and modus operandi.</p>
+<p class="level-cap">K. In this way, human freedom becomes merged into God’s will. God is pleased, and man is blessed beyond description.</p>
+<p class="level-roman">VIII. The Practical Application of the Divine Decree</p>
+<p class="level-cap">A. Since the decree is the sum total of God’s plan and purpose in eternity past, it centers around the person of the Lord Jesus Christ (Eph. 1:4–6; 1 John 3:23).</p>
+<p class="level-cap">B. Therefore, the free will of man must face the critical issue of the person and work of Jesus Christ on the cross. Faith alone in Christ alone is man’s entrance into the plan of grace. At the cross, the sovereignty of God and the free will of man meet for the glory of God and the advantage of mankind. The basis for this meeting is the integrity of God.</p>
+<p class="level-cap">C. Under the divine policy of grace, the work of salvation is accomplished by God while man gains the benefits apart from human merit or ability.</p>
+<p class="level-arabic">1. The righteousness of God condemned all human sin in the divine decree in eternity past; the justice of God judged all sins at the cross so that the love of God (Rom. 5:8) provides salvation (John 3:16) through the grace of God (Eph. 2:8–9).</p>
+<p class="level-arabic">2. The antagonism between divine justice and human works means that human works are set aside in every phase of the plan of grace.</p>
+<p class="level-cap">D. God’s plan in eternity past was designed to include all events and actions, related to their causes and conditions, as part of one indivisible system, every link being a part of the integrity of the whole. Each link is as important as the whole. The whole is the integrity of God making all the links properly relate through grace. This is how He makes all things “work together for good to those who love” Him (Rom. 8:28).</p>
+<p class="level-cap">E. Without violating human volition, God has designed a plan so perfect that it includes direction, provision, preservation, function, cause, and effect for all believers.</p>
+<p class="level-cap">F. Under this plan, God has decreed to do some things directly (such as creation or salvation), some through secondary agencies (as through Israel or the Church), and some through individuals (as through Moses or the Apostle Paul—or through us).</p>
+<p class="level-cap">G. Thus, there are primary, secondary, and tertiary functions within the plan of God. It does not matter into which of these categories any action falls; all constitute one great, all-comprehensive plan—perfect, eternal, unchangeable, with no loss of integrity. We are part of a magnificently perfect plan designed to give us everything that is wonderful in time and eternity. If our spiritual momentum carries us to supergrace or pleroma, we will be blessed!</p>
+<p class="level-cap">H. The plan of God is consistent with human freedom. God is not unfair; He does not limit or coerce our freedom. He graciously provides guidance as to how we should use our volition. The only revelation of the divine decree is found in the Bible; therefore, the highest priority in the Christian life is the cognition, retention, and application of Bible doctrine. Some things God permits; other things He causes. Some things please Him; others do not. But God always recognizes reality. This is one of the most important aspects of our relationship with Him: Everything which is decreed is reality and, like God, we, too, must face the facts. Because God deals with reality, His plan must deal with things as they are. His solutions start with what is, not with what is not. There is no wishful thinking in God. He never rationalizes anything. He never blesses us out of sentimentality. He never blesses us because we think we’re spiritual. He never blesses us because of our character, our plans, our ideas, our schemes, our self-righteousness. He blesses us always and only on the basis of His character. Anyone who keeps trying to vindicate himself before God will never understand the integrity of God and how it relates to the divine decree.</p>
+<p class="level-roman">I. Again, God created man with free will.</p>
+<p class="level-cap">J. The fact that man can choose contrary to the will of God proves the coexistence of the sovereignty of God and the free will of man in human history to fulfill His pleasure and purpose.</p>
+<p class="level-roman">IX. Different Theological Views of the Divine Decree Pertaining to Election</p>
+<p class="level-cap">A. Of all the decrees in eternity past, five are related to the purpose of God in election. The decrees must be in logi cal order. Though the entire decree is one thought in the mind of God, the logical principle of cause and effect is involved in human thinking and understanding. This is the subject of the doctrine of lapsarianism. Derived from the Latin lapsare meaning “to fall,” lapsarianism is the theological term used to explain the logical, not chronological, order within God’s elective decrees. The nomenclature refers to whether the decree to elect comes before or after the decree to permit the Fall. Historically, theologians have developed four positions:</p>
+<p class="level-arabic">1. Supralapsarianism, a form of hyper-Calvinism</p>
+<p class="level-lower">a. The decree to elect some to be saved and to reprobate all others. This is double predestination, a heretical position denying the coexistence of the sovereignty of God and the free will of man.</p>
+<p class="level-lower">b. The decree to create man, both elect and nonelect.</p>
+<p class="level-lower">c. The decree to permit the Fall.</p>
+<p class="level-lower">d. The decree to provide salvation for the elect. This is the basis for limited atonement and therefore a false position.</p>
+<p class="level-lower">e. The decree to save the elect. John Calvin (1509–1564) was an excellent exegete of the Scriptures, generally speaking. But like the followers of any good Bible teacher, some of his students misrepresented him and applied his name to doctrines with which he would have never agreed. Hyper-Calvinism distorts the sovereignty of God to the point of excluding the free will of man. It is fatalistic, in contrast to the specific teachings of the Word of God regarding the coexistence of divine sovereignty and human free will. Let me illustrate. God knew in His omniscience that the woman and the man would commit sins in the Garden. He knew all the repercussions of those two acts throughout history, but He still decreed that Adam and his wife would have free will, decreeing also to furnish timely and wonderful provisions for them and their progeny. But never in any way did He coerce their volition. God did not suddenly shout, “Look out! Satan is about to tempt the woman! I’m going to keep him from doing so! I’ll kill the serpent! There will be no serpent! There will be no human history!” That is the kind of nonsense implied by the hyper- Calvinist’s distortion of God’s sovereignty. Another implication, perhaps more famous but equally ridiculous, is the false notion that since unbelievers go to hell, God predestined them to go! Unbelievers go to hell of their own volition: they freely decide to reject the Lord Jesus Christ as Savior (John 3:18). Hyper- Calvinism is not correct.</p>
+<p class="level-arabic">2. Infralapsarianism, a form of moderate Calvinism</p>
+<p class="level-lower">a. The decree to create all mankind.</p>
+<p class="level-lower">b. The decree to permit the Fall.</p>
+<p class="level-lower">c. The decree to provide salvation for all mankind. This is unlimited atonement and biblically correct.</p>
+<p class="level-lower">d. The decree to elect some—those who believe in Christ—from among fallen mankind and to leave others in their sin—those who will not believe in Christ.</p>
+<p class="level-lower">e. The decree to save the elect through faith in Christ or to apply salvation to those who believe.</p>
+<p class="level-arabic">3. Sublapsarianism, a form of moderate Calvinism</p>
+<p class="level-lower">a. The decree to create all mankind.</p>
+<p class="level-lower">b. The decree to permit the Fall.</p>
+<p class="level-lower">c. The decree to elect those who believe in Christ, and to leave in just condemnation those who do not believe in Christ.</p>
+<p class="level-lower">d. The decree to provide salvation for the elect. This is limited atonement and therefore a false position.</p>
+<p class="level-lower">e. The decree to save the elect through faith in Christ, sometimes stated as the decree to apply salvation to those who believe in Christ.</p>
+<p class="level-arabic">4. Arminian lapsarianism, represented by Richard Watson, the most prominent Arminian theologian. An Ar minian is a person who accepts a system of erroneous theology named after James Arminius (1560–1609).</p>
+<p class="level-lower">a. The decree to create all mankind.</p>
+<p class="level-lower">b. The decree to permit the Fall.</p>
+<p class="level-lower">c. The decree to provide unlimited atonement. This elective decree is misunderstood in Arminianism as they do not acknowledge that the sole and complete work of Christ on the cross makes atonement available to the entire human race.</p>
+<p class="level-lower">d. Salvation by foreseen human virtue plus faith plus obedience. This is the false position of salvation by works.</p>
+<p class="level-lower">e. Election as an act of God in time. This makes election synonymous with experiential sanctification, which is heresy as it inevitably rejects positional sanctification at the moment of salvation.</p>
+<p class="level-cap">B. Biblical Lapsarianism: While infralapsarianism is the most accurate of the four historical views, the doctrine of omniscience is the basis for our modification.</p>
+<p class="level-arabic">1. God decreed the creation of all mankind with a free will in the status of perfection to resolve the prehistoric angelic conflict and to bring many sons into glory.</p>
+<p class="level-arabic">2. God decreed to permit the fall of mankind through the function of man’s own self-determination, his own volition, as the extension of the angelic conflict into human history.</p>
+<p class="level-arabic">3. God decreed to provide eternal salvation for all mankind under the doctrine of unlimited atonement.</p>
+<p class="level-arabic">4. God decreed to leave the reprobate—those who remain in spiritual death because they reject Christ as Savior—in their just condemnation.</p>
+<p class="level-arabic">5. God decreed simultaneously in eternity past both election and predestination for believers only.</p>
+<p class="level-arabic">6. God decreed to apply salvation to everyone who believes in Christ. Hence, the decree to save the elect through faith alone in Jesus Christ alone.</p>
+
+<div class="doctrine-tags"><span>Tags:</span>
+<span class="tag">Theology Proper</span>
+<span class="tag">God</span>
+<span class="tag">Doctrine</span>
+<span class="tag">Sovereignty</span>
+</div>
+</section>
+<a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
 </div>
 <script>
 (function() {
   function docAction(type) {
     const section = document.querySelector('section[id]');
-    const title = document.querySelector('.site-header h1') ?
-      document.querySelector('.site-header h1').textContent : document.title;
-    if (type === 'link') {
-      navigator.clipboard.writeText(window.location.href)
-        .then(() => flash('Link copied!'));
-    } else if (type === 'clipboard') {
-      const text = section ? section.innerText : document.body.innerText;
-      navigator.clipboard.writeText(text)
-        .then(() => flash('Text copied!'));
-    } else if (type === 'html') {
-      const html = section ? section.outerHTML : '';
-      navigator.clipboard.writeText(html)
-        .then(() => flash('HTML copied!'));
-    } else if (type === 'embed') {
-      const embed = '<iframe src="' + window.location.href +
-        '" width="100%" height="600" frameborder="0"></iframe>';
-      navigator.clipboard.writeText(embed)
-        .then(() => flash('Embed code copied!'));
-    } else if (type === 'pdf') {
-      window.print();
-    } else if (type === 'image') {
-      const section = document.querySelector('section[id]');
+    if (type === 'link') { navigator.clipboard.writeText(window.location.href).then(() => flash('Link copied!')); }
+    else if (type === 'clipboard') { navigator.clipboard.writeText(section ? section.innerText : '').then(() => flash('Text copied!')); }
+    else if (type === 'html') { navigator.clipboard.writeText(section ? section.outerHTML : '').then(() => flash('HTML copied!')); }
+    else if (type === 'embed') { navigator.clipboard.writeText('<iframe src="' + window.location.href + '" width="100%" height="600" frameborder="0"></iframe>').then(() => flash('Embed copied!')); }
+    else if (type === 'pdf') { window.print(); }
+    else if (type === 'image') {
       if (!section) { flash('Nothing to capture.'); return; }
       flash('Preparing image…');
       import('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.esm.min.js')
-        .then(mod => {
-          const h2c = mod.default || mod;
-          return h2c(section, { backgroundColor: '#fdfbf5', scale: 2, useCORS: true });
-        })
-        .then(canvas => {
-          const link = document.createElement('a');
-          link.download = (document.querySelector('.site-header h1') ?
-            document.querySelector('.site-header h1').textContent.trim().replace(/\s+/g, '-').toLowerCase()
-            : 'doctrine') + '.png';
-          link.href = canvas.toDataURL('image/png');
-          link.click();
-          flash('Image downloaded!');
-        })
-        .catch(() => flash('Image export failed. Try PDF instead.'));
+        .then(mod => { const h2c = mod.default || mod; return h2c(section, { backgroundColor: '#fdfbf5', scale: 2, useCORS: true }); })
+        .then(canvas => { const link = document.createElement('a'); link.download = 'divine-decree.png'; link.href = canvas.toDataURL('image/png'); link.click(); flash('Image downloaded!'); })
+        .catch(() => flash('Image export failed.'));
     }
   }
   window.docAction = docAction;
   function flash(msg) {
     const el = document.createElement('div');
     el.textContent = msg;
-    el.style.cssText = 'position:fixed;bottom:1.5rem;right:1.5rem;background:#2a2118;color:#f4ecd8;' +
-      'padding:0.6rem 1.2rem;border-radius:4px;font-family:Cinzel,serif;font-size:0.75rem;' +
-      'letter-spacing:0.1em;z-index:9999;border:1px solid #b8973a;';
+    el.style.cssText = 'position:fixed;bottom:1.5rem;right:1.5rem;background:#2a2118;color:#f4ecd8;padding:0.6rem 1.2rem;border-radius:4px;font-family:Cinzel,serif;font-size:0.75rem;letter-spacing:0.1em;z-index:9999;border:1px solid #b8973a;';
     document.body.appendChild(el);
     setTimeout(() => el.remove(), 2200);
   }
 })();
 </script>
-<div class="main-wrap">
-<section id="divine-decree">
-<h2>Doctrine of the Divine Decree</h2>
-<h2>GENERAL OUTLINE OF THE DOCTRINE</h2>
-<ol class="roman">
-<li>Definition and Description</li>
-<li>The Mechanical Function of the Computer</li>
-<li>The Characteristics of the Divine Decree</li>
-<li>The Will of God and the Divine Decree</li>
-<li>The Blessing of Man and the Divine Decree</li>
-<li>The Glory of God and the Divine Decree</li>
-<li>Human Freedom and the Divine Decree</li>
-<li>The Practical Application of the Divine Decree</li>
-<li>Different Theological Views of the Divine Decree Pertaining to Election</li>
-</ol>
-<h2>I. Definition and Description</h2>
-<ol class="alpha">
-<li>The decree of God is His eternal, holy, wise, and sovereign purpose, comprehending simultaneously all things that ever were or will be in their causes, courses, conditions, successions, and relations and determining their certain futurition.
-        <p>Each phrase of this concise, technical definition carries a wealth of information. Various attributes of God’s essence are related to His “purpose” for angelic and human history. The source of the divine decree is identified as the omniscience of God “comprehending” all things in eternity past. Divine volition is depicted as “determining” or choosing, before anything existed, which things would actually become historical events. The doctrine of the divine decree develops the various aspects of this definition.</p>
-</li>
-<li>The several contents of this one eternal purpose are, because of the limitations of our mentality and faculties, necessarily perceived by us in partial aspects in both logical and revealed relations from Scripture. For this reason we often use the plural “decrees” to express the many facets of God’s all-inclusive plan. In reality it is all one decree, given in eternity past in less than a second and covering everything in all of what to us is past, present, and future history (Ps. 2:7; 148:6; Dan. 9:24). At the time of the decree, all angelic and human history was yet future.</li>
-<li>The decree of God is His eternal plan of events which will happen regarding the future existence of events in time and regarding the precise order and manner of their occurrence.
-        <p>Here, and throughout the doctrine of the divine decree, we use the term “will of God” in a technical sense. In common usage, the will of God refers to what God desires of an individual or group in a particular situation,⁸⁴ but that is not the will in view here. The will of God here means the decision He made in eternity past, from His attribute of</p>
-</li>
-</ol>
-
-<div class="section">
-<div class="page">
-<ol class="alpha" start="4">
-<li>The divine decree is the eternal plan by which God has rendered certain all of the events of the universe, including both angelic and human history—past, present, and future. God's decree rendered all things as certain to occur; He decided that they would exist. In doing so, He did not interfere with angelic or human free will. In fact, He decreed that we would have free will! In giving us volition, He also decreed that our decisions, whatever they might be, would certainly take place—even those that are contrary to His desires. Being omniscient, He knew ahead of time precisely what we would decide. He not only decreed that those decisions would exist but He also decreed the exact manner, consistent with His character, in which He would handle our decisions.</li>
-<li>The decree of God is the chosen and adopted plan of all God's works.</li>
-<li>The decree of God is His eternal purpose, according to the counsels of His own will, whereby for His own glory He has foreordained whatever comes to pass.</li>
-<li>The decree of God is the sovereign choice of the divine will (His attribute of sovereignty) and mentality (His omniscience) by which all things are brought into being and controlled, made subject to His pleasure, and producing His glorification (Isa. 46:10; Eph. 1:9).
-            <ol class="numeric">
-<li>What the Trinity decides is for their pleasure. We do a variety of things for our pleasure or entertainment, but God's pleasure is infinitely broader in scope. His perfect happiness is part of His infinite character, so His pleasure is not impulsive, emotional, or frivolous. Nevertheless, He spoke and billions upon billions of light-years of space instantly came into being. He created creatures with free will—beautiful, powerful creatures called angels. Their history is largely undisclosed to us, but eventually, from their own free decisions, some of these creatures rebelled—the fall of Satan and the revolt that began the angelic conflict.</li>
-<li>God always knew that some of the angels would revolt. Therefore, in the same instant that He decreed to create the angels and the universe, He also decreed that at a certain point in time He would create another type of creature. Like the angels, this new person would have free will and would be designed to share God's happiness. But he, and his progeny, would also become the demonstration of the fullness of God's essence to those angels who had impugned God's character. So, for God's pleasure, He created Adam. Now, long after the fall of Adam, God's pleasure is our adjustment to the justice of God. Salvation, spirituality, and spiritual maturity provide the capacity for the blessings of God.</li>
-<li>What the Trinity decides is also for their glory. God has always existed in perfect glory; anything He does reflects His glory and results in His glorification. God does not depend on us for His pleasure or His glory; He enjoyed pleasure and glory in eternity past when no one else existed. God expresses His glory and pleasure in us and toward us: We are here as part of God's pleasure and glory.</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="2">
-<li>
-<h2>The Mechanical Function of the Computer</h2>
-<ol class="alpha">
-<li>Picture the decree of God as a giant computer. In eternity past God fed facts from His omniscience into the computer. These facts are differentiated from mere potentialities, the alternatives, which He also knows in His omniscience but did not decree. The facts include every thought you would ever have, every decision you would ever make, every action you would ever take. When He decreed (or fed into the computer) the fact that you would exist as a free agent, He also decreed—simultaneously—that your every thought, decision, and action would take place. He fed into the computer the decisions He knew you would make about sin, about rebound, about human good and evil, about believing in Christ, about walking down the street, about the laws of divine establishment, about doctrine, about spiritual production, about everything. He also fed other facts into the computer. Based on knowing how you would use your free will, He fed in logistical grace and, for those who would advance to maturity, special blessings in time. He knew every situation you would face—every problem, every heartache, every personal or historical disaster, every failure or success—and He provided the solution to each problem. Moreover, He supplied everything you would need to face all problems in complete security with perfect orientation and inner happiness. Capacity for happiness comes from understanding these things, from having doctrine in your soul. One obvious conclusion: There is never an excuse for complaining.</li>
-<li>The computer of the divine decree prints out facts about believers under the categories of election, foreknowledge, and predestination. It also prints out facts about unbelievers under the categories of condemnation, reprobation, and retribution. No unbeliever is ever predestined to hell.</li>
-<li>The omniscience of God is the key to understanding the decree. God has three kinds of knowledge:
-                    <ol class="numeric">
-<li>Self-knowledge: God knows Himself; He has never had to learn anything about Himself; His self-knowledge has always been total, perfect, complete. He is aware of His own essence and the unlimited capabilities of each member of the Trinity. Infinite and subjective in self-knowledge, the members of the Trinity know each other.</li>
-<li>Omniscience: God knows simultaneously all things outside of Himself. God knows all things about believers and unbelievers, both the actual—which He Himself foreordained, decreed, programmed into the computer—and the possible—which could have happened but did not happen. God knew in eternity past that you would not make that decision and He did not decree it, did not enter it into the computer.</li>
-<li>Foreknowledge: This subcategory of God's cognizance acknowledges only what is decreed, but foreknowledge does not make the decree certain. It is a computer printout of the actual facts, not mere possibilities, regarding the volition of the believer. The term “foreknown” is used in Scripture only of believers and of Jesus Christ. God's foreknowledge is related only to the actual.</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<h2>Stage One, the Omniscience of God</h2>
-<ol class="numeric">
-<li>In His omniscience, God knows perfectly, eternally, and simultaneously all that is knowable, both the actual and the possible.</li>
-<li>Such perception and sagacity are totally compatible with His essence. God would not be God unless He always knew all about everything.</li>
-<li>God is eternal; His knowledge is eternal. He is sovereign; His knowledge is in control and superior. The link between His superior knowledge and our inferior knowledge is Bible doctrine.</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="2">
-<li>
-<ol class="alpha" start="1">
-<li>
-<ol class="numeric" start="4">
-<li>The Creator’s knowledge is infinitely superior to the creature’s knowledge or intellect.</li>
-<li>Every minute detail of both angelic and human creation is completely and perfectly in His mind at all times.</li>
-<li>The omniscience of God perceives the free as free, the necessary as necessary, together with all their causes, conditions, and relations, as one indivisible system of things, every link of which is essential to the integrity of the whole. Every cause and effect is related to another cause and effect and to another and another. In this one, all-comprehensive, interdependent system of cause and effect, man’s volition is the uncaused cause of human function so that the course of history is just as man thinks it, wills it, does it. When you understand this, you realize that you have no reason for complaining, for falling apart in a crisis, or for feeling left out and sorry for yourself. God never tampers with your volition; predestination does not mean that He forces you into a course of action, but that He knew in eternity past what you would do and so decreed it.</li>
-<li>Time does not limit God’s knowledge. To Him, the future is as perspicuous as the past.</li>
-<li>The omniscience of God knows the alternatives to history—the possible as well as the actual.</li>
-<li>God knows what would have been involved in every case in which a man’s decision might have been different from what it was. Imagine that you are confronted by twenty possible courses of action and must choose one. Even though God knew which way you would choose to go and decreed only that one to become reality, He knows all the repercussions of each alternative.</li>
-<li>Omniscience is one of the three categories of divine knowledge.</li>
-<li>Omniscience knows every thought, decision, and action in human history, how they all relate to each other, and how they relate to all the possible alternatives.</li>
-<li>The foreknowledge of God makes nothing certain but merely acknowledges what is certain. His foreknowledge knows what is already in the decree regarding believers only.</li>
-<li>For believers, there are at least three categories of printouts from the computer: foreknowledge, election, and predestination (sometimes called foreordination).</li>
-<li>Foreknowledge means that nothing can be certain until it is first decreed; only then can what will happen be foreknown. God knows all actual events as certainly future because He has decreed them to be certainly future.</li>
-<li>God’s decree relates equally to all future events of every kind—to the free actions of moral agents as well as to the actions of necessary agents; to the sinful, human-good, and evil as well as to the morally correct, divine-good, and honorable.</li>
-<li>The decree alone establishes certainty. For the believer, foreordination and predestination are synonymous with the decree.</li>
-<li>Foreordination is an act of the infinitely intelligent and wise God in determining the certain futurition of events in the life of the believer.</li>
-</ol>
-</li>
-<li>
-<h3>Stage Two, the Decree Itself</h3>
-<ol class="numeric">
-<li>The omniscience of God fed into the computer only the facts.</li>
-<li>This was accomplished in eternity past simultaneously, not in stages.</li>
-<li>The decree has become the complete and consummated right of the sovereignty of God determining the certain futurition of all things in human history.
-                            <ol class="lower-alpha">
-<li>No decree can become complete without the sovereignty of God. Because He knows the end from the beginning, God wills certain things to happen.</li>
-<li>Since, in eternity past, God exercised His prerogative to make things certain, when we say “certain futurition” of events, we mean events which are future from eternity past. Thus, we mean all events throughout all time. Many areas of the decree have been fulfilled historically, up to and including this present moment; but all</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="2">
-<li>
-<ol class="alpha" start="2">
-<li>
-<ol class="numeric" start="3">
-<li>
-                            The decree has become the complete and consummated right of the sovereignty of God determining the certain futurition of all things in human history.
-                            <ol class="lower-alpha" start="3">
-<li>were future when decreed, including those still future today.</li>
-<li>Because of how infinitely complex this decree is, we must conclude with an eternal truth: God is smarter than we are!</li>
-</ol>
-</li>
-<li>No event is directly effected or caused by the decree. The decree merely establishes what will be caused, but the decree itself is not the cause. The fact that a thought or action on your part is in the decree does not mean that the decree caused you to think or do it. The cause is your own free will. Your thoughts are in the decree because, in eternity past, God had the wisdom to know what you would think and to not omit from His planning the fact that you would think it!</li>
-<li>But the decree itself provides in every case that the events shall be effected by causes acting in a manner consistent with the nature of the event in question. As an example of this principle, the cause of some events is the free will of man.</li>
-<li>In the case of every freewill act of a moral agent, the decree itself provides at the same time the following:
-                            <ol class="lower-alpha">
-<li>The agent shall be a free agent. Far from coercing anyone’s volition, the decree establishes volition thereby making everyone accountable for his own decisions.</li>
-<li>The antecedents and all antecedents of the act in question shall be what they are. Whenever a decision is made, it shall be the result of decisions previously made. Once something happens, that’s it. It is part of the system of cause and effect; it becomes part of the basis for other things happening down the line. Wishful thinking cannot change what has already occurred.</li>
-<li>All present conditions of the act shall be what they are. God is not going to make reality suddenly vanish or become different or reverse itself. God enables us to orient to reality and to face the facts. If our arrogance or simple ignorance leads us to make decisions which overlook certain facts, those facts nevertheless are what they are.</li>
-<li>The act shall be perfectly spontaneous and free on the part of the agent.</li>
-<li>The act shall be certainly future. That is, it will definitely take place, at a certain time, after the decree is given.</li>
-</ol>
-</li>
-<li>These five points completely negate the theology of hyper-Calvinism and Arminianism. Hyper-Calvinism distorts the sovereignty of God to the point of excluding the free will of man. It is fatalism, in contrast to the specific teachings of the Word of God regarding divine sovereignty and human free will. Arminius and his followers distort the sovereignty of God in the opposite direction. They claim that man’s volition is beyond God’s control, that man can cause things that are not in the divine decree. This is totally false; nothing can be certain until God decrees it to be certain.<sup>85</sup></li>
-<li>The decree vested solely with the will of God what His creation should be. For example, God alone decided in eternity past what human beings would be like: We would be rational creatures with free will. Our souls would have self-consciousness, mentality, volition, and conscience; Adam would be body, soul, and spirit as he came from the Creator’s hand. By way of a ludicrous illustration, God did not decide to give us two heads, five legs, a thirty-foot tail, and the brains of a horse. Nor did He design us with a sin nature; that came from Adam’s negative volition.</li>
-<li>Because God cannot contradict His own nature, the essence and attributes of God necessitated His willing the highest and best for mankind. When God created man, He created the highest and best compatible with His plan. Adam was not greater than the angels, but his body, soul, and spirit and his environment were all absolutely perfect. Of course, some of the highest and best that man received at creation has been lost through the Fall. The same perfect God who created mankind now condemns us. Yet He still wills the highest and best in that He now offers perfect salvation and magnificent blessings in time and eternity. Because we have free will, we may miss all of this, but it is still available.</li>
-</ol>
-</li>
-<li>
-<h3>Stage Three, the Printouts</h3>
-<ol class="numeric">
-<li>The printout from the computer of the divine decree, which relates to believers, includes election, foreknowledge, predestination.</li>
-<li>Predestination, foreordination, and predetermination are synonyms and refer to the decree. These terms describe the act of the infinite, eternal omniscience of God which determined the certain futurition of events related to the believer.</li>
-<li>Foreknowledge is not the same as omniscience but is more limited in scope. Omniscience knows both the actual and the possible; foreknowledge includes the actual only and is related to believers only.</li>
-<li>Being omniscient, God knows all that would have been involved had He adopted any one of an infinite number of plans of action. He also knows all the consequences had man chosen a different course of action within the realm of his own volition.</li>
-<li>Foreknowledge refers only to those things which God did decree or adopt as the plan of God—those things related to the believer only.</li>
-<li>Only the decree establishes certainty or reality; only reality can be foreknown; nothing can be foreknown until first decreed. We can see where Arminianism departs from biblical theology: It holds falsely that events can occur without being decreed by God to occur.</li>
-<li>God's decree never originates from His foreknowledge. Although all three exist simultaneously in the mind of God, omniscience, the decree, and foreknowledge must be separated into a logical sequence for us to understand them. First comes omniscience, then the decree, then foreknowledge. The decree is based on omniscience; foreknowledge is based on the decree.</li>
-<li>Election is the plan of God for believers only. All the elect are believers. Election means “chosen, selected, set apart for privilege.” Technically, election is God’s complete agreement with His own foreknowledge—He simply agrees with Himself (foreknowledge) and puts a stamp of approval (election) upon what He decreed (1 Pet. 1:2). God elected or chose believers in the sense, first, that He knew ahead of time that, if given free will, they would freely choose to believe in Christ; second, that He decreed that such an act of faith would actually occur; third, that He agreed not only that their positive volition to the Gospel would occur at a certain point in time but also that all the blessings of salvation plus certain unique blessings would be their eternal possessions (Eph. 1:4; 2 Thess. 2:13). There are three elections to privilege:
-                            <ol class="lower-alpha">
-<li>The unique election of Christ (Isa. 42:1; 1 Pet. 2:4, 6). The election of Christ is the basis for the other two elections.</li>
-<li>The election of Israel (Isa. 45:3b–4).
-                                    <ol class="numeric">
-<li>God’s gracious and unconditional covenants to Israel can be fulfilled only to the elect—to those physical Jews who are also spiritual Jews through faith in Christ, the Messiah. The true Jew is not merely the physical seed of Abraham but the spiritual seed as well. Unless the racial Jew follows the pattern of Abraham in salvation, he is not elected (Gen. 15:6; Rom. 4:3). A corrected translation of Romans 9:6a explains how God can have an elect nation: “All [racial] Israel is not [spiritual] Israel.”</li>
-<li>The unconditional covenants to Israel are promises for the elect Jews only, that is, for those who have believed in Christ and thus possess God’s imputed righteousness and</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="2">
-<li>
-<ol class="alpha" start="3">
-<li>
-<ol class="numeric" start="8">
-<li>
-                            There are three elections to privilege:
-                            <ol class="lower-alpha" start="3">
-<li>The election of the Church (Eph. 1:4; Col. 3:12; 1 Thess. 1:4; 2 Tim. 1:9).
-                                    <ol class="numeric">
-<li>The election of the Church includes both equal privilege and equal opportunity for every believer.
-                                            <ol class="lower-alpha">
-<li>Under election, equal privilege is the royal priesthood.</li>
-<li>Under election, equal opportunity is logistical grace support and blessing for both winners and losers.</li>
-</ol>
-</li>
-<li>Election is declared through God’s foreknowledge; election is a function of predestination. Predestination permanently relates the Church Age believer to the plan of grace (2 Tim. 1:9). Furthermore, predestination means that, in union with Christ through retroactive and current positional truth, the Church Age believer shares the destiny of Christ (Eph. 1:5). We also share the election of Christ that occurred in eternity past (1 Pet. 2:4, 6).</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<h2>The Characteristics of the Divine Decree</h2>
-<ol class="alpha">
-<li>The decree includes all the facts of history. These are the facts which were fed into the computer by the omniscience of God.</li>
-<li>There is one all-inclusive will and purpose of God concerning all that ever was or will be. Think of it as a computer tape. Your entire life is on tape. Your tape begins with your first breath, and everything in your life from then on is recorded on the tape. You do not know what the future holds for you, but God does. He recorded it in eternity past.</li>
-<li>This divine will and purpose originated entirely within Himself before any creatures existed. The tape is in the mind of God; He alone designed it entirely for His pleasure, compatible with His essence, and related to His eternal glory. It pleases God to run your tape to the end. He knows what is on it, and He is running it for you.</li>
-<li>Space and time are the battlefield, the overall setting in which we live. These broad concepts are in the decree, but so are the details which reach down to the minutia of life. Even the minor detail of the fall of a sparrow is known to God; every hair that drops from your head is included in the decree (Luke 12:6–7).</li>
-<li>The doctrine of procession describes how the members of the Trinity function under the decree: The Father sends the Son (John 3:17); the Father and the Son send the Holy Spirit (John 14:16, 26; 15:26; 16:7). Among themselves, the members of the Godhead function in a way which is immanent, intrinsic (within the Godhead), and subjective (subjectivity is perfect when God is dealing with Himself).</li>
-<li>How the Godhead maintains and supports the believer is transient (playing out in human history), extrinsic (these actions occur outside of the Godhead), and objective (our point of contact is the perfectly fair justice of God).</li>
-<li>The decree is efficacious. “Efficacious” refers to the direct work of God: His work always succeeds in having its intended effect; the decree actually determines all that ever was or will be.</li>
-<li>The decree guarantees certainty. The foreknowledge of God makes nothing certain; it merely perceives what is certain.
-                    <ol class="numeric">
-<li>The omniscience of God feeds the facts into the computer while foreknowledge reads what the computer prints out.</li>
-<li>The decree of God is all-comprehensive. Not the slightest confusion could exist as to one of even the smallest events without confusion to all events. All events are interwoven and interdependent. You might assume that the decree eliminates the need for prayer, but that is not true. God looked down the corridors of time to see what believers would ask in prayer. Effective prayer makes requests which God answers; these answers—the things we ask in time—are incorporated into the decree in eternity past (Isa. 65:24). Prayer is a powerful weapon in the angelic conflict.</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="3">
-<li>
-<ol class="alpha" start="10">
-<li>The decree is also eternal, which means that God never gains in knowledge.<sup>86</sup></li>
-<li>What God has known at any time He has always known.</li>
-<li>This means that all of the decree was decreed simultaneously in eternity past. God is never surprised by anything we do or fail to do. He knew everything simultaneously, built divine provisions around the free choices we would make, and included the entire plan in the decree billions of years ago. The decree existed before man, before angels, before the existence of the universe; the decree pre-existed every creature and every thing.</li>
-<li>The decree of God is perfect. God is perfect; God's plan is perfect. The only thing imperfect in God's plan is man.</li>
-<li>God's perfect plan includes all imperfect persons, but He maintains His perfection and integrity through His policy of grace. God never loses His perfection, and His plan never fails even though man is imperfect and often fails. Because we are imperfect creatures in a perfect plan, the plan must be based on God's integrity. This is why we must believe in Christ, why we must rebound, why we must advance to maturity. We must adjust to His perfect justice.</li>
-<li>The decree of God is unchangeable and certain. Nothing will ever arise to necessitate a change in the decree. Everything was known and decreed (made certain) in eternity past. God's decree is unchangeable because it deals only with reality. It is certain because omniscience always knew that these things would occur under the circumstances of their particular moment in history. The changelessness of the decree is one of the great blessings of logistical grace. There are no erasures, corrections, or deletions; no last-minute changes; no chance of becoming lost in the shuffle. All the provisions for all our needs are absolutely secure.</li>
-<li>If you do not accept that statement, your rejection of it was known to God and was decreed to actually exist at this time as your own expression of your free choice. But God also knew that the statement was nonetheless true.</li>
-<li>The decree is the free choice of divine sovereignty. God is not bound to follow a necessary pattern or course, but once having decreed it in eternity past, once having said “This is it,” God is bound by His infinite faithfulness, truth, and incorruptibility to complete what He has begun. God will play out your tape to the end. Once He decreed you to exist, that became the plan; the future events in your life will occur—tomorrow, the next day, and the next. You will never suddenly cease to exist. God is bound by His eternal, infinite, perfect essence to play your tape.</li>
-<li>God has decreed ends as well as means, causes as well as effects, conditions and instrumentalities as well as the events which depend upon them.
-                    <p>Let’s take an example from ancient history. The rise and fall of empires and the movements of entire populations are sweeping in scope and impressive from our human point of view. But they are just as much in the decree as are the daily occurrences in our individual lives.</p>
-<p>Long before He created the universe, God’s omniscience knew all about the historical role to be played by the Assyrians. Not only did He decree that they would be a great power, but—in the same instant—He also decreed that all the historical trends which led to their ascendancy would also occur. This included a complex chain of events. The western Aryans (or Indo-Aryans) would come out of the mountains of Asia to dominate the Hurrians who lived in Mesopotamia, while the eastern Aryans moved south into India to conquer the Dravidians. In Mesopotamia, these Indo-Aryans and Hurrians (together forming the vast kingdom of Mitanni) would become degenerate. From farther to the west (now called Turkey) would descend the mysteriously ferocious Hittites who, after conquering Mitanni, would mysteriously turn around for home, leaving a power vacuum. Into this vacuum would rise the Kassites from southern Mesopotamia, and these people would be absorbed by the Assyrians.</p>
-</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="3">
-<li>
-<ol class="alpha" start="18">
-<li>There are no accidents in history. God knew all of these developments in the ancient world billions of years before they occurred. He knew the causes, conditions, and successions of history. He knew how all these events were interrelated and what their eventual effects would be upon the Jews (who were by this time settling into the Land after the Exodus) and upon the rest of mankind throughout human history. Even though some events preceded others chronologically, even though the rise of Assyria depended on the fall of Mitanni, all were decreed by God in the same instant.</li>
-<li>As an application from this glimpse of historical ebb and flow, we can have confidence in our Lord Jesus Christ, the God of history, who is so magnificent in His power as to make anything man does pale in comparison. If we are adjusted to the justice of God, who can be against us (Rom. 8:31)?</li>
-<li>Some things God decreed to do Himself. We call these “immediate” things, in contrast to “mediate” things which He decreed that some other agency, such as the free will of man, would perform. For example, creation is “immediate.” There had to be a place for God’s creatures to live, so He created space. Space is incomprehensibly vast, mind-boggling in size. For a basic unit of measure we must use the distance light travels in a year, and then we must think in terms of billions of light-years with still no end in sight! Our awesomely powerful God produced space in a split second so that angels and man might have somewhere to live. The angels inhabit all of space, whereas we live in a very small part of it to resolve the angelic conflict. On this planet and on this planet only is the angelic conflict being resolved.</li>
-<li>God also decreed that He would “immediately” create time. He set the earth on its rotation and orbit to give us our standard for measuring time. Besides space and time, salvation was also decreed to be provided by God Himself. Likewise, control of history by Jesus Christ is “immediate”—He often takes a direct hand in a matter rather than relegating everything to secondary causes.</li>
-<li>God accomplishes some things, however, through the action of secondary causes acting under the law of necessity. Thus, the decree includes both primary and secondary causes.</li>
-<li>Other things God has decreed to promote or permit free agents to do in the exercise of their own free will and self-determination. On one hand, man’s own volition is responsible for sin, human good, and evil from the sin nature. On the other hand, man is free to believe in Christ through non-meritorious positive volition resulting in eternal salvation.</li>
-<li>One category of events is rendered by the decree of God to be just as certainly future as any other category. All events are equally certain to occur whether caused directly by the sovereignty of God or caused by the free will of man. Primary, secondary, or tertiary, every cause for every event is equally in the decree and will occur. Therefore, the sovereignty of God and the free will of man coexist in human history as an extension of the angelic conflict.</li>
-</ol>
-</li>
-<li>
-<h2>The Will of God and the Divine Decree</h2>
-<ol class="alpha">
-<li>There is one all-inclusive will or purpose of God concerning all that ever was or will be from the beginning of human history until its termination on the last day of the Millennium. God has known every thought, decision, and action that has ever occurred or will occur; all these things come into being through the divine decree. In our computer analogy, many things are printed out by the computer of the divine decree, but first they were all in the computer.</li>
-<li>Remember that we are not referring to God’s will in the sense of divine guidance for the believer’s life. By “will of God” we mean His sovereign decision as to what would come into existence, in other words, the divine decree.</li>
-<li>This will and purpose of God originated within Himself long before any creature of any kind existed. His will is always consistent with His perfect essence.</li>
-<li>The will and purpose of God—the divine decree—was objectively designed for His own glory, pleasure, and satisfaction.</li>
-<li>All creatures have been placed in space and time; all events related to space and time were instantaneously and simultaneously decreed. The fact that all events were</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="4">
-<li>
-<ol class="alpha" start="5">
-<li>decreed results in divine action. Of course, the divine action which is most interesting to us is His work of grace—the policy of His love and integrity in blessing believers. But there are many other categories of divine action; they fall under two classifications.
-                    <ol class="numeric">
-<li>Divine actions within the Godhead are immanent, intrinsic, and subjective.</li>
-<li>Divine actions related to creation are transient, extrinsic, and objective.</li>
-</ol>
-</li>
-<li>God did not decree Himself to be. God existed prior to and outside of the decree, so that the divine decree does not act upon God; He acts upon the decree.</li>
-<li>God's decree is efficacious—having the power to produce the intended effect: It actually determines all that ever was or will be. The decree includes God's directive will, permissive will, and overruling will. These three categories of divine will describe the manner in which God's sovereignty controls history; they are subcategories of divine action as related to His creation. In particular, these three categories show how divine sovereignty deals with human volition. The will of God (as to what would exist, that is, the divine decree) calls for God's will (His attribute of sovereignty) to function toward us in certain ways:
-                    <ol class="numeric">
-<li>Directly stating what He desires of us;</li>
-<li>Permissively allowing us to go our own way;</li>
-<li>Overruling our decisions—not letting them have their intended results—in order to protect us and the rest of mankind from our own negative volition and to preserve and perpetuate His own marvelous plan.</li>
-</ol>
-</li>
-<li>All things depend on God's will (the decree), and nothing is certain apart from God's will.</li>
-<li>God's decree originates from His own omniscience, and in eternity past the decree separated fact from fiction.</li>
-<li>We must make clear the distinction between God's omniscience and His foreknowledge.</li>
-<li>God's decree does not originate from His foreknowledge; it merely perceives what the decree has made certain. Prophecy never determines history.</li>
-<li>Nothing can be foreknown until it is first decreed.</li>
-<li>Foreknowledge is God's cognizance of what He has decreed regarding believers. In logical order, omniscience programs the computer of the divine decree, and the computer prints out various categories of information for foreknowledge to read.</li>
-<li>We must also distinguish between the decree of God and the desires of God. The decree merely establishes the facts of history; many things are included which God does not desire. They are in the decree because the omniscience of God knew that, given free will, His creatures would reject the divine design. All sins are acts of volition, and although God never approves of sin, He put them in the decree because He knew we would commit them. The decree deals with reality, with certainty, with what actually happens. Just because God decrees a particular event to take place does not mean He approves of it.</li>
-<li>Sin, human good, and evil are not the desire of God, but they are in the decree because people do these things from their own volition.</li>
-<li>God desires His perfect will, but angels and men use their God-given freedom to violate the desires of God. The very fact that sin and evil are in the decree is proof that our volition is truly free. The decree is the all-inclusive will of God; it contains all the facts of history—both the decisions which please God and those which displease Him.</li>
-<li>God does not desire to cast His creatures into the lake of fire, but it is decreed as certain for all men who reject Christ as Savior (2 Pet. 3:9). His desire is for all unbelievers to come to a change of mind toward Christ. For those with negative volition at God-consciousness or Gospel-hearing, the lake of fire is decreed and becomes a computer printout called retribution.</li>
-<li>God does not desire to discipline believers, but it is decreed as certain for all believers in reversionism or carnality. Remember this principle before you start to misapply doctrine and say that because God is love He would never cause you misery and pain. God desires to express His perfect justice toward you; if you do not permit His</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="4">
-<li>
-<ol class="alpha" start="18">
-<li>justice to bless you, His justice will not hesitate to discipline you. We were created as free agents responsible for our own decisions. Either we adjust to the justice of God or the justice of God will adjust to us.</li>
-<li>We must distinguish the decree of God in eternity past from the actions of God in time. The action of God in time is the execution of the decree.</li>
-<li>The execution is not the decree but logically follows the decree.</li>
-<li>Distinction must also be made between God's decree and God's laws.</li>
-<li>The laws of divine establishment regulate human conduct; they are set up for human volition to obey. By protecting and perpetuating the human race, these laws give each of us a chance to be evangelized and, after believing in Christ, we have the opportunity to grow spiritually without interference or coercion. The laws of establishment can be broken by our volition, but the decree cannot.</li>
-<li>We cannot violate the decree because any decision we make was known in eternity past and was included in the decree.</li>
-<li>The decree is the all-comprehensive will of God and is only partially revealed in Scripture; the laws of God regulate man's conduct in time and space and are completely revealed.</li>
-</ol>
-</li>
-<li>
-<h2>The Blessing of Man and the Divine Decree</h2>
-<ol class="alpha">
-<li>The omniscience of God in taking cognizance of the fall of man graciously provided a plan for blessing man based on imputations from divine justice.</li>
-<li>This plan involves the omniscience of God feeding into the computer of the divine decree seven imputations which provide maximum blessing for mankind in time and eternity:
-                    <ol class="numeric">
-<li>The imputation of human life at birth.</li>
-<li>The imputation of Adam’s original sin at birth.</li>
-<li>The imputation of all personal sins to Christ on the cross.</li>
-<li>The imputation of divine righteousness at the moment of salvation.</li>
-<li>The imputation of eternal life at the moment of salvation.</li>
-<li>The imputation of blessings in time at spiritual maturity.</li>
-<li>The imputation of blessings and rewards at the judgment seat of Christ.</li>
-</ol>
-</li>
-<li>The decree of God contains the historical reality regarding every human being’s level of attainment in this grace plan. Freedom means that some attain all these imputations while others do not. Freedom ensures inequality. The road to equality is the road to slavery.</li>
-<li>Nonmeritorious human volition can fall short of any potential in God’s plan.</li>
-<li>The extent to which each individual advances in this plan was known to God in eternity past. This was fed into the computer. God knew that some would remain unbelievers, that others would believe but remain spiritually immature, that a few would advance to maturity. Those who reach maturity receive blessings in time and even greater blessings in eternity; they glorify God and bring Him pleasure.</li>
-<li>In too many cases, the potential exceeds the reality. The potential is totally known to God’s omniscience; only the reality is in the decree.</li>
-<li>The believer’s attainment of divine blessings through imputation is the means God has chosen to glorify Himself and to give Himself pleasure.</li>
-<li>The glory of God is related to the believer’s advance to maturity and the resultant imputation of divine blessings.</li>
-</ol>
-</li>
-<li>
-<h2>The Glory of God and the Divine Decree</h2>
-<ol class="alpha">
-<li>The decree unites in one all-inclusive and final objective the glory of God (Prov. 16:4; Rom. 11:36; Heb. 2:10; Rev. 4:11).</li>
-<li>Since the members of the Godhead were alone before all creation, the decree of God concerned no one but the Trinity. The decree was designed to glorify the members of the Godhead who were there when the decree was made, not to glorify us who were not there. The Father, Son, and Holy Spirit had infinite glory in eternity past and will have it in eternity future. Whatever they do in the interim—from the creation of the universe to the conclusion of history—must</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="6">
-<li>
-<ol class="alpha" start="3">
-<li>bring them infinite glory. Generally, the decree relates to the glory of the Lord Jesus Christ because He is the manifest person of the Trinity. When history terminates, God's glory will be as perfect as it was before time began. Our failures do not compromise the glory of God. His glory does not depend on us; we depend on His glory.</li>
-<li>Grace is born of the glory of God. Grace means that God does all the work which adds up to our blessing. Whether in time or eternity, divine blessing is through grace. The only things related to us that can glorify God are what God Himself accomplishes, such as imputing His righteousness or providing doctrine. That is why He despises our self-righteousness and hypocrisy. He has no use for our legalism and human good, and He severely disciplines the legalist. When we begin to glorify ourselves, our accomplishments, our knowledge, or our experiences, we are deluding ourselves and setting ourselves up for divine discipline.</li>
-<li>Any time we are blessed of God, we can count on one thing: We did not earn or deserve it. Blessing is God's doing, exhibiting His glory, and we do not have to keep looking over our shoulder expecting to lose it. Once we understand His glory, we will certainly not want to intrude on it; we will want to go along with it. Therein lies the blessing.</li>
-<li>Being infinite, God the Father, God the Son, and God the Holy Spirit are worthy of all glory.</li>
-<li>God's glory is what He is. Here we have the entire doctrine of divine essence! Receiving glory is nothing new to the Trinity. All three Persons have always had it and always will. In eternity past, They did not need to add anything to what They already had; God has never suffered any kind of deficiency. They found infinite pleasure in each other; They were perfectly satisfied and perfectly happy. As part of that pleasure They simply decided to create a universe and put free creatures in it—first angels, then mankind. The members of the Trinity knew what many further decisions.</li>
-<li>Since He is the origin and subject (not the object) of the decree, God will inevitably be glorified by every thought, every decision, every action in human history. The good and the bad are included; sin, evil, everything will all add up to the glorification of God. Even “the wrath of man shall praise Him” (Ps. 76:10, corrected translation). In other words, the plan of God began with glory and will end with glory; the plan of God is never hindered; it never stops; it moves on with you or without you, no matter what you do. If you remain an unbeliever, you will go to hell, and God's glory will remain uncompromised and untarnished. If you believe in Christ, you will go to heaven, again consistent with the glory of God. Both in time and in eternity God's character is vindicated in everything that occurs.</li>
-<li>God is glorified not only in what He is but also in what He has decreed.</li>
-<li>To the finite mind, the decrees are many, but to God, they are all one plan embracing both cause and effect, means and end.</li>
-<li>The decree includes every detail in the experience of every creature, including such minute aspects as the number of hairs on your head. Even in a national disaster, when many mature believers will be isolated and alone, they can still do their jobs and live their lives as unto the Lord, knowing that God has not forgotten them.</li>
-<li>The decree of God is the sovereign purpose of God which is efficaciously accomplished by God alone, apart from all creature ability, mentality, talent, counsel, or cooperation.</li>
-<li>God is glorified and pleased in the momentum and advance of believers within His plan.</li>
-<li>The omniscience of God knew in eternity past what thoughts, motivations, decisions, and actions would carry one believer to maturity and another into reversionism. God has prepared the most phenomenal blessings and rewards for the mature believer—approved by the righteousness of God and imputed by the justice of God. He has also prepared severe discipline for the reversionist believer to bring him back into fellowship with Him (Heb. 12:6).</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="6">
-<li>
-<ol class="alpha" start="12">
-<li>While omniscience knew the actual and potential, only the actual was fed into the computer of the divine decree. Anything decreed by God will inevitably glorify God; it could not work out any other way.</li>
-</ol>
-</li>
-<li>
-<h2>Human Freedom and the Divine Decree</h2>
-<ol class="alpha">
-<li>The plan of God and the decree of God are totally consistent with human freedom. God does not limit, coerce, or violate man’s self-determination.</li>
-<li>We must distinguish between what God causes directly, such as Christ’s spiritual death on the cross, and what He permits indirectly, such as sin, human good, and evil.</li>
-<li>God created man with a free will—volition in his soul—therefore permits that free will to function in human self-determination. Otherwise, man would never have fallen. God permitted the Fall. The Fall was not His directive will, but His permissive will is as much a part of the decree as is His directive will. Remember: The decree is human history in the mind of God in eternity past.</li>
-<li>God is not the author of sin, human good, or evil. Free will is the source of these things. The sovereignty of God and the free will of man coexist in human history.</li>
-<li>Both sin and the salvation work of Christ on the cross were fed into the computer of the divine decree. Sin is the permissive will of God; the cross, the directive will. Sin is neutralized by the cross; this is an example of how God permits man’s free will to oppose Him, yet He maintains His own integrity and is victorious in the end.</li>
-<li>God the Father, God the Son, and God the Holy Spirit knew that the two greatest systems of human law—Jewish and Roman—would meet at the cross and those administering the law would fail. The members of the Trinity knew that hearsay would be accepted as evidence, that the facts would be omitted, and that the whole succession of Christ’s six trials would be a violation of both Roman and Jewish law (Num. 35:29–30; Deut. 17:6; 19:15; Acts 25:16). Nevertheless, the precise manner in which Christ was convicted and crucified was decreed in eternity past because God knew the freewill decisions of every individual involved. He knew the mob mentality and the decisions of every member of the crowd that shouted, “Crucify Him!” He knew the conspiracy of the religious Pharisees.</li>
-<li>Christ’s execution was the sum total of human evil and reversionism. It was the quintessence of sinfulness—sinfulness related to religion.<sup>87</sup> The religious crowd crucified the Lord, yet God’s purpose was carried out by the free choice of man—even by the free negative volition of the men in the Sanhedrin.</li>
-<li>It was religion that put Christ on the cross, but it was God the Father who, through His integrity, used the crucifixion for His own purpose. God used religion, the devil’s ace trump, to provide our salvation! Religion reached its evil peak only to inadvertently provide the grace way of salvation as the justice of God imputed the personal sins of mankind to Christ on the cross and judged them.</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="7">
-<li>
-<ol class="alpha" start="9">
-<li>This once again shows that no matter how great the creature may be—and Satan is the smartest of all creatures—God is infinitely greater. Satan finally came up with this ‘smart’ way to get rid of Jesus—Roman crucifixion, but through this supreme masterpiece of satanic conspiracy came our salvation. God not only uses the wrath of man to praise Him (Ps. 76:10), but He uses the antagonism of Satan as well! It was a combined satanic-human operation that put the Lord on the cross. Satan thought he had accomplished his objective, and in no way had his volition been coerced. But all he had done was to contribute to our Lord’s objective in hypostatic union. There is the wisdom of the divine decree!</li>
-<li>The divine decree does not oppose human freedom.</li>
-<li>Man is free to glorify and serve God, but the manner of glorification and service is prescribed by God and is not left to man’s freedom or imagination. God ordained the postsalvation spiritual life of the Church Age believer to function under the filling of the Spirit and perception of Bible doctrine. He did not ordain witnessing, prayer, or any other Christian production to be the means but the result of spiritual growth.<sup>88</sup> We must understand what His plan is and what it is not. The daily function of GAP (grace apparatus for perception) is His plan for our growth.</li>
-<li>If the result is to be spiritual growth and divine blessing, our freedom is limited to positive volition toward Bible doctrine.</li>
-<li>Man’s use of his freedom to reject doctrine results in divine discipline. Either we adjust to the justice of God or the justice of God will adjust to us.</li>
-<li>The believer’s objective is to use Bible doctrine resident in his soul to determine the will and pleasure of God regarding his spiritual life and modus operandi.</li>
-<li>In this way, human freedom becomes merged into God’s will. God is pleased, and man is blessed beyond description.</li>
-</ol>
-</li>
-<li>
-<h2>The Practical Application of the Divine Decree</h2>
-<ol class="alpha">
-<li>Since the decree is the sum total of God’s plan and purpose in eternity past, it centers around the person of the Lord Jesus Christ (Eph. 1:4–6; 1 John 3:23).</li>
-<li>Therefore, the free will of man must face the critical issue of the person and work of Jesus Christ on the cross. Faith alone in Christ alone is man’s entrance into the plan of grace. At the cross, the sovereignty of God and the free will of man meet for the glory of God and the advantage of mankind. The basis for this meeting is the integrity of God.</li>
-<li>Under the divine policy of grace, the work of salvation is accomplished by God while man gains the benefits apart from human merit or ability.
-                    <ol class="numeric">
-<li>The righteousness of God condemned all human sin in the divine decree in eternity past; the justice of God judged all sins at the cross so that the love of God (Rom. 5:8) provides salvation (John 3:16) through the grace of God (Eph. 2:8–9).</li>
-<li>The antagonism between divine justice and human works means that human works are set aside in every phase of the plan of grace.</li>
-</ol>
-</li>
-<li>God’s plan in eternity past was designed to include all events and actions, related to their causes and conditions, as part of one indivisible system, every link being a part of the integrity of the whole. Each link is as important as the whole. The whole is the integrity of God making all the links properly relate through grace. This is how He makes all things “work together for good to those who love” Him (Rom. 8:28).</li>
-<li>Without violating human volition, God has designed a plan so perfect that it includes direction, provision, preservation, function, cause, and effect for all believers.</li>
-<li>Under this plan, God has decreed to do some things directly (such as creation or salvation), some through secondary agencies (as through Israel or the Church), and some through individuals (as through Moses or the Apostle Paul—or through us).</li>
-<li>Thus, there are primary, secondary, and tertiary functions within the plan of God. It does not matter into which of</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="8">
-<li>
-<ol class="alpha" start="8">
-<li>these categories any action falls; all constitute one great, all-comprehensive plan—perfect, eternal, unchangeable, with no loss of integrity. We are part of a magnificently perfect plan designed to give us everything that is wonderful in time and eternity. If our spiritual momentum carries us to supergrace or plērōma, we will be blessed!</li>
-<li>The plan of God is consistent with human freedom. God is not unfair; He does not limit or coerce our freedom. He graciously provides guidance as to how we should use our volition. The only revelation of the divine decree is found in the Bible; therefore, the highest priority in the Christian life is the cognition, retention, and application of Bible doctrine.</li>
-<li>Some things God permits; other things He causes. Some things please Him; others do not. But God always recognizes reality. This is one of the most important aspects of our relationship with Him: Everything which is decreed is reality and, like God, we, too, must face the facts.</li>
-<li>Because God deals with reality, His plan must deal with things as they are. His solutions start with what is, not with what is not. There is no wishful thinking in God. He never rationalizes anything. He never blesses us out of sentimentality. He never blesses us because we think we're spiritual. He never blesses us because of our character, our plans, our ideas, our schemes, our self-righteousness. He blesses us always and only on the basis of His character.</li>
-<li>Anyone who keeps trying to vindicate himself before God will never understand the integrity of God and how it relates to the divine decree.</li>
-<li>Again, God created man with free will.</li>
-<li>The fact that man can choose contrary to the will of God proves the coexistence of the sovereignty of God and the free will of man in human history to fulfill His pleasure and purpose.</li>
-</ol>
-</li>
-<li>
-<h2>Different Theological Views of the Divine Decree Pertaining to Election</h2>
-<ol class="alpha">
-<li>Of all the decrees in eternity past, five are related to the purpose of God in election. The decrees must be in logical order. Though the entire decree is one thought in the mind of God, the logical principle of cause and effect is involved in human thinking and understanding. This is the subject of the doctrine of lapsarianism. Derived from the Latin lapsare meaning “to fall,” lapsarianism is the theological term used to explain the logical, not chronological, order within God’s elective decrees. The nomenclature refers to whether the decree to elect comes before or after the decree to permit the Fall. Historically, theologians have developed four positions:
-                    <ol class="numeric">
-<li>Supralapsarianism, a form of hyper-Calvinism
-                            <ol class="lower-alpha">
-<li>The decree to elect some to be saved and to reprobate all others. This is double predestination, a heretical position denying the coexistence of the sovereignty of God and the free will of man.</li>
-<li>The decree to create man, both elect and nonelect.</li>
-<li>The decree to permit the Fall.</li>
-<li>The decree to provide salvation for the elect. This is the basis for limited atonement and therefore a false position.</li>
-<li>The decree to save the elect.</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-<div class="section">
-<div class="page">
-<ol class="roman" start="9">
-<li>
-<ol class="alpha" start="1">
-<li>
-                    Supralapsarianism, a form of hyper-Calvinism
-                    <p>This once again shows that no matter how great the creature may be—and Satan is the smartest of all creatures—God is infinitely greater. Satan finally came up with this ‘smart’ way to get rid of Jesus—Roman crucifixion, but through this supreme masterpiece of satanic conspiracy came our salvation. God not only uses the wrath of man to praise Him (Ps. 76:10), but He uses the antagonism of Satan as well! It was a combined satanic-human operation that put the Lord on the cross. Satan thought he had accomplished his objective, and in no way had his volition been coerced. But all he had done was to contribute to our Lord’s objective in hypostatic union. There is the wisdom of the divine decree!</p>
-</li>
-<li>Infralapsarianism, a form of moderate Calvinism
-                    <ol class="lower-alpha">
-<li>The decree to create all mankind.</li>
-<li>The decree to permit the Fall.</li>
-<li>The decree to provide salvation for all mankind. This is unlimited atonement and biblically correct.</li>
-<li>The decree to elect some—those who believe in Christ—from among fallen mankind and to leave others in their sin—those who will not believe in Christ.</li>
-<li>The decree to save the elect through faith in Christ or to apply salvation to those who believe.</li>
-</ol>
-</li>
-<li>Sublapsarianism, a form of moderate Calvinism
-                    <ol class="lower-alpha">
-<li>The decree to create all mankind.</li>
-<li>The decree to permit the Fall.</li>
-<li>The decree to elect those who believe in Christ, and to leave in just condemnation those who do not believe in Christ.</li>
-<li>The decree to provide salvation for the elect. This is limited atonement and therefore a false position.</li>
-<li>The decree to save the elect through faith in Christ, sometimes stated as the decree to apply salvation to those who believe in Christ.</li>
-</ol>
-</li>
-<li>Arminian lapsarianism, represented by Richard Watson, the most prominent Arminian theologian. An Arminian is a person who accepts a system of erroneous theology named after James Arminius (1560–1609).
-                    <ol class="lower-alpha">
-<li>The decree to create all mankind.</li>
-<li>The decree to permit the Fall.</li>
-<li>The decree to provide unlimited atonement. This elective decree is misunderstood in Arminianism as they do not acknowledge that the sole and complete work of Christ on the cross makes atonement available to the entire human race.</li>
-<li>Salvation by foreseen human virtue plus faith plus obedience. This is the false position of salvation by works.</li>
-<li>Election as an act of God in time. This makes election synonymous with experiential sanctification, which is heresy as it inevitably rejects positional sanctification at the moment of salvation.</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<h2>Biblical Lapsarianism</h2>
-<p>While infralapsarianism is the most accurate of the four historical views, the doctrine of omniscience is the basis for our modification.</p>
-<ol class="numeric">
-<li>God decreed the creation of all mankind with a free will in the status of perfection to resolve the prehistoric angelic conflict and to bring many sons into glory.</li>
-<li>God decreed to permit the fall of mankind through the function of man's own self-determination, his own volition, as the extension of the angelic conflict into human history.</li>
-<li>God decreed to provide eternal salvation for all mankind under the doctrine of unlimited atonement.</li>
-<li>God decreed to leave the reprobate—those who remain in spiritual death because they reject Christ as Savior—in their just condemnation.</li>
-<li>God decreed simultaneously in eternity past both election and predestination for believers only.</li>
-<li>God decreed to apply salvation to everyone who believes in Christ. Hence, the decree to save the elect through faith alone in Jesus Christ alone.</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-
-
-<!-- Styles -->
-<style>
-.doctrine-standalone-wrapper {
-    font-family: Georgia, 'Times New Roman', serif;
-    color: #1f2937;
-    line-height: 1.8;
-}
-
-.doctrine-content h1 {
-    color: #1e40af;
-    font-size: 2em;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    border-bottom: 3px solid #3b82f6;
-    padding-bottom: 0.5em;
-}
-
-.doctrine-content h2 {
-    color: #1e40af;
-    font-size: 1.6em;
-    margin-top: 1.5em;
-    margin-bottom: 0.8em;
-    border-bottom: 2px solid #4299e1;
-    padding-bottom: 0.3em;
-}
-
-.doctrine-content h3 {
-    color: #374151;
-    font-size: 1.3em;
-    margin-top: 1.2em;
-    margin-bottom: 0.6em;
-}
-
-.doctrine-content p {
-    margin: 1em 0;
-    text-align: justify;
-}
-
-.doctrine-content ol, .doctrine-content ul {
-    margin: 1em 0;
-    padding-left: 2em;
-}
-
-.doctrine-content li {
-    margin: 0.8em 0;
-}
-
-.doctrine-content ol.roman {
-    list-style-type: upper-roman;
-}
-
-.doctrine-content ol.alpha {
-    list-style-type: upper-alpha;
-}
-
-.doctrine-content a[href*="esv.org"], 
-.doctrine-content a[href*="biblegateway"] {
-    color: #2563eb;
-    text-decoration: underline;
-    transition: color 0.2s ease;
-}
-
-.doctrine-content a[href*="esv.org"]:hover, 
-.doctrine-content a[href*="biblegateway"]:hover {
-    color: #1d4ed8;
-    text-decoration: none;
-}
-
-/* Search Results Styling */
-#searchResults {
-    font-weight: 500;
-    font-size: 1.05em;
-    padding: 0.5em;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-#searchResults.search-success {
-    color: #059669;
-    background: #d1fae5;
-}
-
-#searchResults.search-error {
-    color: #dc2626;
-    background: #fee2e2;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .doctrine-standalone-wrapper {
-        padding: 1em 0.5em;
-    }
-    
-    .doctrine-content {
-        padding: 1em;
-    }
-    
-    h1 {
-        font-size: 1.8em !important;
-    }
-    
-    .doctrine-content h1 {
-        font-size: 1.5em;
-    }
-    
-    .doctrine-content h2 {
-        font-size: 1.3em;
-    }
-    
-    #doctrineSearch {
-        width: 95% !important;
-    }
-}
-</style>
-<script>
-// Verse Preview Tooltip System
-(function() {
-    const API_CONFIG = {
-        enabled: false,  // Set to true and add apiKey to enable ESV API
-        apiKey: '',
-        provider: 'esv'  // 'esv' or 'biblegateway'
-    };
-    
-    const verseCache = new Map();
-    let tooltip = null;
-    
-    function createTooltip() {
-        if (tooltip) return tooltip;
-        tooltip = document.createElement('div');
-        tooltip.id = 'verseTooltip';
-        tooltip.style.cssText = `
-            position: absolute;
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-            color: white;
-            padding: 0.75em 1em;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 10000;
-            max-width: 400px;
-            font-size: 0.9em;
-            line-height: 1.5;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        `;
-        document.body.appendChild(tooltip);
-        return tooltip;
-    }
-    
-    function showTooltip(verse, x, y) {
-        const tip = createTooltip();
-        tip.textContent = `Loading ${verse}...`;
-        tip.style.left = x + 'px';
-        tip.style.top = (y - 10) + 'px';
-        tip.style.opacity = '1';
-        
-        // Check cache
-        if (verseCache.has(verse)) {
-            tip.textContent = verseCache.get(verse);
-            return;
-        }
-        
-        // For now, just show verse reference
-        // In production, this would call ESV API
-        tip.textContent = `${verse} - Click to view full text`;
-        verseCache.set(verse, tip.textContent);
-    }
-    
-    function hideTooltip() {
-        if (tooltip) {
-            tooltip.style.opacity = '0';
-        }
-    }
-    
-    // Add hover listeners to scripture links
-    document.addEventListener('DOMContentLoaded', function() {
-        const links = document.querySelectorAll('a[href*="esv.org"], a[href*="biblegateway"]');
-        links.forEach(link => {
-            link.addEventListener('mouseenter', function(e) {
-                const verse = this.textContent.trim();
-                showTooltip(verse, e.pageX, e.pageY);
-            });
-            link.addEventListener('mouseleave', hideTooltip);
-            link.addEventListener('mousemove', function(e) {
-                if (tooltip) {
-                    tooltip.style.left = e.pageX + 'px';
-                    tooltip.style.top = (e.pageY - 10) + 'px';
-                }
-            });
-        });
-    });
-})();
-</script>
-<script>
-// Search Functionality
-(function() {
-    const searchInput = document.getElementById('doctrineSearch');
-    const searchResults = document.getElementById('searchResults');
-    
-    if (!searchInput) return;
-    
-    function performSearch(query) {
-        if (!query || query.length < 2) {
-            searchResults.textContent = '';
-            searchResults.className = '';
-            return;
-        }
-        
-        const lowerQuery = query.toLowerCase();
-        const sections = document.querySelectorAll('section, h2, h3, p, li');
-        let matches = 0;
-        
-        sections.forEach(section => {
-            const text = section.textContent.toLowerCase();
-            if (text.includes(lowerQuery)) {
-                matches++;
-                section.style.backgroundColor = matches === 1 ? '#fef3c7' : '';
-            } else {
-                section.style.backgroundColor = '';
-            }
-        });
-        
-        if (matches > 0) {
-            searchResults.textContent = `Found ${matches} matching section${matches > 1 ? 's' : ''}`;
-            searchResults.className = 'search-success';
-            
-            // Scroll to first match
-            const firstMatch = document.querySelector('section[style*="background-color"], h2[style*="background-color"], h3[style*="background-color"]');
-            if (firstMatch) {
-                firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        } else {
-            searchResults.textContent = 'No matches found';
-            searchResults.className = 'search-error';
-        }
-    }
-    
-    let searchTimeout;
-    searchInput.addEventListener('input', function() {
-        clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(() => {
-            performSearch(this.value);
-        }, 300);
-    });
-    
-    // ESC to clear
-    searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            this.value = '';
-            performSearch('');
-        }
-    });
-})();
-</script>
-<script>
-// Cross-Reference Panel (Simplified)
-(function() {
-    // This would normally load cross-reference data
-    // For standalone pages, we'll just show a message
-    const scriptureLinks = document.querySelectorAll('a[href*="esv.org"], a[href*="biblegateway"]');
-    
-    scriptureLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const verse = this.textContent.trim();
-            // In full version, this would show cross-references
-            // For now, just allow normal link behavior
-        });
-    });
-})();
-</script>
-<div class="doctrine-tags"><span class="tag" data-tag="Theology Proper">Theology Proper</span><span class="tag" data-tag="God">God</span><span class="tag" data-tag="Doctrine">Doctrine</span></div>
-</section>
-  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
-</div>
 </body>
 </html>
