@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine of the Levitical Priesthood — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Doctrine of the Levitical Priesthood</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="levitical-priesthood">
+<h2>Doctrine of the Levitical Priesthood</h2>
+<ol class="roman">
+<li>
+            The three essentials of the Levitical priesthood (<a href="https://www.esv.org/Numbers+16:5" target="_blank">Num. 16:5</a>).
+            <ol class="alpha">
+<li>Commissioned by God</li>
+<li>Separated unto God</li>
+<li>Allowed to come near</li>
+</ol>
+</li>
+<li>
+            The perpetuation of the priesthood (<a href="https://www.esv.org/Numbers+18:1" target="_blank">Num. 18:1</a>, <a href="https://www.esv.org/Numbers+18:7–8" target="_blank">7–8</a>): The priesthood began with Aaron and was to be carried on by his natural sons (<a href="https://www.esv.org/Exodus+28:1" target="_blank">Ex. 28:1</a>).
+        </li>
+<li>
+            Disqualification from the priesthood: Any one of Aaron's progeny who had any physical defects was excluded from service in the Tabernacle or Temple (<a href="https://www.esv.org/Leviticus+21:17-23" target="_blank">Lev. 21:17–23</a>).
+        </li>
+<li>
+            The general function of the priesthood.
+            <ol class="alpha">
+<li>Taught the Law (<a href="https://www.esv.org/Leviticus+10:11" target="_blank">Lev. 10:11</a>)</li>
+<li>Offered sacrifices (Lev. 9)</li>
+<li>Maintained the Tabernacle and Temple (<a href="https://www.esv.org/Numbers+18:3" target="_blank">Num. 18:3</a>)</li>
+<li>Functioned in the Holy Place (<a href="https://www.esv.org/Exodus+27:21" target="_blank">Ex. 27:21</a>; 30:<a href="https://www.esv.org/Exodus+30:7–8" target="_blank">7–8</a>)</li>
+<li>Inspected (ceremonially) unclean persons (Lev. 13; 14)</li>
+<li>Judged controversies (<a href="https://www.esv.org/Deuteronomy+17:8-13" target="_blank">Deut. 17:8–13</a>; 21:5)</li>
+<li>Collected taxes called "tithes" from the people (<a href="https://www.esv.org/Numbers+18:21" target="_blank">Num. 18:21</a>, <a href="https://www.esv.org/Numbers+18:26" target="_blank">26</a>;<a href="https://www.esv.org/Hebrews+7:5" target="_blank"> Heb. 7:5</a>)</li>
+</ol>
+</li>
+<li>
+            Support of the priesthood from certain portions of the sacrificial offerings (<a href="https://www.esv.org/Numbers+18:8-14" target="_blank">Num. 18:8–14</a>).
+            <ol class="alpha">
+<li>One regular tithe (<a href="https://www.esv.org/Numbers+18:21-24" target="_blank">Num. 18:21–24</a>; cf.<a href="https://www.esv.org/Leviticus+27:30-33" target="_blank"> Lev. 27:30–33</a>), of which a tenth part went to the priests (<a href="https://www.esv.org/Numbers+18:26-28" target="_blank">Num. 18:26–28</a>)</li>
+<li>Thirteen cities assigned to them (<a href="https://www.esv.org/Joshua+21:8-19" target="_blank">Joshua 21:8–19</a>)</li>
+<li>A special tithe every third year (<a href="https://www.esv.org/Deuteronomy+14:27-29" target="_blank">Deut. 14:27–29</a>; 26:12)</li>
+<li>The redemption money for the firstborn in Israel (<a href="https://www.esv.org/Numbers+18:16" target="_blank">Num. 18:16</a>)</li>
+<li>A percentage of the booty of war (<a href="https://www.esv.org/Numbers+31:25-29" target="_blank">Num. 31:25–29</a>)</li>
+<li>The shewbread (<a href="https://www.esv.org/Leviticus+24:5-9" target="_blank">Lev. 24:5–9</a>)</li>
+</ol>
+</li>
+<li>
+            Assistants to the priests: the Levites (<a href="https://www.esv.org/2+Chronicles+29:34" target="_blank">2 Chron. 29:34</a>).
+            <ol class="alpha">
+<li>Chosen by God to assist in sacrifices and in the care and administration of holy things (<a href="https://www.esv.org/Numbers+3:5-51" target="_blank">Num. 3:5–51</a>; 8:14–19)</li>
+<li>Function of the Levites
+                    <ol class="decimal">
+<li>Preserved and transmitted the Law (<a href="https://www.esv.org/Leviticus+10:11" target="_blank">Lev. 10:11</a>;<a href="https://www.esv.org/Deuteronomy+17:18" target="_blank"> Deut. 17:18</a>; 31:<a href="https://www.esv.org/Deuteronomy+31:9–13" target="_blank">9–13</a>; 33:<a href="https://www.esv.org/Deuteronomy+33:10" target="_blank">10</a>;<a href="https://www.esv.org/Nehemiah+8:9" target="_blank"> Neh. 8:9</a>;<a href="https://www.esv.org/Ezekiel+44:23" target="_blank"> Ezek. 44:23</a>)</li>
+<li>Served the priests (<a href="https://www.esv.org/Numbers+18:2-4" target="_blank">Num. 18:2–4</a>)</li>
+<li>Set up, dismantled, and transported the Tabernacle (Num. 4; 10:17, 21)</li>
+<li>Taught doctrine and the administration of justice (Deut. 33:10a)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            Period of service of the priesthood: twenty-five years, from age 25–50 (<a href="https://www.esv.org/Numbers+8:24-25" target="_blank">Num. 8:24–25</a>).
+        </li>
+<li>
+            Responsibilities given to the three branches of the tribe of Levi (excluding the Aaronic line) concerning the entire Tabernacle and everything in it (Num. 4).
+            <ol class="alpha">
+<li>The Kohathites—maintain, protect, and carry all articles of furniture, vessels, and veil (<a href="https://www.esv.org/Numbers+4:2-20" target="_blank">Num. 4:2–20</a>)</li>
+<li>The Gershonites—carry the coverings, hangings, curtains for the door, and curtains surrounding the courtyard of the Tabernacle (<a href="https://www.esv.org/Numbers+4:22-28" target="_blank">Num. 4:22–28</a>)</li>
+<li>The Merarites—carry the planks, bars, posts, tent pegs, crossbars, and cords (<a href="https://www.esv.org/Numbers+4:29-33" target="_blank">Num. 4:29–33</a>).</li>
+</ol>
+</li>
+<li>
+            The appointment of the Levites: God had originally chosen the entire nation to be His priests (<a href="https://www.esv.org/Exodus+19:5-6" target="_blank">Ex. 19:5–6</a>). Upon the Israelites' failure during the golden calf incident (<a href="https://www.esv.org/Exodus+32:7-10" target="_blank">Ex. 32:7–10</a>), the Levites, who had rallied around Moses (<a href="https://www.esv.org/Exodus+32:26-28" target="_blank">Ex. 32:26–28</a>), were commissioned to assist the priesthood of Aaron and his sons (<a href="https://www.esv.org/Numbers+3:5-9" target="_blank">Num. 3:5–9</a>).
+        </li>
+<li>
+            Dress of the high priest (Ex. 28): Except on ceremonial occasions, the dress of the priests and the high priest was no different from that of the common people. On ceremonial occasions, the high priest's garments consisted of a precise design to give him dignity and honor: white linen shorts; a white linen coat, approximately hip-length; a belt in the same colors as the curtains—white, blue, scarlet, and purple; a turban-like cap with a golden crown, inscribed: "Holy to Jehovah," (this was the badge of his rank); an ephod of blue, lavishly embroidered in colors; a breastplate of gold and cloth, with twelve stones, representing the twelve tribes engraved with their names and fastened with a golden clasp, and the Urim and Thummim.
+        </li>
+<li>
+            The consecration of the priests and high priests: Exodus 29.
+        </li>
+<li>
+            The high priest's most exalted day—the Day of Atonement (Lev. 16): On that high holy day, the high priest donned his ceremonial robes and entered the Holy of Holies, where with his finger he sprinkled the blood of the bullock of the sin offering seven times for himself over the top of the mercy seat (<a href="https://www.esv.org/Leviticus+16:6" target="_blank">Lev. 16:6</a>, <a href="https://www.esv.org/Leviticus+16:14" target="_blank">14</a>). He reentered a second time with the blood of the goat of the sin offering and performed the same ritual for the uncleanness of Israelites (<a href="https://www.esv.org/Leviticus+16:20" target="_blank">Lev. 16:20</a>). His return to the Israelites signified that God had accepted the "atonement for the sons of Israel for all their sins" (<a href="https://www.esv.org/Leviticus+16:34" target="_blank">Lev. 16:34</a>). The sight of the high priest was the cause of rejoicing, for once again God had ceremonially pardoned and cleansed His chosen people from the sins of the past year (<a href="https://www.esv.org/Leviticus+16:30" target="_blank">Lev. 16:30</a>).
+        </li>
+<li>
+            Priesthood reorganized when King David brought the ark to its permanent dwelling place in Jerusalem: 1 Chronicles 15; 16:4–6, 37–43.
+        </li>
+<li>
+            The descendants of the high priest.
+            <ol class="alpha">
+<li>Succession occurred when the officiating high priest died and the eldest surviving son was installed (<a href="https://www.esv.org/Numbers+20:28" target="_blank">Num. 20:28</a>).</li>
+<li>The line was promised to pass down through Phinehas, eldest son of Eleazar, the son of Aaron (<a href="https://www.esv.org/Numbers+25:10-13" target="_blank">Num. 25:10–13</a>).</li>
+<li>Eli was a legitimate priest and descendant of Ithamar, but not a high priest during Saul's reign. He and his house were excluded from the high priesthood because of their sin (<a href="https://www.esv.org/1+Samuel+2:30-35" target="_blank">1 Sam. 2:30–35</a>). During Solomon's reign, the line of Eleazar was rightfully restored (<a href="https://www.esv.org/1+Kings+2:26-27" target="_blank">1 Kings 2:26–27</a>, 35). When Israel was about to go under the fifth cycle of discipline in Jeremiah's day, Seraiah was high priest. He was captured by Nebuchadnezzar and executed at Riblah (<a href="https://www.esv.org/2+Kings+25:18-21" target="_blank">2 Kings 25:18–21</a>). His son, Jehozadak, who should have inherited the office, never served as high priest but lived and died in captivity at Babylon (<a href="https://www.esv.org/1+Chronicles+6:15" target="_blank">1 Chron. 6:15</a>). His son Joshua assumed the office when the high priesthood was restored in the days of Zechariah and Zerubbabel (Zech. 3; 6:11). His successors were: Joiakim, Eliashib, Joiada, Johanan, and Jaddua, who served in the time of Alexander the Great. Jaddua met Alexander's conquering army with a scroll of Daniel in his hand. By reading Alexander those passages that dealt with him, Jaddua won Alexander's friendship for the Jews.<sup>11</sup> Jaddua's successors were: Onias I, Simon the Just; Onias II, too young to become the high priest, was set aside in favor of Simon's brother, Eleazar. Onias II became known as Menelaus, an evil priest, and was followed, in turn, by an equally evil man—Alcimus. The high priesthood was passed down to the Hasmonean family, of the course (class or order) of Jehoiarib (<a href="https://www.esv.org/1+Chronicles+9:10" target="_blank">1 Chron. 9:10</a>; 24:7;<a href="https://www.esv.org/Nehemiah+11:10" target="_blank"> Neh. 11:10</a>), and continued in that line until Herod the Great destroyed the family when he made Aristobulus high priest then ordered his murder in 35 B.C.<sup>12</sup> Twenty-eight more high priests served until the destruction of Jerusalem, as well as its priesthood, in A.D. 70. (Caiaphas and Annas were the two high priests involved in Christ's death.)</li>
+</ol>
+</li>
+</ol>
+<p class="footnote"><sup>11</sup> Flavius Josephus, <em>Antiquities of the Jews</em>, XI, viii, 4–5.</p>
+<p class="footnote"><sup>12</sup> Ibid., XV, iii, 3.</p>
+<div class="doctrine-tags"><span>Tags:</span><span class="tag" data-tag="Doctrine">Doctrine</span><span class="tag" data-tag="Priesthood">Priesthood</span><span class="tag" data-tag="Salvation">Salvation</span><span class="tag" data-tag="Sin">Sin</span></div></section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>

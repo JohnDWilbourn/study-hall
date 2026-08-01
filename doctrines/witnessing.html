@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine of Witnessing — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Doctrine of Witnessing</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="witnessing">
+<h2>Doctrine of Witnessing</h2>
+<ol class="roman">
+<li>
+            Definition and responsibility
+            <ol class="alpha">
+<li>Witnessing is the believer communicating God’s plan of salvation to an unbeliever on a personal basis; that is, personal evangelism.</li>
+<li>Witnessing functions in addition to mass evangelism, church evangelism, or the believer who has the gift of evangelism or pastor-teacher.</li>
+<li>Witnessing is part of every believer’s spiritual ambassadorship—the commission to personally represent Jesus Christ during His absence from earth (<a href="https://www.esv.org/2+Corinthians+5:18-20" target="_blank">2 Cor. 5:18–20</a>).
+                    <ol class="decimal">
+<li>As ambassadors for Christ, all believers have the obligation to communicate the good news wherever they associate with unbelievers: in the neighborhood, home, workplace, campus, etc. (<a href="https://www.esv.org/Romans+10:14-15" target="_blank">Rom. 10:14–15</a>; <a href="https://www.esv.org/1+Corinthians+9:16" target="_blank">1 Cor. 9:16</a>).</li>
+<li>Believers are to represent the person of Jesus Christ by both word and action (<a href="https://www.esv.org/Romans+1:15-17" target="_blank">Rom. 1:15–17</a>; <a href="https://www.esv.org/1+Corinthians+1:18" target="_blank">1 Cor. 1:18</a>; 15:3–4; <a href="https://www.esv.org/2+Corinthians+3:3" target="_blank">2 Cor. 3:3</a>; 6:3).</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            Biblical analogy to witnessing: “fishers of men” (<a href="https://www.esv.org/Matthew+4:19" target="_blank">Matt. 4:19</a>)
+            <ol class="alpha">
+<li>Fishermen must have a desire to fish.</li>
+<li>Fishermen must be equipped to fish.</li>
+<li>Fishermen must go where the fish are.</li>
+<li>Fishermen must use the right bait.</li>
+<li>Fishermen must be patient.</li>
+<li>Fishermen will be rewarded.</li>
+</ol>
+</li>
+<li>
+            Agents of witnessing
+            <ol class="alpha">
+<li>The family—Adam and Eve as the first parents set the precedent for all future parents by witnessing to their children.</li>
+<li>The national entity—Old Testament Israel, as the first client nation, was responsible for evangelizing the world (<a href="https://www.esv.org/Exodus+19:6" target="_blank">Ex. 19:6</a>;<a href="https://www.esv.org/Romans+3:1-2" target="_blank"> Rom. 3:1–2</a>). During the future Tribulation, evangelism will once again be centered in Israel (<a href="https://www.esv.org/Revelation+7:1-12" target="_blank">Rev. 7:1–12</a>; 11:3–12).</li>
+<li>The Church—all believers throughout the world are responsible for spreading the Gospel (<a href="https://www.esv.org/Acts+1:8" target="_blank">Acts 1:8</a>).</li>
+</ol>
+</li>
+<li>
+            The Holy Spirit, sovereign executive of witnessing
+            <ol class="alpha">
+<li>By the power of God the Holy Spirit, the Gospel comes “with full conviction” (<a href="https://www.esv.org/1+Thessalonians+1:5" target="_blank">1 Thess. 1:5</a>).</li>
+<li>The believer witnessing must be filled with the Holy Spirit in order to recall pertinent doctrines of salvation and communicate the Gospel message with sensitivity toward the unbeliever (<a href="https://www.esv.org/Acts+1:8" target="_blank">Acts 1:8a</a>). The believer’s job is to make Gospel information clear and accurate; the ministry of the Holy Spirit is what brings the hearer to the place of decision.</li>
+<li>The unbeliever, spiritually dead and lacking a human spirit, cannot understand the spiritual content of the Gospel (<a href="https://www.esv.org/1+Corinthians+2:14" target="_blank">1 Cor. 2:14</a>). The Holy Spirit, therefore, acts in place of the human spirit to make the Gospel comprehensible.</li>
+<li>If the listener chooses to believe the message, the Holy Spirit takes that faith and makes it effective for salvation (<a href="https://www.esv.org/Ephesians+1:13" target="_blank">Eph. 1:13</a>).</li>
+</ol>
+</li>
+<li>
+            Knowledge of pertinent doctrines necessary for witnessing
+            <ol class="alpha">
+<li>Doctrine of grace: all that God is free to do for mankind on the basis of Christ’s work on the cross. The entire human race, except for Jesus Christ, is born into a state of sin and condemnation, incapable to gain the favor of God, but God’s plan of grace provides the way for anyone to have a relationship with Him forever.</li>
+<li>Doctrines of the person of Jesus Christ—Who is He?
+                    <ol class="decimal">
+<li>The Son of God, second person of the Trinity (<a href="https://www.esv.org/Matthew+26:63-64" target="_blank">Matt. 26:63–64</a>;<a href="https://www.esv.org/Luke+22:70" target="_blank"> Luke 22:70</a>;<a href="https://www.esv.org/John+17:4" target="_blank"> John 17:4</a>;<a href="https://www.esv.org/Hebrews+1:10" target="_blank"> Heb. 1:10</a>).</li>
+<li>The prophesied Messiah and the unblemished (sinless) sacrificial Lamb of God of the Old Testament (<a href="https://www.esv.org/Isaiah+37:16" target="_blank">Isa. 37:16</a>;<a href="https://www.esv.org/Luke+1:68" target="_blank"> Luke 1:68</a>;<a href="https://www.esv.org/John+1:29" target="_blank"> John 1:29</a>, <a href="https://www.esv.org/John+1:36" target="_blank">36</a>; <a href="https://www.esv.org/1+Peter+1:18-19" target="_blank">1 Pet. 1:18–19</a>).</li>
+<li>The God-man, born of a virgin (<a href="https://www.esv.org/Luke+1:34-35" target="_blank">Luke 1:34–35</a>). He died on the cross, was resurrected from the grave, ascended to heaven, and is now seated at the Father’s right hand (<a href="https://www.esv.org/John+1:14" target="_blank">John 1:14</a>;<a href="https://www.esv.org/Luke+24:50-51" target="_blank"> Luke 24:50–51</a>;<a href="https://www.esv.org/Romans+1:2-6" target="_blank"> Rom. 1:2–6</a>;<a href="https://www.esv.org/Philippians+2:6-8" target="_blank"> Phil. 2:6–8</a>;<a href="https://www.esv.org/Hebrews+1:3" target="_blank"> Heb. 1:3</a>; <a href="https://www.esv.org/1+Peter+1:20-21" target="_blank">1 Pet. 1:20–21</a>).</li>
+</ol>
+</li>
+<li>Doctrines of Christ’s saving work—What did He accomplish on the cross? The sinless Jesus Christ willingly suffered spiritual death—separation from God—in order to be judged for the sins of humanity (<a href="https://www.esv.org/Mark+15:34" target="_blank">Mark 15:34</a>;<a href="https://www.esv.org/Romans+5:8" target="_blank"> Rom. 5:8</a>; <a href="https://www.esv.org/2+Corinthians+5:21" target="_blank">2 Cor. 5:21</a>; <a href="https://www.esv.org/1+Peter+2:24" target="_blank">1 Pet. 2:24</a>; 3:18a). His substitutionary sacrifice accomplished the following:
+                    <ol class="decimal">
+<li>Unlimited atonement: Jesus Christ died spiritually for all mankind (2 Cor. 5:19a; <a href="https://www.esv.org/1+Timothy+4:10" target="_blank">1 Tim. 4:10</a>; <a href="https://www.esv.org/1+John+2:2" target="_blank">1 John 2:2</a>).</li>
+<li>Reconciliation: Christ’s work removed the barrier between God and man (<a href="https://www.esv.org/Romans+5:11" target="_blank">Rom. 5:11</a>; <a href="https://www.esv.org/2+Corinthians+5:18-19" target="_blank">2 Cor. 5:18–19</a>).</li>
+<li>Redemption: Christ paid the price to purchase mankind from the slave market of sin (1 Cor. 6:20a; <a href="https://www.esv.org/1+Peter+1:18-19" target="_blank">1 Pet. 1:18–19</a>).</li>
+<li>Expiation: Christ’s work on the cross canceled the debt for the penalty of sin (<a href="https://www.esv.org/Colossians+2:14" target="_blank">Col. 2:14</a>).</li>
+<li>Propitiation: The sacrifice of Jesus Christ satisfied the demands of God’s holiness (<a href="https://www.esv.org/Romans+3:25" target="_blank">Rom. 3:25</a>; <a href="https://www.esv.org/1+John+2:2" target="_blank">1 John 2:2</a>).</li>
+<li>Regeneration: The moment anyone believes in Jesus Christ, he is “born again” into eternal life (<a href="https://www.esv.org/John+3:3" target="_blank">John 3:3</a>).</li>
+<li>Imputation: God credits His own perfect righteousness to the believer at salvation (<a href="https://www.esv.org/Romans+3:22" target="_blank">Rom. 3:22</a>; 4:<a href="https://www.esv.org/Romans+4:3–5" target="_blank">3–5</a>).</li>
+<li>Justification: God declares the believer to be justified because he possesses the righteousness of God (<a href="https://www.esv.org/Romans+3:24" target="_blank">Rom. 3:24</a>; 5:<a href="https://www.esv.org/Romans+5:1" target="_blank">1</a>; Phil. 3:9b).</li>
+</ol>
+</li>
+<li>Doctrine of heathenism (the rejection of God): If at any time during the life of an unbeliever he desires knowledge about the God of the universe, the Gospel will be made available. Heathens are not heathen because they have never heard the message of salvation but because they either had no desire to know God or, having heard the good news, rejected Christ as Savior (<a href="https://www.esv.org/Romans+1:19-20" target="_blank">Rom. 1:19–20</a>).</li>
+</ol>
+</li>
+<li>
+            Scripture, the powerful weapon for witnessing
+            <ol class="alpha">
+<li>There is salvation in no one other than Jesus Christ. Jesus Himself said, “I am the way, and the truth, and the life; no one comes to the Father but through Me” (<a href="https://www.esv.org/John+14:6" target="_blank">John 14:6</a>). The apostles proclaimed, “There is no other name under heaven that has been given among men by which we must be saved … For there is one God, and one mediator also between God and men, the man Christ Jesus” (<a href="https://www.esv.org/Acts+4:12" target="_blank">Acts 4:12b</a>; <a href="https://www.esv.org/1+Timothy+2:5" target="_blank">1 Tim. 2:5</a>).</li>
+<li>Salvation is for anyone who believes in Jesus Christ, “for God so loved the [entire] world, that He gave His only begotten [uniquely born] Son, that whoever believes in Him [the Son] shall not perish, but have eternal life . . . And everyone who lives and believes in Me [Jesus Christ] will never die” (<a href="https://www.esv.org/John+3:16" target="_blank">John 3:16</a>; 11:<a href="https://www.esv.org/John+11:26" target="_blank">26</a>a; cf. <a href="https://www.esv.org/1+John+2:2" target="_blank">1 John 2:2</a>).</li>
+<li>For believers in Christ, death is abolished and replaced with resurrection and eternal life. “The free gift of God is eternal life in Christ Jesus our Lord . . . who abolished death and brought life and immortality to light through the gospel” (Rom. 6:23b; <a href="https://www.esv.org/2+Timothy+1:10" target="_blank">2 Tim. 1:10</a>; cf.<a href="https://www.esv.org/Isaiah+25:8" target="_blank"> Isa. 25:8</a>; <a href="https://www.esv.org/1+Corinthians+15:21" target="_blank">1 Cor. 15:21</a>, 54–55).</li>
+<li>The grace and power of God, not the power or works of man, provide eternal salvation to everyone who accepts Christ as Savior, therefore, “Believe in the Lord Jesus, and you will be saved . . . For by grace are ye saved through faith; and that not of yourselves: it is the gift from God, not as a result of works” (<a href="https://www.esv.org/Acts+16:31" target="_blank">Acts 16:31</a>;<a href="https://www.esv.org/Ephesians+2:8-9" target="_blank"> Eph. 2:8–9</a>, KJV; cf.<a href="https://www.esv.org/Titus+3:5" target="_blank"> Titus 3:5</a>).</li>
+<li>Believing in Christ means guaranteed eternal security, because believers receive God’s own eternal life at salvation. Jesus said, “I give eternal life to them, and they will never perish; and no one will snatch them out of My hand” (<a href="https://www.esv.org/John+10:28" target="_blank">John 10:28</a>). Paul reiterated, “There is now no condemnation for those who are in Christ Jesus . . . for you are all sons of God” (<a href="https://www.esv.org/Romans+8:1" target="_blank">Rom. 8:1</a>;<a href="https://www.esv.org/Galatians+3:26" target="_blank"> Gal. 3:26</a>), and nothing “will be able to separate us from the love of God” (<a href="https://www.esv.org/Romans+8:38-39" target="_blank">Rom. 8:38–39</a>; cf.<a href="https://www.esv.org/Psalms+37:24" target="_blank"> Ps. 37:24</a>; <a href="https://www.esv.org/2+Timothy+2:13" target="_blank">2 Tim. 2:13</a>; <a href="https://www.esv.org/1+John+5:11-12" target="_blank">1 John 5:11–12</a>).</li>
+<li>For the person who rejects Christ as Savior, there is not salvation but eternal condemnation. Jesus said, “He who does not believe has been judged already” (<a href="https://www.esv.org/John+3:18" target="_blank">John 3:18</a>). At the Last Judgment, the Lord will say to all who rejected Him, “Depart from Me, accursed ones, into the eternal fire which has been prepared for the devil and his angels” (<a href="https://www.esv.org/Matthew+25:41" target="_blank">Matt. 25:41</a>; cf.<a href="https://www.esv.org/John+3:19" target="_blank"> John 3:19</a>, <a href="https://www.esv.org/John+3:36" target="_blank">36</a>;<a href="https://www.esv.org/Revelation+20:10-15" target="_blank"> Rev. 20:10–15</a>).</li>
+</ol>
+</li>
+<li>
+            Effective witnessing excludes distractions, dilutions, gimmicks, or fear
+            <ol class="alpha">
+<li>Christ is the issue. The unbeliever’s attitude toward Him is the determining factor in salvation, so present the person and work of Christ accurately and emphasize the option to either accept or reject Him.</li>
+<li>The Gospel is good news; the fact that man is born spiritually dead and commits sins is bad news. Proclaiming the Gospel, then, is proclaiming the fact that Christ provided the solution to sin and spiritual death, resulting in eternal life.</li>
+<li>Do not make additions to the Gospel of grace. Salvation is not accomplished by persuading an unbeliever to feel sorry for sins, improve behavior, join a church, make Jesus Lord of all, be baptized, give money, or make a commitment.</li>
+<li>Emotional begging, public harangues, or attempts to embarrass the listener are not bona fide methods of witnessing.</li>
+<li>Do not argue the Gospel’s validity or try to force a decision for Christ. Convincing the unbeliever of the truth of the Gospel is the work of the Holy Spirit.</li>
+<li>The unbeliever should have both freedom and privacy to make a decision. After providing the Gospel information, leave the results with the Lord.</li>
+<li>Do not make witnessing a measure of spiritual maturity—do not set quotas, judge other believers for failure to witness, or brag about your witnessing.</li>
+<li>Do not be deterred by the world’s opposition to the Gospel. Even when faced with strong rejection, antagonism, or persecution, present the message boldly, without shame, “not as pleasing men, but God” (<a href="https://www.esv.org/1+Thessalonians+2:4" target="_blank">1 Thess. 2:4</a>; cf. <a href="https://www.esv.org/2+Timothy+1:8" target="_blank">2 Tim. 1:8</a>, 12).</li>
+</ol>
+</li>
+<li>
+            The principle of prayer in witnessing (<a href="https://www.esv.org/Romans+10:1" target="_blank">Rom. 10:1</a>;<a href="https://www.esv.org/Philippians+1:4" target="_blank"> Phil. 1:4</a>)
+            <ol class="alpha">
+<li>God does not coerce the hearer’s volition in responding to the Gospel, so a request that God ‘make’ the hearer believe is not legitimate.</li>
+<li>Pray for personal opportunities to witness.</li>
+<li>Pray that God will bring about circumstances that would be most advantageous for witnessing and that will direct the unbeliever’s attention to Christ.</li>
+<li>Pray that the Gospel may continue to be disseminated in our nation.</li>
+</ol>
+</li>
+<li>
+            Rewards for witnessing (1 Cor. 9:16–17a)
+            <ol class="alpha">
+<li>Witnessing done in the power of the Holy Spirit and motivated by doctrine in the soul guarantees rewards in heaven.
+                    <ol class="decimal">
+<li>Meeting those in eternity whom we have led to the Lord.</li>
+<li>The eternal crown of joy (<a href="https://www.esv.org/Daniel+12:3" target="_blank">Dan. 12:3</a>; <a href="https://www.esv.org/1+Thessalonians+2:19" target="_blank">1 Thess. 2:19</a>).</li>
+</ol>
+</li>
+<li>Divinely empowered and rightly motivated witnessing guarantees rewards in time (<a href="https://www.esv.org/1+Thessalonians+2:17-20" target="_blank">1 Thess. 2:17–20</a>).
+                    <ol class="decimal">
+<li>The blessing of inner happiness from seeing people come to know Christ.</li>
+<li>The joy of Christian fellowship.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            Follow-up support to witnessing (<a href="https://www.esv.org/1+Thessalonians+2:11" target="_blank">1 Thess. 2:11</a>)
+            <ol class="alpha">
+<li>A new convert should immediately receive basic Bible doctrine.</li>
+<li>Encourage the new believer to consistently learn and apply Bible doctrine.</li>
+<li>Assist the new believer in finding a church with biblical, Christ-centered teaching. If such a church is not available, then direct them to printed or recorded doctrinal resources.</li>
+</ol>
+</li>
+</ol>
+<div class="doctrine-tags"><span>Tags:</span><span class="tag" data-tag="Angels">Angels</span><span class="tag" data-tag="Christ">Christ</span><span class="tag" data-tag="Church Age">Church Age</span><span class="tag" data-tag="Divine Attributes">Divine Attributes</span><span class="tag" data-tag="Doctrine">Doctrine</span><span class="tag" data-tag="Faith">Faith</span><span class="tag" data-tag="Grace">Grace</span><span class="tag" data-tag="Happiness">Happiness</span><span class="tag" data-tag="Holy Spirit">Holy Spirit</span><span class="tag" data-tag="Prayer">Prayer</span><span class="tag" data-tag="Prophecy">Prophecy</span><span class="tag" data-tag="Salvation">Salvation</span><span class="tag" data-tag="Sin">Sin</span></div></section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>

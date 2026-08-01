@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine of the Hypostatic Union — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Doctrine of the Hypostatic Union</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="hypostatic-union">
+<h2>Doctrine of the Hypostatic Union</h2>
+<ol class="roman">
+<li>
+            Definition of the Hypostatic Union:<br/>
+            In the person of the incarnate Christ are two natures, divine and human, inseparably united without mixture or loss of separate identity, without loss or transfer of properties or attributes, the union being personal and eternal.
+        </li>
+<li>
+            The Greek term:
+            <ol class="alpha">
+<li>The term hypostatic is derived from the compound Greek word ὑπόστασις (hypostasis) meaning “actual being, essence, substantial nature, setting or placing under, that which has actual existence, taking a thing on oneself.”</li>
+<li>The compound Greek word is derived from ὑπο (hypo) meaning “under” and στασις (stasis) meaning “to stand.”
+                    <ol class="decimal">
+<li>Hypostasis therefore comes to mean “to stand under, to take a characteristic upon oneself.”</li>
+<li>Jesus Christ took upon Himself as deity true humanity (<a href="https://www.esv.org/John+1:1-3" target="_blank">John 1:1–3</a>;<a href="https://www.esv.org/Romans+1:3-5" target="_blank"> Rom. 1:3–5</a>; <a href="https://www.esv.org/1+Timothy+3:16" target="_blank">1 Tim. 3:16</a>).</li>
+</ol>
+</li>
+<li>The union consummated at the virgin birth or First Advent is a personal or hypostatic union in that Christ is one person, not two.
+                    <ol class="decimal">
+<li>Jesus Christ is at the same time God and man with no mixture of the two natures to form a third substance or hypostasis.</li>
+<li>The divine nature always remains the divine nature and the human nature always remains the human nature.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            The Lord Jesus Christ is unique in the universe.
+            <ol class="alpha">
+<li>He is the God-man.
+                    <ol class="decimal">
+<li>He is undiminished deity and true humanity in one person forever.</li>
+<li>He is different from the other members of the Trinity in that He is true humanity.</li>
+<li>He is different from mankind in that He is eternal God.</li>
+</ol>
+</li>
+<li>Since the First Advent, it is no longer the divine nature alone which is expressed in His person, but the human nature as well.</li>
+</ol>
+</li>
+<li>
+            The hypostatic union refers to the whole person of Jesus Christ as distinguished from His two natures.
+            <ol class="alpha">
+<li>The word nature is derived from the Greek participle οὐσία (ousia) of the verb εἰμί (eimi) meaning “to be.” Ousia means “being, existing,” but comes to mean “nature.”</li>
+<li>The two natures of Christ maintain their complete identity though being joined in personal union forever.
+                    <ol class="decimal">
+<li>It is impossible to transfer an attribute of one nature to the other nature without destroying that nature.</li>
+<li>To take from Christ a single attribute of His deity would destroy His deity.</li>
+<li>To take from Christ a single attribute of His humanity would destroy His humanity.</li>
+<li>Each nature has its own attributes which are inherent to that nature.</li>
+<li>All the attributes of deity adhere to His deity and never cross over and become humanity.</li>
+<li>All the attributes of humanity adhere to His humanity and never cross over and become deity.</li>
+</ol>
+</li>
+<li>In the hypostatic union of Christ, no attribute of divine essence is compromised or changed, diminished or destroyed. The essence of God is immutable (<a href="https://www.esv.org/Hebrews+13:8" target="_blank">Heb. 13:8</a>).</li>
+<li>However in fulfilling God the Father’s plan, purpose, and policy for the Incarnation certain attributes of Christ were not used (<a href="https://www.esv.org/Philippians+2:5-8" target="_blank">Phil. 2:5–8</a>).
+                    <ol class="decimal">
+<li>“Emptied” is derived from the Greek κενόω (kenoo) and means “to deprive oneself of a rightful function,” and refers to Jesus Christ’s willing restriction of the independent use of His divine attributes (<a href="https://www.esv.org/Hebrews+2:6-10" target="_blank">Heb. 2:6–10</a>; 10:5–7).</li>
+<li>While Christ retained all the attributes of His divine nature, He never used His divine attributes to benefit, provide, or to glorify Himself (<a href="https://www.esv.org/Matthew+4:3-4" target="_blank">Matt. 4:3–4</a>).</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            Jesus Christ is God with all the attributes of God and He is perfect humanity. The two natures remain distinct, whole, unchanged, without mixture or confusion, so that Jesus Christ remains forever truly God and truly man.
+            <ol class="alpha">
+<li>Jesus Christ is eternal God.
+                    <ol class="decimal">
+<li>All divine titles are ascribed to Christ: “God” (<a href="https://www.esv.org/John+1:1" target="_blank">John 1:1</a>); “God, the Almighty” (<a href="https://www.esv.org/Revelation+19:6" target="_blank">Rev. 19:6</a>); God “over all” (<a href="https://www.esv.org/Romans+9:5" target="_blank">Rom. 9:5</a>); “our great God” (<a href="https://www.esv.org/Titus+2:13" target="_blank">Titus 2:13</a>); and “Lord,” the Greek word κύριος (kurios) for deity (<a href="https://www.esv.org/Philippians+2:11" target="_blank">Phil. 2:11</a>).</li>
+<li>All divine attributes are ascribed to Christ.
+                            <ol class="lower-alpha">
+<li>He declared His eternal existence (<a href="https://www.esv.org/John+8:58" target="_blank">John 8:58</a>).</li>
+<li>He is declared to be the creator and sustainer of the universe (<a href="https://www.esv.org/Colossians+1:16-17" target="_blank">Col. 1:16–17</a>); He “upholds all things by the word of His power” (<a href="https://www.esv.org/Hebrews+1:3" target="_blank">Heb. 1:3</a>).</li>
+<li>He is immutable (<a href="https://www.esv.org/Hebrews+13:8" target="_blank">Heb. 13:8</a>); and the “radiance of His [God’s] glory” (<a href="https://www.esv.org/Hebrews+1:3" target="_blank">Heb. 1:3</a>).</li>
+<li>Jesus Christ declared that He and the Father are one in essence (<a href="https://www.esv.org/John+8:58" target="_blank">John 8:58</a>; 10:<a href="https://www.esv.org/John+10:30" target="_blank">30</a>).</li>
+</ol>
+</li>
+<li>As eternal, infinite God, Jesus Christ is coequal with God the Father and God the Holy Spirit (<a href="https://www.esv.org/John+10:30" target="_blank">John 10:30</a>; <a href="https://www.esv.org/2+Corinthians+13:14" target="_blank">2 Cor. 13:14</a>).</li>
+<li>As eternal, infinite God, Jesus Christ is superior to both angels and mankind (<a href="https://www.esv.org/Deuteronomy+6:4" target="_blank">Deut. 6:4</a>;<a href="https://www.esv.org/Hebrews+1:2" target="_blank"> Heb. 1:2</a>).</li>
+</ol>
+</li>
+<li>Jesus Christ is true humanity.
+                    <ol class="decimal">
+<li>The humanity of Christ is said to have flesh and blood (<a href="https://www.esv.org/Hebrews+2:14" target="_blank">Heb. 2:14</a>; <a href="https://www.esv.org/1+John+4:2" target="_blank">1 John 4:2</a>).</li>
+<li>Jesus Christ was born into the human race perfect—without a sin nature, and trichotomous—body, soul, and spirit—through the virgin pregnancy and birth (<a href="https://www.esv.org/Matthew+1:20" target="_blank">Matt. 1:20</a>).</li>
+<li>Jesus was fully aware of His deity from birth (<a href="https://www.esv.org/Hebrews+10:5-10" target="_blank">Heb. 10:5–10</a>).</li>
+<li>Jesus had normal physical development (<a href="https://www.esv.org/Luke+2:52" target="_blank">Luke 2:52</a>).</li>
+<li>Jesus experienced pleasure and rest (<a href="https://www.esv.org/Matthew+8:25" target="_blank">Matt. 8:25</a>; 9:<a href="https://www.esv.org/Matthew+9:10" target="_blank">10</a>); suffered pain, sorrow, hunger, thirst, fatigue, and death (<a href="https://www.esv.org/Matthew+4:2" target="_blank">Matt. 4:2</a>; 14:<a href="https://www.esv.org/Matthew+14:14" target="_blank">14</a>;<a href="https://www.esv.org/John+11:35" target="_blank"> John 11:35</a>; 19:<a href="https://www.esv.org/John+19:28" target="_blank">28</a>, <a href="https://www.esv.org/John+19:33" target="_blank">33</a>).</li>
+<li>After three days in the grave, Jesus was raised from the dead and received a resurrection body (<a href="https://www.esv.org/Matthew+16:21" target="_blank">Matt. 16:21</a>; 28:<a href="https://www.esv.org/Matthew+28:6" target="_blank">6</a>).</li>
+<li>The humanity of Jesus Christ was temptable, but remained sinless (<a href="https://www.esv.org/2+Corinthians+5:21" target="_blank">2 Cor. 5:21</a>;<a href="https://www.esv.org/Hebrews+4:15" target="_blank"> Heb. 4:15</a>; 7:<a href="https://www.esv.org/Hebrews+7:26" target="_blank">26</a>; <a href="https://www.esv.org/1+Peter+2:22" target="_blank">1 Pet. 2:22</a>; <a href="https://www.esv.org/1+John+3:5" target="_blank">1 John 3:5</a>).</li>
+<li>Jesus Christ had names and titles associated with His humanity: “the man Christ Jesus” (<a href="https://www.esv.org/1+Timothy+2:5" target="_blank">1 Tim. 2:5</a>); “Son of Man” (<a href="https://www.esv.org/Matthew+20:28" target="_blank">Matt. 20:28</a>); “A man of sorrows” (<a href="https://www.esv.org/Isaiah+53:3" target="_blank">Isa. 53:3</a>); “son of David” (<a href="https://www.esv.org/Matthew+1:1" target="_blank">Matt. 1:1</a>); and “Jesus” (<a href="https://www.esv.org/Matthew+1:16" target="_blank">Matt. 1:16</a>).</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            The purpose of the hypostatic union: Jesus Christ had to become perfect humanity!important;
+            <ol class="alpha">
+<li>To be our savior (<a href="https://www.esv.org/Hebrews+2:14-15" target="_blank">Heb. 2:14–15</a>;<a href="https://www.esv.org/Philippians+2:7-8" target="_blank"> Phil. 2:7–8</a>).</li>
+<li>To be our great high priest to represent man to God (Heb. 7:14—8:2; 10:5, 10–14).</li>
+<li>To be the mediator between God and man (<a href="https://www.esv.org/Job+9:2" target="_blank">Job 9:2</a>, <a href="https://www.esv.org/Job+9:32–33" target="_blank">32–33</a>; <a href="https://www.esv.org/1+Timothy+2:5-6" target="_blank">1 Tim. 2:5–6</a>).</li>
+<li>To fulfill the promise of the Davidic covenant that David’s son would rule forever (<a href="https://www.esv.org/2+Samuel+7:8-16" target="_blank">2 Sam. 7:8–16</a>;<a href="https://www.esv.org/Psalms+89:20-37" target="_blank"> Ps. 89:20–37</a>).</li>
+</ol>
+</li>
+<li>
+            Impeccability of the hypostatic union:
+            <ol class="alpha">
+<li>As the God-man, Jesus Christ is both non posse peccare and posse non peccare. These Latin phrases refer to the impeccability of Jesus Christ.
+                    <ol class="decimal">
+<li>Non posse peccare means “not able to sin” and refers to the deity of Jesus Christ.
+                            <ol class="lower-alpha">
+<li>As God, Jesus Christ is not able to sin, solicit to sin, compromise with sin, or have anything to do with sin except to judge it.</li>
+<li>The deity of Christ is neither temptable nor peccable.</li>
+</ol>
+</li>
+<li>Posse non peccare means “able not to sin” and refers to the humanity of Jesus Christ.
+                            <ol class="lower-alpha">
+<li>By means of the sustaining ministry of God the Holy Spirit and maximum Bible doctrine resident in His soul, Jesus Christ resisted every temptation to sin and remained absolutely perfect.</li>
+<li>The humanity of Christ was temptable, but impeccable.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>During the Incarnation, Jesus Christ in hypostatic union was temptable but impeccable (<a href="https://www.esv.org/Hebrews+4:15" target="_blank">Heb. 4:15</a>).</li>
+</ol>
+</li>
+<li>
+            The communion of attributes:
+            <ol class="alpha">
+<li>Whatever the Bible says about either the divine or human nature of Christ must be attributed to the entire person, yet without transfer of attributes.
+                    <ol class="decimal">
+<li>Some attributes are true of His whole person: prophet, priest, and king (<a href="https://www.esv.org/Matthew+11:28" target="_blank">Matt. 11:28</a>;<a href="https://www.esv.org/John+14:6" target="_blank"> John 14:6</a>;<a href="https://www.esv.org/Hebrews+10:5-10" target="_blank"> Heb. 10:5–10</a>; <a href="https://www.esv.org/1+Corinthians+11:24" target="_blank">1 Cor. 11:24</a>; <a href="https://www.esv.org/2+Corinthians+5:21" target="_blank">2 Cor. 5:21</a>).</li>
+<li>Some attributes are true only of His deity but the whole person is the subject (<a href="https://www.esv.org/John+8:58" target="_blank">John 8:58</a>).</li>
+<li>Some attributes are true only of His humanity but the whole person is the subject (<a href="https://www.esv.org/John+19:28" target="_blank">John 19:28</a>).</li>
+</ol>
+</li>
+<li>Whatever is true of either nature is true of the entire person of Christ in hypostatic union.</li>
+<li>While the characteristics of one nature are never attributed to the other nature, the attributes of both natures contribute to the Person. This is why the Lord in hypostatic union could be both weak and omnipotent, increasing in knowledge and omniscient, finite and infinite during the First Advent.</li>
+<li>The predicates of each nature:
+                    <ol class="decimal">
+<li>The person of Christ is described according to His divine nature, but that which is predicated or affirmed is an attribute of His human nature. In Revelation 1:18a, the deity and glory of Christ is described, yet Christ is revealed as “I was dead, and behold, I am alive forevermore.”</li>
+<li>The person of Christ is described according to His human nature, but the predicate states the divine nature. In<a href="https://www.esv.org/John+6:62" target="_blank"> John 6:62</a>, “the Son of Man” is a title of the humanity of Christ while “ascending where He was before” refers to His divine nature.</li>
+<li>The person of Christ is described according to His divine nature, but the predicate states both natures. In<a href="https://www.esv.org/John+5:25-27" target="_blank"> John 5:25–27</a>, Christ, as “the Son of God,” a reference to His deity, resurrects the dead and as “the Son of Man,” a reference to his humanity, executes judgment from hypostatic union, from both natures.</li>
+<li>The person of Christ is described according to His human nature, but the predicate states both natures. On the cross when Jesus Christ screamed the words, “MY GOD, MY GOD, WHY HAST THOU FORSAKEN ME?” (<a href="https://www.esv.org/Matthew+27:46" target="_blank">Matt. 27:46</a>), the humanity of Christ was being judged for the sins of the world, yet both natures were present. There was no separation of the humanity and deity of Christ on the cross. Christ, as God, was present because deity is omnipresent, both immanent and transcendent.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            Biblical documentation for the hypostatic union:
+            <ol class="alpha">
+<li>John 1:1–2: “In a beginning which was not a beginning there always existed the Word [deity of Christ], and the Word was face-to-face with God, and the Word was God. He was in the beginning with God. All things came into being by Him, and apart from Him nothing came into being that has come into being” (corrected translation).</li>
+<li>John 1:14: “And the Word [the deity of Christ] became flesh [true humanity] and tabernacled among us, and we saw His glory, glory as of the unique one from the Father, full of grace and doctrine” (corrected translation).</li>
+<li>Philippians 2:5–11: “Keep on thinking this in you which was also in Christ Jesus, who though He existed in the essence [deity] of God, He did not think equality with God a gain to be seized, but He laid aside His privileges [kenosis] taking the form of a servant, having come to be in the likeness of men. And being found in appearance as a man, He humbled Himself by becoming obedient to the point of [substitutionary spiritual] death, even the death of the cross. Therefore also, God highly exalted Him and gave Him a name [a royal patent] which is above every name, that at the name of Jesus every knee should bow and every tongue should confess that Jesus is Lord to the glory of the Father” (corrected translation).</li>
+<li>Hebrews 2:14: “Therefore, since children [homo sapiens] share blood and flesh, He also partook of the same [became true humanity], in order that through [substitutionary spiritual] death, He neutralized [rendered powerless] Satan who had the power of death” (corrected translation).</li>
+<li>Romans 1:3–5: “Concerning His Son [deity] who was born from the seed of David according to the flesh [humanity], who has been demonstrated the Son of God by means of power according to the Holy Spirit because of the resurrection… Jesus Christ our Lord [deity]” (corrected translation).</li>
+<li>Romans 9:5b: “And from whom is the Christ in so far as the flesh is concerned, who is God sovereign over all” (corrected translation).</li>
+<li>1 Timothy 3:16: “And by common acknowledgment, great is the mystery of the spiritual life: He who was revealed in the flesh, was vindicated by the Spirit, seen by angels, proclaimed among the nations, believed on in the world, taken up into glory” (corrected translation).</li>
+<li>Hebrews 1:3: “Who being the flashing forth of the glory, and the exact image of His essence; also sustaining all things by the Word of His power, having Himself accomplished purification for sins [function of His humanity], He was caused to sit down at the right hand of the majesty on high [only humanity sits]” (corrected translation).</li>
+</ol>
+</li>
+</ol>
+<div class="doctrine-tags"><span>Tags:</span><span class="tag" data-tag="Angels">Angels</span><span class="tag" data-tag="Christ">Christ</span><span class="tag" data-tag="Divine Attributes">Divine Attributes</span><span class="tag" data-tag="Doctrine">Doctrine</span><span class="tag" data-tag="Holy Spirit">Holy Spirit</span><span class="tag" data-tag="Mental Attitude">Mental Attitude</span><span class="tag" data-tag="Priesthood">Priesthood</span><span class="tag" data-tag="Sin">Sin</span></div></section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>

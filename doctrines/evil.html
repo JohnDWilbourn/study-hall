@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine of Evil — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Doctrine of Evil</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="evil">
+<h2>Doctrine of Evil</h2>
+<ol class="roman">
+<li>
+            Definition.
+            <ol class="alpha">
+<li>Evil encompasses the policy, purpose, and modus operandi of Satan (<a href="https://www.esv.org/John+8:44" target="_blank">John 8:44</a>) as the ruler of this world by which he seeks to capture and control the human soul, establish his own millennium and become the victor in the angelic conflict. Evil is Satan's thinking; sin and human good are part of his policy. Satan uses evil to corrupt the human race in his attempt to control the world he now rules (<a href="https://www.esv.org/John+12:31" target="_blank">John 12:31</a>; 14:<a href="https://www.esv.org/John+14:30" target="_blank">30</a>; 16:<a href="https://www.esv.org/John+16:11" target="_blank">11</a>; <a href="https://www.esv.org/2+Corinthians+4:4" target="_blank">2 Cor. 4:4</a>).</li>
+<li>Just as grace and doctrine represent the genius and thinking of God, so evil represents the subtle genius and thinking of Satan; therefore, evil is a system of thought just as doctrine is a system of thought.</li>
+<li>Evil is also the function of the sin nature as the ruler of human life (<a href="https://www.esv.org/Romans+6:2" target="_blank">Rom. 6:2</a>).</li>
+<li>Evil is the distortion of Bible doctrine and the laws of divine establishment (<a href="https://www.esv.org/Psalms+50:16" target="_blank">Ps. 50:16</a>).</li>
+<li>When either sin or human good are intensified, they become evil.</li>
+</ol>
+</li>
+<li>
+            Evil was not judged on the cross.
+            <ol class="alpha">
+<li>Only sin was judged on the cross (<a href="https://www.esv.org/1+Peter+2:24" target="_blank">1 Pet. 2:24</a>).</li>
+<li>Christ could not be judged for evil (Satan's policy), because human good and evil remain issues throughout the course of the angelic conflict.</li>
+</ol>
+</li>
+<li>
+            There is no evil in God (<a href="https://www.esv.org/Psalms+5:4" target="_blank">Ps. 5:4</a>;<a href="https://www.esv.org/James+1:13" target="_blank"> James 1:13</a>).
+            <ol class="alpha">
+<li>God judges evil in time (<a href="https://www.esv.org/Psalms+34:16" target="_blank">Ps. 34:16</a>;<a href="https://www.esv.org/Isaiah+13:11" target="_blank"> Isa. 13:11</a>).</li>
+<li>In spite of evil in the world, Jesus Christ controls history (<a href="https://www.esv.org/Isaiah+45:7" target="_blank">Isa. 45:7</a>).</li>
+<li>Jesus Christ permits evil to run its course as part of the angelic conflict (<a href="https://www.esv.org/Proverbs+16:3-4" target="_blank">Prov. 16:3–4</a>).</li>
+</ol>
+</li>
+<li>
+            Evil is related to Satan.
+            <ol class="alpha">
+<li>Both sin and evil originated with Satan (Gen. 3;<a href="https://www.esv.org/Ezekiel+28:15-16" target="_blank"> Ezek. 28:15–16</a>).</li>
+<li>Satan's angels are called evil spirits or demons (<a href="https://www.esv.org/Luke+7:21" target="_blank">Luke 7:21</a>; 8:<a href="https://www.esv.org/Luke+8:2" target="_blank">2</a>;<a href="https://www.esv.org/Acts+19:12-16" target="_blank"> Acts 19:12–16</a>).</li>
+<li>Satan's domain is called an evil world (<a href="https://www.esv.org/Galatians+1:4" target="_blank">Gal. 1:4</a>).</li>
+<li>Satan's policy is called evil (<a href="https://www.esv.org/1+Thessalonians+5:22" target="_blank">1 Thess. 5:22</a>; <a href="https://www.esv.org/2+Thessalonians+3:3" target="_blank">2 Thess. 3:3</a>).</li>
+<li>Those under the influence of satanic policy are called evil men (<a href="https://www.esv.org/Job+35:12" target="_blank">Job 35:12</a>;<a href="https://www.esv.org/Matthew+12:35" target="_blank"> Matt. 12:35</a>) and inventors of evil (<a href="https://www.esv.org/Romans+1:30" target="_blank">Rom. 1:30</a>).</li>
+</ol>
+</li>
+<li>
+            Evil related to man.
+            <ol class="alpha">
+<li>Personal sin, human good and evil in an individual emanate from the sin nature.</li>
+<li>Sin is solved by rebound (<a href="https://www.esv.org/1+John+1:9" target="_blank">1 John 1:9</a>); human good and evil by doctrine and spiritual maturity through the function of GAP.</li>
+<li>Evil and degeneracy start with a thought (<a href="https://www.esv.org/Matthew+6:23" target="_blank">Matt. 6:23</a>; 15:<a href="https://www.esv.org/Matthew+15:19" target="_blank">19</a>).</li>
+<li>Evil in the soul is rationalized by establishing erroneous norms and standards that are called "good," instead of divine viewpoint standards that are good (<a href="https://www.esv.org/Isaiah+5:20" target="_blank">Isa. 5:20</a>).</li>
+<li>Putting love for the details of life above love for Bible doctrine in the soul is always evil (<a href="https://www.esv.org/1+Timothy+6:10" target="_blank">1 Tim. 6:10</a>).</li>
+<li>An evil person seeks to build happiness on someone else's unhappiness (<a href="https://www.esv.org/Psalms+35:11-13" target="_blank">Ps. 35:11–13</a>).</li>
+<li>The influence of evil explains why the prayers of believers are not answered (<a href="https://www.esv.org/Job+35:9-13" target="_blank">Job 35:9–13</a>).</li>
+<li>Evil is self-destructive (<a href="https://www.esv.org/Psalms+34:21" target="_blank">Ps. 34:21</a>).</li>
+<li>Evil in the soul shortens life (<a href="https://www.esv.org/Amos+5:14-15" target="_blank">Amos 5:14–15</a>).</li>
+</ol>
+</li>
+<li>
+            Vocabulary.
+            <ol class="alpha">
+<li>Hebrew words for evil.
+                    <ol class="decimal">
+<li>אָוֶן ('aven): nothingness, vanity, evil.</li>
+<li>רַע (ra'): adjective for bad, evil; masculine noun for evil, misery.</li>
+<li>רָעָה (ra'ah): feminine noun for evil.</li>
+<li>רֹעַ (ro'a): badness of quality; evil as a quality.</li>
+<li>רָעַע (ra'a'): to be evil, bad.</li>
+</ol>
+</li>
+<li>Greek words for evil.
+                    <ol class="decimal">
+<li>Κακός (kakos): adjective for evil, bad, worthless.</li>
+<li>Κακῶς (kakōs): adverb for wickedly.</li>
+<li>Κακία (kakia): depravity, wickedness.</li>
+<li>Κακόω (kakoo): to treat badly.</li>
+<li>Πονηρός (poneros): adjective for evil, worthless, degenerate.</li>
+<li>Poneros: noun for evil intent, evil doer, evil one (Satan).</li>
+<li>Πονηρία (poneria): feminine adjective for sinfulness, maliciousness.</li>
+<li>Φαῦλος (phaulos): evil, worthless, wicked.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            The scope of evil.
+            <ol class="alpha">
+<li>While sin and evil often overlap, evil includes much more than sin.
+                    <ol class="decimal">
+<li>Evil includes human good and every attempt to solve the problems of life apart from Bible doctrine and divine establishment: anthropocentric altruism, utopian socialism, religious activism, legalism, reversionism, marxism, pacifism.</li>
+<li>Evil includes the restriction of human freedom for the so-called greater good: the distortion of law for the purpose of social and economic "engineering," the rise of bureaucracy, governmental abuse of power and interference in free enterprise.</li>
+<li>Evil also includes Christian activities which substitute service for spiritual growth, or which attempt to provide spiritual growth outside the academic discipline of the local church.</li>
+<li>Evil is often mistaken for good (<a href="https://www.esv.org/2+Corinthians+11:14-15" target="_blank">2 Cor. 11:14–15</a>).
+                            <ol class="lower-alpha">
+<li>Sincere do-gooders practice evil (<a href="https://www.esv.org/Romans+7:19" target="_blank">Rom. 7:19</a>, <a href="https://www.esv.org/Romans+7:21" target="_blank">21</a>).
+                                    <ol class="decimal">
+<li>Even legitimate good can be mutilated or distorted into evil.</li>
+<li>The more involved a believer becomes in white-washing the devil's world through human good crusades, the more that evil is intensified (<a href="https://www.esv.org/Matthew+23:27" target="_blank">Matt. 23:27</a>).</li>
+</ol>
+</li>
+<li>Therefore, the believer is warned to beware of associating with evil practitioners (<a href="https://www.esv.org/Philippians+3:2" target="_blank">Phil. 3:2</a>).</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Evil is the total inclusion of human ability, human talent and works and the total exclusion of grace.</li>
+<li>Evil never understands grace function (<a href="https://www.esv.org/Matthew+20:15" target="_blank">Matt. 20:15</a>).
+                    <ol class="decimal">
+<li>Grace is the work of God, not human good works.</li>
+<li>Therefore evil, in emphasizing human good works, distorts grace (<a href="https://www.esv.org/Psalms+38:19-20" target="_blank">Ps. 38:19–20</a>).</li>
+<li>False doctrine is both evil and "insanity" (<a href="https://www.esv.org/Ecclesiastes+9:3" target="_blank">Eccl. 9:3</a>).</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            Evil is distinguished from:
+            <ol class="alpha">
+<li>Sin (<a href="https://www.esv.org/1+Chronicles+21:1" target="_blank">1 Chron. 21:1</a>, 17).</li>
+<li>Demon possession.
+                    <ol class="decimal">
+<li>Believers can be evil-possessed but not demon-possessed.</li>
+<li>Evil possession is the control of the believer's soul by satanic doctrine (<a href="https://www.esv.org/1+Timothy+4:1" target="_blank">1 Tim. 4:1</a>); demon possession is the indwelling of the unbeliever's body by Satan's angels (<a href="https://www.esv.org/Mark+7:26" target="_blank">Mark 7:26</a>;<a href="https://www.esv.org/Luke+8:2" target="_blank"> Luke 8:2</a>; 11:<a href="https://www.esv.org/Luke+11:20" target="_blank">20</a>).</li>
+</ol>
+</li>
+<li>War and disease (<a href="https://www.esv.org/Jeremiah+28:8" target="_blank">Jer. 28:8</a>).
+                    <ol class="decimal">
+<li>Warfare is often the means of maintaining national freedom and involves suffering and pressure; but, although evil may occur during war, war itself is not evil.</li>
+<li>Disease may be punishment for sin or evil, but in itself disease is not evil.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            Evil, the national entity, and the administration of the fifth cycle of discipline.
+            <ol class="alpha">
+<li>Evil leadership is anti-God (<a href="https://www.esv.org/Nahum+1:11" target="_blank">Nahum 1:11</a>).</li>
+<li>Conspiracy and revolution are evil (<a href="https://www.esv.org/Psalms+64:4-5" target="_blank">Ps. 64:4–5</a>;<a href="https://www.esv.org/Proverbs+17:11" target="_blank"> Prov. 17:11</a>).</li>
+<li>The saturation of evil in a nation leads to its destruction (<a href="https://www.esv.org/Isaiah+47:10-11" target="_blank">Isa. 47:10–11</a>).</li>
+<li>Judgment comes to the client nation dominated by evil (<a href="https://www.esv.org/Micah+1:5-12" target="_blank">Micah 1:5–12</a>).</li>
+<li>The administration of the fifth cycle of discipline is also called an evil; God uses an evil to punish an evil (<a href="https://www.esv.org/Jonah+3:10" target="_blank">Jonah 3:10</a>).</li>
+<li>Faithfulness to divine establishment principles protects the human race from evil (<a href="https://www.esv.org/Ecclesiastes+8:2-5" target="_blank">Eccl. 8:2–5</a>;<a href="https://www.esv.org/Romans+13:3-4" target="_blank"> Rom. 13:3–4</a>).</li>
+</ol>
+</li>
+<li>
+            The issue in the royal family of God is whether the believer is influenced by doctrine or by evil (<a href="https://www.esv.org/Proverbs+11:18" target="_blank">Prov. 11:18</a>, <a href="https://www.esv.org/Proverbs+11:19" target="_blank">19</a>; 14:22; 15:3; 16:6; 22:3; 3 John 11).
+            <ol class="alpha">
+<li>Negative volition toward doctrine causes the believer to be changed by evil (<a href="https://www.esv.org/Proverbs+5:13-14" target="_blank">Prov. 5:13–14</a>).
+                    <ol class="decimal">
+<li>Reversionists are always influenced by evil (<a href="https://www.esv.org/Psalms+36:1-4" target="_blank">Ps. 36:1–4</a>;<a href="https://www.esv.org/John+3:19" target="_blank"> John 3:19</a>).</li>
+<li>Evil provides false security for reversionists (<a href="https://www.esv.org/Micah+3:11-12" target="_blank">Micah 3:11–12</a>).</li>
+</ol>
+</li>
+<li>The supergrace believer is protected from evil because he has maximum doctrine in his soul (<a href="https://www.esv.org/Genesis+48:16" target="_blank">Gen. 48:16</a>; 50:<a href="https://www.esv.org/Genesis+50:20" target="_blank">20</a>;<a href="https://www.esv.org/Psalms+21:11" target="_blank"> Ps. 21:11</a>; 23:<a href="https://www.esv.org/Psalms+23:4" target="_blank">4</a>; 37:<a href="https://www.esv.org/Psalms+37:16–19" target="_blank">16–19</a>; 91:<a href="https://www.esv.org/Psalms+91:10" target="_blank">10</a>; 97:<a href="https://www.esv.org/Psalms+97:10" target="_blank">10</a>; 119:<a href="https://www.esv.org/Psalms+119:101" target="_blank">101</a>; 121:<a href="https://www.esv.org/Psalms+121:7" target="_blank">7</a>;<a href="https://www.esv.org/Proverbs+1:33" target="_blank"> Prov. 1:33</a>; 2:<a href="https://www.esv.org/Proverbs+2:10–14" target="_blank">10–14</a>; 3:<a href="https://www.esv.org/Proverbs+3:7" target="_blank">7</a>; 12:<a href="https://www.esv.org/Proverbs+12:12" target="_blank">12</a>, <a href="https://www.esv.org/Proverbs+12:20–21" target="_blank">20–21</a>; 19:<a href="https://www.esv.org/Proverbs+19:23" target="_blank">23</a>; <a href="https://www.esv.org/2+Thessalonians+3:3" target="_blank">2 Thess. 3:3</a>).</li>
+<li>The believer is commanded to put away evil (<a href="https://www.esv.org/Deuteronomy+13:5" target="_blank">Deut. 13:5</a>;<a href="https://www.esv.org/Isaiah+1:16" target="_blank"> Isa. 1:16</a>;<a href="https://www.esv.org/Romans+12:9" target="_blank"> Rom. 12:9</a>, <a href="https://www.esv.org/Romans+12:21" target="_blank">21</a>; <a href="https://www.esv.org/1+Peter+3:9" target="_blank">1 Pet. 3:9</a>; 3 John 11).</li>
+<li>The mature believer, possessing a balance of residency between doctrine in the soul and the filling of the Spirit, avoids evil (<a href="https://www.esv.org/John+16:14" target="_blank">John 16:14</a>; 17:<a href="https://www.esv.org/John+17:15–16" target="_blank">15–16</a>; <a href="https://www.esv.org/1+Corinthians+6:20" target="_blank">1 Cor. 6:20</a>; 14:20;<a href="https://www.esv.org/Ephesians+3:16-17" target="_blank"> Eph. 3:16–17</a>; 6:13;<a href="https://www.esv.org/Colossians+1:27-29" target="_blank"> Col. 1:27–29</a>; <a href="https://www.esv.org/2+Thessalonians+3:1-3" target="_blank">2 Thess. 3:1–3</a>).</li>
+<li>Doctrine is the neutralizer of evil (<a href="https://www.esv.org/Psalms+54:5" target="_blank">Ps. 54:5</a>;<a href="https://www.esv.org/Romans+12:21" target="_blank"> Rom. 12:21</a>).</li>
+</ol>
+</li>
+<li>
+            Evil will be eliminated in the millennial reign of Jesus Christ (<a href="https://www.esv.org/Zephaniah+3:14-15" target="_blank">Zeph. 3:14–15</a>).
+        </li>
+</ol>
+<div class="doctrine-tags"><span>Tags:</span><span class="tag" data-tag="Angels">Angels</span><span class="tag" data-tag="Christ">Christ</span><span class="tag" data-tag="Church Age">Church Age</span><span class="tag" data-tag="Divine Discipline">Divine Discipline</span><span class="tag" data-tag="Doctrine">Doctrine</span><span class="tag" data-tag="Faith">Faith</span><span class="tag" data-tag="Grace">Grace</span><span class="tag" data-tag="Happiness">Happiness</span><span class="tag" data-tag="Holy Spirit">Holy Spirit</span><span class="tag" data-tag="Mental Attitude">Mental Attitude</span><span class="tag" data-tag="Sin">Sin</span><span class="tag" data-tag="Spiritual Growth">Spiritual Growth</span></div></section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>

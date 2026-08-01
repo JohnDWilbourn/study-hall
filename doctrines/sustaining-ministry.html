@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine of the Sustaining Ministry of God the Holy Spirit to the Incarnate Christ — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Doctrine of the Sustaining Ministry of God the Holy Spirit to the Incarnate Christ</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="sustaining-ministry">
+<h2>Doctrine of the Sustaining Ministry of God the Holy Spirit to the Incarnate Christ</h2>
+<ol class="roman">
+<li>Definition: During the Incarnation, the humanity of Jesus Christ was sustained by the indwelling presence and filling of God the Holy Spirit from His birth to His death and resurrection.</li>
+<li>The ministry of God the Holy Spirit to the Incarnate Christ was prophesied in the Old Testament (<a href="https://www.esv.org/Isaiah+11:2" target="_blank">Isa. 11:2</a>; 42:<a href="https://www.esv.org/Isaiah+42:1" target="_blank">1</a>; 61:<a href="https://www.esv.org/Isaiah+61:1" target="_blank">1</a>).</li>
+<li>The sustaining ministry of God the Holy Spirit and the virgin birth:
+            <ol class="alpha">
+<li>The Holy Spirit was the agent of conception in the virgin birth of Christ (<a href="https://www.esv.org/Matthew+1:18" target="_blank">Matt. 1:18</a>, <a href="https://www.esv.org/Matthew+1:20" target="_blank">20</a>).</li>
+<li>The virgin conception of Christ fulfilled the prophecy in<a href="https://www.esv.org/Psalms+40:6" target="_blank"> Psalm 40:6</a> and quoted in Hebrews 10:5b, "A BODY THOU HAST PREPARED FOR ME."</li>
+</ol>
+</li>
+<li>The total ministry of God the Holy Spirit to the humanity of Christ:
+            <ol class="alpha">
+<li>The Holy Spirit is given "without measure" to the humanity of Christ (<a href="https://www.esv.org/John+3:34" target="_blank">John 3:34</a>).</li>
+<li>The Holy Spirit not only indwelt the humanity of Christ as royalty, but He also filled or controlled the soul of the humanity of Christ.</li>
+</ol>
+</li>
+<li>The Holy Spirit related to the baptism of Christ (<a href="https://www.esv.org/Matthew+3:13-17" target="_blank">Matt. 3:13–17</a>):
+            <ol class="alpha">
+<li>The water in Christ's baptism represented the will of God the Father for the Son in the First Advent.</li>
+<li>Christ's baptism was His identification with and dedication to do the will of the Father in going to the cross.</li>
+<li>The dove represented the omnipotence of God the Holy Spirit who would sustain Him.</li>
+</ol>
+</li>
+<li>The Holy Spirit related to the public ministry of Christ (<a href="https://www.esv.org/Isaiah+42:1" target="_blank">Isa. 42:1</a>;<a href="https://www.esv.org/Matthew+12:18" target="_blank"> Matt. 12:18</a>):
+            <ol class="alpha">
+<li>Jesus performed miracles through the sustaining ministry of God the Holy Spirit, not through the independent function of His own deity (<a href="https://www.esv.org/Matthew+12:28" target="_blank">Matt. 12:28</a>).</li>
+<li>The teaching ministry of Christ was performed in the power of the Holy Spirit (<a href="https://www.esv.org/Luke+4:14-15" target="_blank">Luke 4:14–15</a>).</li>
+</ol>
+</li>
+<li>The Holy Spirit sustained Jesus Christ in the prototype spiritual life while He bore our sins in His own body on the cross (<a href="https://www.esv.org/Hebrews+9:14" target="_blank">Heb. 9:14</a>).<sup>1</sup></li>
+<li>The Holy Spirit participated in the resurrection of Jesus Christ:
+            <ol class="alpha">
+<li>God the Holy Spirit returned Christ's soul from Hades to His body in the grave (Rom. 8:11a).</li>
+<li>The Holy Spirit sustained Christ during His post-resurrection trip to Tartarus to announce His strategic victory to the incarcerated fallen angels (<a href="https://www.esv.org/1+Peter+3:18-19" target="_blank">1 Pet. 3:18–19</a>).</li>
+</ol>
+</li>
+<li>The sustaining ministry of the Holy Spirit is transferred from the resurrected glorified Christ at the right hand of the Father to the royal family of God who are commanded to avail themselves of this ministry (<a href="https://www.esv.org/Ephesians+5:18" target="_blank">Eph. 5:18</a>;<a href="https://www.esv.org/Galatians+5:16" target="_blank"> Gal. 5:16</a>). Jesus Christ was sustained as perfect royalty; believer is sustained as sinful royalty (<a href="https://www.esv.org/Ephesians+3:16-19" target="_blank">Eph. 3:16–19</a>).</li>
+<li>The purpose of the sustaining ministry of God the Holy Spirit in the Church Age is the glorification of Christ (<a href="https://www.esv.org/John+7:39" target="_blank">John 7:39</a>; 16:<a href="https://www.esv.org/John+16:14" target="_blank">14</a>; <a href="https://www.esv.org/1+Corinthians+6:19-20" target="_blank">1 Cor. 6:19–20</a>).</li>
+</ol>
+<div class="doctrine-tags"><span>Tags:</span><span class="tag" data-tag="Christ">Christ</span><span class="tag" data-tag="Doctrine">Doctrine</span><span class="tag" data-tag="Holy Spirit">Holy Spirit</span><span class="tag" data-tag="Mental Attitude">Mental Attitude</span><span class="tag" data-tag="Sin">Sin</span></div></section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>

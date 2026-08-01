@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Categorical Doctrine of Prayer — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Categorical Doctrine of Prayer</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="prayer">
+<h2>Categorical Doctrine of Prayer</h2>
+<ol class="roman">
+<li>
+            The approach to prayer
+            <ol class="alpha">
+<li>Addressed to the Father (Matt. 6:9; Eph. 3:14; 5:20)</li>
+<li>In the name of the Son (<a href="https://www.esv.org/John+14:13-14" target="_blank">John 14:13–14</a>; <a href="https://www.esv.org/John+16:23-24" target="_blank">16:23–24</a>; <a href="https://www.esv.org/Ephesians+5:20" target="_blank">Eph. 5:20</a>)</li>
+<li>In the power of the Spirit (Eph. 6:18)</li>
+</ol>
+</li>
+<li>
+            Three categories of prayer directed to God the Father
+            <ol class="alpha">
+<li>From the source of the Son (Heb. 7:25)</li>
+<li>From the source of the Holy Spirit (Rom. 8:26–27)</li>
+<li>From the source of the believer-priest (Heb. 4:16)</li>
+</ol>
+</li>
+<li>
+            The agenda for private prayer
+            <ol class="alpha">
+<li>Confession (<a href="https://www.esv.org/1+John+1:9" target="_blank">1 John 1:9</a>)</li>
+<li>Thanksgiving (Eph. 5:20; 1 Thess. 5:18)</li>
+<li>Intercession (Eph. 6:18)</li>
+<li>Petition (Heb. 4:16)</li>
+</ol>
+</li>
+<li>
+            Prayer requires the application of faith-rest: “believing, you will receive” (Matt. 21:22; Mark 11:24).
+        </li>
+<li>
+            Eight principles of prayer
+            <ol class="alpha">
+<li>Prayer is the most effective when the believer learns Bible doctrine and advances to spiritual maturity (<a href="https://www.esv.org/John+15:7" target="_blank">John 15:7</a>).</li>
+<li>Prayer is an application of the faith-rest drill (Matt. 21:22; Mark 11:24).</li>
+<li>Prayer demands cognizance of the will of God, therefore the necessity of maximum knowledge of Bible doctrine (<a href="https://www.esv.org/1+John+5:14" target="_blank">1 John 5:14</a>).</li>
+<li>Prayer must be offered in status of the filling of the Spirit (Eph. 6:18).</li>
+<li>When the believer is carnal, prayer is ineffective (Ps. 66:18).</li>
+<li>Prayer must comply with the principle of grace (Heb. 4:16).</li>
+<li>Prayer is part of the divine decree (Jer. 33:3).</li>
+<li>Prayer is related to personal love toward God (Ps. 116:1–2).</li>
+</ol>
+</li>
+<li>
+            Nine reasons why prayer is not answered (Note: all are connected with carnality)
+            <ol class="alpha">
+<li>Not filled with the Spirit (Eph. 6:18)</li>
+<li>No faith-rest function (Matt. 21:22)</li>
+<li>Mental attitude carnality (Ps. 66:18)</li>
+<li>Lust-type selfishness (<a href="https://www.esv.org/James+4:2-4" target="_blank">James 4:2–4</a>)</li>
+<li>Lack of obedience (<a href="https://www.esv.org/1+John+3:22" target="_blank">1 John 3:22</a>)</li>
+<li>Noncompliance with specific and known will of God (<a href="https://www.esv.org/1+John+5:14" target="_blank">1 John 5:14</a>)</li>
+<li>Pride as a basic mental attitude sin (<a href="https://www.esv.org/Job+35:12-13" target="_blank">Job 35:12–13</a>)</li>
+<li>Lack of compassion or grace orientation (Prov. 21:13)</li>
+<li>Lack of domestic tranquility (1 Pet. 3:7)</li>
+</ol>
+</li>
+<li>
+            Principle of grace in prayer (Heb. 4:16)
+            <ol class="alpha">
+<li>Prayer is a privilege and extension of grace; hence, it is impossible to approach God in prayer on the basis of human good or human merit.</li>
+<li>The believer approaches God in prayer on the basis of our High Priest, Jesus Christ, and His merits.</li>
+<li>The Father is propitiated by the work of Christ; we must, therefore, approach in prayer through Christ and from a position of fellowship with God.</li>
+<li>God does not answer prayers because a person is fervent, moral, sincere, religious, or self-effacing.</li>
+<li>God answers prayer because of who and what He is.</li>
+</ol>
+</li>
+<li>
+            The categories of petition in prayer
+            <ol class="alpha">
+<li>Positive—Negative: Petition answered; desire not answered (1 Sam. 8:5–9, 19–20)</li>
+<li>Negative—Positive: Petition not answered; desire answered (Gen. 17:18–21; 18:23–33; 2 Cor. 12:7–10)</li>
+<li>Positive—Positive: Petition answered; desire answered (Judg. 16:28; 1 Kings 18:36–39; Luke 23:42–43; John 11:41–45)</li>
+<li>Negative—Negative: Neither petition nor desire answered (2 Cor. 12:7–8)</li>
+</ol>
+</li>
+</ol>
+<div class="doctrine-tags"><span>Tags:</span><span class="tag" data-tag="Doctrine">Doctrine</span><span class="tag" data-tag="Holy Spirit">Holy Spirit</span><span class="tag" data-tag="Prayer">Prayer</span><span class="tag" data-tag="Spiritual Growth">Spiritual Growth</span></div></section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>

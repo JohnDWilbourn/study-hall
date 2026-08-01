@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine of the Heart — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Doctrine of the Heart</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="heart">
+<h2>Doctrine of the Heart</h2>
+<ol class="roman">
+<li>
+            Definition
+            <ol class="alpha">
+<li>The word “heart” in the Bible (from the Hebrew, leb, and the Greek, kardia) rarely refers to the physiological heart, but it is used for that part of the mentality of the soul called the “right lobe,” the locale for thinking divine viewpoint (<a href="https://www.esv.org/1+Samuel+16:7" target="_blank">1 Sam. 16:7</a>;<a href="https://www.esv.org/Proverbs+23:7" target="_blank"> Prov. 23:7</a>;<a href="https://www.esv.org/James+3:14" target="_blank"> James 3:14</a>).</li>
+<li>The usage of the word “heart” for the right lobe of the soul is based on the analogy to the physical heart. Just as the heart is the pump that circulates blood throughout the body and thereby supports physical life, so the right lobe of the soul circulates Bible doctrine that supports the spiritual life of the believer.</li>
+<li>The heart or right lobe is the target of GAP, the source of concentration and application of doctrine to experience (<a href="https://www.esv.org/1+Kings+3:9" target="_blank">1 Kings 3:9</a>, 12;<a href="https://www.esv.org/Psalms+19:14" target="_blank"> Ps. 19:14</a>; 119:<a href="https://www.esv.org/Psalms+119:11" target="_blank">11</a>;<a href="https://www.esv.org/Proverbs+2:2" target="_blank"> Prov. 2:2</a>, <a href="https://www.esv.org/Proverbs+2:10" target="_blank">10</a>; 3:3; 4:4; 10:8; 15:14, 18:15).</li>
+</ol>
+</li>
+<li>
+            The essence of the heart
+            <ol class="alpha">
+<li>The frame of reference is the first compartment of the right lobe where doctrine enters and becomes epignosis knowledge. Here, doctrine accumulates gradually in increments and is used by the Holy Spirit to increase the believer’s capacity to learn more doctrine. Truth builds upon truth, one doctrine upon another. The frame of reference not only retains doctrine but cycles it to the other compartments of the right lobe.</li>
+<li>The memory center is where epignosis doctrine is stored and recalled (<a href="https://www.esv.org/Psalms+119:16" target="_blank">Ps. 119:16</a>, <a href="https://www.esv.org/Psalms+119:93" target="_blank">93</a>). Recall has nothing to do with a good human memory but with the inculcation or repetition of doctrine and the mentorship of the Holy Spirit (<a href="https://www.esv.org/John+14:20" target="_blank">John 14:20</a>). The memory center supplies pertinent doctrines for all other compartments (<a href="https://www.esv.org/Lamentations+3:20-21" target="_blank">Lam. 3:20–21</a>; <a href="https://www.esv.org/2+Corinthians+10:4-6" target="_blank">2 Cor. 10:4–6</a>; <a href="https://www.esv.org/2+Peter+3:2" target="_blank">2 Pet. 3:2</a>).</li>
+<li>The vocabulary storage is the dictionary of the soul. This compartment accumulates technical theological words and concepts to define God, man, salvation, the Christian way of life, and every other category of doctrine. Thinking demands vocabulary. Once these theological terms are mastered, they work together with the frame of reference and memory center to develop the believer’s ability to think divine viewpoint (<a href="https://www.esv.org/Deuteronomy+8:3" target="_blank">Deut. 8:3</a>;<a href="https://www.esv.org/Jeremiah+15:16" target="_blank"> Jer. 15:16</a>;<a href="https://www.esv.org/Matthew+4:4" target="_blank"> Matt. 4:4</a>).</li>
+<li>Categorical storage organizes principles of doctrine from the frame of reference and vocabulary storage. Scripture is compared with Scripture so that doctrine is classified according to subject matter. Knowledge is built on knowledge. Categorical storage becomes the basis for understanding more advanced doctrines (<a href="https://www.esv.org/Proverbs+2:2" target="_blank">Prov. 2:2</a>, <a href="https://www.esv.org/Proverbs+2:10" target="_blank">10</a>; 3:3; 15:14–15; 18:15).</li>
+<li>The conscience is where norms and standards reside. It is the faculty of the soul that separates right from wrong, establishes priorities, and guides and regulates life. A strong conscience has standards built upon divine viewpoint, while a weak conscience is acquired from human viewpoint (<a href="https://www.esv.org/Daniel+1:8" target="_blank">Dan. 1:8</a>;<a href="https://www.esv.org/Acts+24:16" target="_blank"> Acts 24:16</a>;<a href="https://www.esv.org/Romans+2:14-15" target="_blank"> Rom. 2:14–15</a>; 13:5; <a href="https://www.esv.org/1+Corinthians+8:7" target="_blank">1 Cor. 8:7</a>; <a href="https://www.esv.org/2+Corinthians+4:2" target="_blank">2 Cor. 4:2</a>; 5:11; <a href="https://www.esv.org/1+Timothy+4:1-2" target="_blank">1 Tim. 4:1–2</a>; <a href="https://www.esv.org/2+Timothy+1:3" target="_blank">2 Tim. 1:3</a>;<a href="https://www.esv.org/Titus+1:15" target="_blank"> Titus 1:15</a>;<a href="https://www.esv.org/Hebrews+9:14" target="_blank"> Heb. 9:14</a>; <a href="https://www.esv.org/1+Peter+2:18-19" target="_blank">1 Pet. 2:18–19</a>; 3:14–16).<sup>5</sup></li>
+<li>Momentum combines epignosis doctrine with the power of the filling of the Holy Spirit to motivate and accelerate spiritual growth (<a href="https://www.esv.org/2+Peter+3:18" target="_blank">2 Pet. 3:18</a>).</li>
+<li>Wisdom is the result of epignosis knowledge and motivation from all other compartments of the right lobe. In this final compartment, the thinking of epignosis doctrine is converted into action—divine viewpoint applied to the circumstances of life. Wisdom builds the edification complex for living the spiritual life (<a href="https://www.esv.org/Proverbs+3:21-22" target="_blank">Prov. 3:21–22</a>; <a href="https://www.esv.org/2+Corinthians+10:4-6" target="_blank">2 Cor. 10:4–6</a>;<a href="https://www.esv.org/Colossians+1:9" target="_blank"> Col. 1:9</a>;<a href="https://www.esv.org/James+3:17" target="_blank"> James 3:17</a>).</li>
+</ol>
+</li>
+<li>
+            The relation of the heart to thinking and perception
+            <ol class="alpha">
+<li>Positive volition (<a href="https://www.esv.org/Romans+10:9-10" target="_blank">Rom. 10:9–10</a>)</li>
+<li>Function of GAP (<a href="https://www.esv.org/Deuteronomy+29:4" target="_blank">Deut. 29:4</a>)</li>
+<li>Thinking of reversionism (<a href="https://www.esv.org/Psalms+10:6" target="_blank">Ps. 10:6</a>, <a href="https://www.esv.org/Psalms+10:11" target="_blank">11</a>, <a href="https://www.esv.org/Psalms+10:13" target="_blank">13</a>)</li>
+<li>Thinking of atheism (<a href="https://www.esv.org/Psalms+14:1" target="_blank">Ps. 14:1</a>)</li>
+<li>Rationalization of education (<a href="https://www.esv.org/Ecclesiastes+1:13-18" target="_blank">Eccl. 1:13–18</a>)</li>
+<li>Rationalization of mental attitude sins (<a href="https://www.esv.org/Isaiah+47:10" target="_blank">Isa. 47:10</a>)</li>
+<li>Communication of false teachers from the deceit of their hearts (<a href="https://www.esv.org/Jeremiah+14:14" target="_blank">Jer. 14:14</a>)</li>
+<li>Meditation on doctrine (<a href="https://www.esv.org/Luke+2:19" target="_blank">Luke 2:19</a>)</li>
+<li>Ambitious thinking (<a href="https://www.esv.org/Luke+9:46-47" target="_blank">Luke 9:46–47</a>)</li>
+</ol>
+</li>
+<li>
+            The facets of the heart
+            <ol class="alpha">
+<li>The heart can reject Bible teaching (<a href="https://www.esv.org/Proverbs+5:12-13" target="_blank">Prov. 5:12–13</a>).</li>
+<li>The heart is the source of discord and trouble making (<a href="https://www.esv.org/Proverbs+6:14" target="_blank">Prov. 6:14</a>, <a href="https://www.esv.org/Proverbs+6:18" target="_blank">18</a>).</li>
+<li>The heart of the prostitute is cunning (<a href="https://www.esv.org/Proverbs+7:10" target="_blank">Prov. 7:10</a>).</li>
+<li>Hatred emanates from the heart (<a href="https://www.esv.org/2+Samuel+6:16" target="_blank">2 Sam. 6:16</a>).</li>
+<li>The heart suffers disappointment from promises not kept (<a href="https://www.esv.org/Proverbs+13:12" target="_blank">Prov. 13:12</a>).</li>
+<li>The heart promotes mental attitude sins.
+                    <ol class="decimal">
+<li>Bitterness (<a href="https://www.esv.org/Proverbs+14:10" target="_blank">Prov. 14:10</a>)</li>
+<li>Sorrow and disappointment (<a href="https://www.esv.org/Proverbs+14:13" target="_blank">Prov. 14:13</a>)</li>
+<li>Pride (<a href="https://www.esv.org/Proverbs+21:4" target="_blank">Prov. 21:4</a>; Obad. 3)</li>
+<li>Worry (<a href="https://www.esv.org/Ecclesiastes+2:23" target="_blank">Eccl. 2:23</a>)</li>
+</ol>
+</li>
+<li>A frantic search for happiness is related to the heart (<a href="https://www.esv.org/Ecclesiastes+1:13" target="_blank">Eccl. 1:13</a>).</li>
+<li>Reversionism is described in terms of the heart (<a href="https://www.esv.org/Jeremiah+17:5" target="_blank">Jer. 17:5</a>, <a href="https://www.esv.org/Jeremiah+17:9" target="_blank">9</a>;<a href="https://www.esv.org/Zechariah+7:12" target="_blank"> Zech. 7:12</a>).</li>
+<li>Revolution and insubordination are described as being in the heart (<a href="https://www.esv.org/2+Samuel+15:6" target="_blank">2 Sam. 15:6</a>;<a href="https://www.esv.org/Jeremiah+5:23" target="_blank"> Jer. 5:23</a>;<a href="https://www.esv.org/Ezekiel+6:9" target="_blank"> Ezek. 6:9</a>).</li>
+<li>Hypocrisy is related to the heart (<a href="https://www.esv.org/Job+36:13" target="_blank">Job 36:13</a>;<a href="https://www.esv.org/Psalms+55:21" target="_blank"> Ps. 55:21</a>).</li>
+</ol>
+</li>
+<li>
+            The heart and emotion are analogous to husband and wife.
+            <ol class="alpha">
+<li>Just as the husband has the authority over the wife, so the heart has the authority over the emotion.</li>
+<li>Emotion in the body is designed to respond to doctrine in the right lobe, just as a woman is designed to respond to her husband (<a href="https://www.esv.org/Ephesians+5:22-24" target="_blank">Eph. 5:22–24</a>).</li>
+<li>The heart and emotion are linked in the following Scriptures:<a href="https://www.esv.org/Psalms+26:2" target="_blank"> Ps. 26:2</a>;<a href="https://www.esv.org/Jeremiah+11:20" target="_blank"> Jer. 11:20</a>; 17:<a href="https://www.esv.org/Jeremiah+17:10" target="_blank">10</a>; 20:<a href="https://www.esv.org/Jeremiah+20:12" target="_blank">12</a>.</li>
+</ol>
+</li>
+<li>
+            Happiness is located in the heart:
+            <ol class="alpha">
+<li>Gladness of heart (<a href="https://www.esv.org/1+Kings+8:66" target="_blank">1 Kings 8:66</a>; <a href="https://www.esv.org/2+Chronicles+7:10" target="_blank">2 Chron. 7:10</a>;<a href="https://www.esv.org/Esther+5:9" target="_blank"> Esther 5:9</a>)</li>
+<li>Merry heart (<a href="https://www.esv.org/Proverbs+15:13" target="_blank">Prov. 15:13</a>, <a href="https://www.esv.org/Proverbs+15:15" target="_blank">15</a>; 17:22)</li>
+</ol>
+</li>
+<li>
+            The heart and carnality
+            <ol class="alpha">
+<li>In carnality the sin nature takes control of the heart and short-circuits the spiritual life (<a href="https://www.esv.org/Psalms+66:18" target="_blank">Ps. 66:18</a>; 101:<a href="https://www.esv.org/Psalms+101:5" target="_blank">5</a>;<a href="https://www.esv.org/Proverbs+6:18" target="_blank"> Prov. 6:18</a>;<a href="https://www.esv.org/Matthew+12:35" target="_blank"> Matt. 12:35</a>; 15:<a href="https://www.esv.org/Matthew+15:18–19" target="_blank">18–19</a>;<a href="https://www.esv.org/Luke+6:45" target="_blank"> Luke 6:45</a>; 24:<a href="https://www.esv.org/Luke+24:25" target="_blank">25</a>).</li>
+<li>The heart is related to psychosis (<a href="https://www.esv.org/Isaiah+13:7-8" target="_blank">Isa. 13:7–8</a>).</li>
+<li>Revenge is a malfunction of the heart (<a href="https://www.esv.org/Proverbs+24:1-2" target="_blank">Prov. 24:1–2</a>;<a href="https://www.esv.org/Ezekiel+25:15-17" target="_blank"> Ezek. 25:15–17</a>).</li>
+<li>Reversionism in the heart results in national disaster (<a href="https://www.esv.org/Deuteronomy+28:47-48" target="_blank">Deut. 28:47–48</a>).</li>
+</ol>
+</li>
+<li>
+            Hardness of the heart (right lobe)
+            <ol class="alpha">
+<li>Scar tissue of the soul, or hardness of heart, is that stage of reversionism that accompanies blackout of the soul (<a href="https://www.esv.org/Ephesians+4:18" target="_blank">Eph. 4:18</a>).</li>
+<li>When the effects of the blackout of the left lobe reach the right lobe, scar tissue prohibits doctrine from circulating in the soul.
+                    <ol class="decimal">
+<li>The ability to utilize the frame of reference and memory center as a source of doctrine evaporates.</li>
+<li>Doctrine is no longer fed into the vocabulary to develop doctrinal categories.</li>
+<li>Norms and standards degenerate.</li>
+<li>Momentum halts.</li>
+<li>There is no wisdom for application in the believer’s life.</li>
+<li>Without the flow of doctrine into the right lobe, all spiritual functions shut down.</li>
+</ol>
+</li>
+<li>Instances of the hardness of the heart
+                    <ol class="decimal">
+<li>Hardness of the Jews during the Incarnation (<a href="https://www.esv.org/John+12:40" target="_blank">John 12:40</a>)</li>
+<li>The “Meribah revolution” (<a href="https://www.esv.org/Psalms+95:8" target="_blank">Ps. 95:8</a>;<a href="https://www.esv.org/Hebrews+3:8" target="_blank"> Heb. 3:8</a>, <a href="https://www.esv.org/Hebrews+3:15" target="_blank">15</a>; 4:7)</li>
+<li>The hardening of Nebuchadnezzar’s heart (<a href="https://www.esv.org/Daniel+5:20" target="_blank">Dan. 5:20</a>)</li>
+<li>Zedekiah’s hardness of heart (<a href="https://www.esv.org/2+Chronicles+36:11-13" target="_blank">2 Chron. 36:11–13</a>)</li>
+<li>Hardness of Pharaoh’s heart (<a href="https://www.esv.org/Exodus+7:22-23" target="_blank">Ex. 7:22–23</a>; 8:15, 32; 9:34)</li>
+</ol>
+</li>
+<li>Hardness of the neck is the same as hardness of the heart, but the neck emphasizes insubordination more than negative volition (<a href="https://www.esv.org/2+Kings+17:14" target="_blank">2 Kings 17:14</a>;<a href="https://www.esv.org/Nehemiah+9:16" target="_blank"> Neh. 9:16</a>;<a href="https://www.esv.org/Jeremiah+7:26" target="_blank"> Jer. 7:26</a>; 19:<a href="https://www.esv.org/Jeremiah+19:15" target="_blank">15</a>).</li>
+<li>Solution to hardness of heart: Since it is the result of negative volition toward doctrine, the solution demands rebound and positive volition toward doctrine. However, this positive volition must express itself in the consistent function of GAP (<a href="https://www.esv.org/Ephesians+3:16-21" target="_blank">Eph. 3:16–21</a>; 4:11–16;<a href="https://www.esv.org/Hebrews+6:1-6" target="_blank"> Heb. 6:1–6</a>).</li>
+</ol>
+</li>
+<li>
+            The heart in relation to the growing believer
+            <ol class="alpha">
+<li>Grace function (<a href="https://www.esv.org/Proverbs+24:17" target="_blank">Prov. 24:17</a>)</li>
+<li>Grace orientation (<a href="https://www.esv.org/Exodus+23:9" target="_blank">Ex. 23:9</a>)</li>
+<li>Happiness (<a href="https://www.esv.org/1+Samuel+2:1" target="_blank">1 Sam. 2:1</a>)</li>
+<li>Stability in a crisis (<a href="https://www.esv.org/Psalms+112:7-8" target="_blank">Ps. 112:7–8</a>)</li>
+</ol>
+</li>
+<li>
+            The heart in relation to motivation in life
+            <ol class="alpha">
+<li>Temporal life (<a href="https://www.esv.org/Exodus+35:25-26" target="_blank">Ex. 35:25–26</a>, 35; 36:8)</li>
+<li>Spiritual life (<a href="https://www.esv.org/1+Kings+8:17" target="_blank">1 Kings 8:17</a>; <a href="https://www.esv.org/2+Corinthians+9:7" target="_blank">2 Cor. 9:7</a>)</li>
+</ol>
+</li>
+<li>
+            The heart as an anthropomorphism (<a href="https://www.esv.org/1+Samuel+2:35" target="_blank">1 Sam. 2:35</a>;<a href="https://www.esv.org/Jeremiah+23:20" target="_blank"> Jer. 23:20</a>; 30:<a href="https://www.esv.org/Jeremiah+30:24" target="_blank">24</a>). Derived from the Greek ἄνθρωπος (anthrōpos), “man,” plus μορφή (morphē), “form,” an anthropomorphism is language of accommodation that ascribes to God human physical characteristics, which He does not actually possess, in order to explain His policies, acts, and decisions to finite man.
+        </li>
+</ol>
+<p class="footnote"><sup>5</sup> See Doctrine of the Conscience</p>
+<div class="doctrine-tags"><span>Tags:</span><span class="tag" data-tag="Church Age">Church Age</span><span class="tag" data-tag="Doctrine">Doctrine</span><span class="tag" data-tag="Faith">Faith</span><span class="tag" data-tag="Grace">Grace</span><span class="tag" data-tag="Happiness">Happiness</span><span class="tag" data-tag="Holy Spirit">Holy Spirit</span><span class="tag" data-tag="Mental Attitude">Mental Attitude</span><span class="tag" data-tag="Sin">Sin</span><span class="tag" data-tag="Spiritual Growth">Spiritual Growth</span></div></section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>

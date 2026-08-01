@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine of the Sin Unto Death — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Doctrine of the Sin Unto Death</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="sin-unto-death">
+<h2>Doctrine of the Sin Unto Death</h2>
+<ol class="roman">
+<li>
+            Definition.
+            <ol class="alpha">
+<li>The sin unto death is the means by which the reversionistic believer transfers from time to eternity (<a href="https://www.esv.org/1+John+5:16" target="_blank">1 John 5:16</a>;<a href="https://www.esv.org/Psalms+118:17-18" target="_blank"> Ps. 118:17–18</a>). He is removed from phase two under the administration of maximum punitive punishment without benefit of dying grace.</li>
+<li>The sin unto death involves a painful, horrible, miserable death as well as loss of blessing, both in time and eternity.</li>
+<li>No believer will suffer or be miserable in eternity (<a href="https://www.esv.org/Revelation+21:4" target="_blank">Rev. 21:4</a>); hence, the sin unto death is God's greatest and last expression of divine punishment to the reversionistic believer.</li>
+</ol>
+</li>
+<li>
+            Reversionism is the cause of the sin unto death (<a href="https://www.esv.org/Jeremiah+9:13-16" target="_blank">Jer. 9:13–16</a>; 44:12;<a href="https://www.esv.org/Philippians+3:18-19" target="_blank"> Phil. 3:18–19</a>;<a href="https://www.esv.org/Revelation+3:15-16" target="_blank"> Rev. 3:15–16</a>).
+        </li>
+<li>
+            The administration of the sin unto death does not mean loss of salvation (<a href="https://www.esv.org/2+Timothy+2:11-13" target="_blank">2 Tim. 2:11–13</a>).
+        </li>
+<li>
+            Case histories of the sin unto death.
+            <ol class="alpha">
+<li>For monetary reversionism: greed, dishonesty, and approbation lust of Ananias and Sapphira (<a href="https://www.esv.org/Acts+5:1-10" target="_blank">Acts 5:1–10</a>).</li>
+<li>For phallic reversionism: the incest of a Corinthian believer (<a href="https://www.esv.org/1+Corinthians+5:1-5" target="_blank">1 Cor. 5:1–5</a>).</li>
+<li>For ritual reversionism: the participation in Communion by carnal or reversionistic believers (<a href="https://www.esv.org/1+Corinthians+11:30-31" target="_blank">1 Cor. 11:30–31</a>).</li>
+<li>For mental attitude reversionism: Saul's refusal to fight, to kill King Agag, and to obey the Lord (<a href="https://www.esv.org/1+Samuel+13:9-14" target="_blank">1 Sam. 13:9–14</a>; 15; <a href="https://www.esv.org/1+Chronicles+10:13-14" target="_blank">1 Chron. 10:13–14</a>).</li>
+<li>For verbal reversionism: maligning and trouble making by Hymenaeus and Alexander (<a href="https://www.esv.org/1+Timothy+1:19-20" target="_blank">1 Tim. 1:19–20</a>).</li>
+<li>For antiestablishment reversionism: the human viewpoint foreign policy of King Hezekiah (<a href="https://www.esv.org/Isaiah+30:1-3" target="_blank">Isa. 30:1–3</a>; 31:1–3; 38).</li>
+</ol>
+</li>
+<li>
+            Reversion recovery cancels the sin unto death.
+            <ol class="alpha">
+<li>Rebound (<a href="https://www.esv.org/1+Corinthians+11:30-31" target="_blank">1 Cor. 11:30–31</a>).</li>
+<li>Repentance (change of mental attitude toward doctrine) (<a href="https://www.esv.org/2+Timothy+2:24-26" target="_blank">2 Tim. 2:24–26</a>).</li>
+<li>The function of GAP (<a href="https://www.esv.org/James+4:4-8" target="_blank">James 4:4–8</a>).</li>
+</ol>
+</li>
+</ol>
+<div class="doctrine-tags"><span>Tags:</span><span class="tag" data-tag="Church Age">Church Age</span><span class="tag" data-tag="Doctrine">Doctrine</span><span class="tag" data-tag="Faith">Faith</span><span class="tag" data-tag="Mental Attitude">Mental Attitude</span><span class="tag" data-tag="Sin">Sin</span></div></section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>

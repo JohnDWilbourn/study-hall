@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elect Angel Organization — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Elect Angel Organization</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="elect-angel-organization">
+<h2>Elect Angel Organization</h2>
+<ol class="roman">
+<li>Introduction
+    <ol class="alpha">
+<li>The conclusion of the prehistoric angelic conflict in heaven yielded two opposing forces: those angelic creatures who were elect (who chose for God) and those who were fallen (who chose against God). The true size of these angelic armies is indeterminable but likely in the hundreds of millions. Of the elect angels God said thousands upon thousands (<a href="https://www.esv.org/Psalms+68:17" target="_blank">Ps. 68:17a</a>); and in Gethsemane Jesus said, "Or do you think that I cannot appeal to My Father, and He will at once put at My disposal more than twelve legions of angels?" (<a href="https://www.esv.org/Matthew+26:53" target="_blank">Matt. 26:53</a>). The Apostle John "heard the voice of many angels around the throne … and the number of them was myriads of myriads, and thousands of thousands" (<a href="https://www.esv.org/Revelation+5:11" target="_blank">Rev. 5:11</a>).</li>
+<li>These myriads of elect angels in the heavenly protocol are a well-defined organization. Created to glorify God, they perform various duties in heaven and on Earth, heralding and executing His plans. They are involved in creation, prophecy, declarations and judgments, battling the demonic hordes as combatants in God's heavenly army, and ministering to believers on Earth.</li>
+</ol>
+</li>
+<li>Ranks and Description
+    <ol class="alpha">
+<li>Seraphim (שְׂרָפִים) are the super-royal/seraphic elect angels. "Seraph" means "burning ones." They are described in <a href="https://www.esv.org/Isaiah+6:2" target="_blank">Isaiah 6:2</a>: "Seraphim stood above Him, each having six wings: with two he covered his face, and with two he covered his feet, and with two he flew." Seraphim are specifically associated with the throne of God.</li>
+<li>Cherubim (כְּרוּבִים) are the royal elect angels. God "made them ride on a cherub and fly" (<a href="https://www.esv.org/Psalms+18:10" target="_blank">Ps. 18:10</a>). Cherubim guard the throne of God, the garden of Eden, and the ark of the covenant. They are commanded by Jesus Christ, "the Lord of hosts" (<a href="https://www.esv.org/Psalms+46:7" target="_blank">Ps. 46:7</a>), and composed of three descending ranks: the six-winged seraphim, who lead in worship and humility in God's holiness; the four-winged cherubim, who guard God's holiness; and the wingless elect angels, who serve as messengers, guardians, and soldiers.</li>
+<li>There is much we do not know about elect angels. God has not revealed many of their functions and hierarchy, revealed primarily in the Books of Daniel, Isaiah, Zechariah, Luke, and Revelation.</li>
+</ol>
+</li>
+<li>Seraphim have two roles:
+    <ol class="alpha">
+<li>As leaders of heavenly worship, to glorify God.</li>
+<li>As angelic heralds, to function as messengers between God and man.</li>
+</ol>
+</li>
+<li>Highest Ranking Seraphim — Archangels
+    <ol class="alpha">
+<li>Comparable to four-star generals, archangels perform the most critical and distinguished duties with regard to divine revelation and judgment.
+        <ol class="decimal">
+<li>Michael
+            <ol class="lower-alpha">
+<li>The title of archangel is specifically used with Michael in <a href="https://www.esv.org/Jude+1:9" target="_blank">Jude 9</a> and <a href="https://www.esv.org/1+Thessalonians+4:16" target="_blank">1 Thessalonians 4:16</a>.</li>
+<li>Michael commands the army of angels who defend Israel.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Gabriel
+    <ol class="alpha">
+<li>Gabriel was commissioned to explain to Daniel the vision of the ram and he-goat in <a href="https://www.esv.org/Daniel+8:16" target="_blank">Daniel 8:16</a> and the prediction of the seventy-week eschatology in <a href="https://www.esv.org/Daniel+9:21-27" target="_blank">Daniel 9:21–27</a>.</li>
+<li>He was sent to Zechariah to announce the birth of John the Baptist (<a href="https://www.esv.org/Luke+1:11-19" target="_blank">Luke 1:11–19</a>).</li>
+<li>He was sent to the virgin Mary to announce the birth of Christ (<a href="https://www.esv.org/Luke+1:26-38" target="_blank">Luke 1:26–38</a>).</li>
+<li>Called "an angel of the Lord" in <a href="https://www.esv.org/Luke+2:9" target="_blank">Luke 2:9</a>, he brought the news of the First Advent to the shepherds.</li>
+<li>He is "the archangel" whose voice command will resurrect Church Age believers at the Rapture (<a href="https://www.esv.org/1+Thessalonians+4:16-17" target="_blank">1 Thess. 4:16–17</a>).</li>
+</ol>
+</li>
+<li>Guardian Angels (<a href="https://www.esv.org/Psalms+91:7-14" target="_blank">Ps. 91:7–14</a>).
+    <ol class="alpha">
+<li><a href="https://www.esv.org/Psalms+91:11-12" target="_blank">Psalm 91:11–12</a> explains the function of guardian angels: "For He will give His angels charge concerning you, To guard you in all your ways. They will bear you up in their hands, Lest you strike your foot against a stone."</li>
+<li>Three categories of guardian angels:
+        <ol class="decimal">
+<li>The guardian angel of children. All children have a guardian angel to protect them during childhood (<a href="https://www.esv.org/Matthew+18:10" target="_blank">Matt. 18:10</a>).</li>
+<li>Guardians of all Church Age believers (<a href="https://www.esv.org/Hebrews+1:14" target="_blank">Heb. 1:14</a>).</li>
+<li>Custodian angels of client nations (<a href="https://www.esv.org/Daniel+10:13" target="_blank">Dan. 10:13</a>, <a href="https://www.esv.org/Daniel+10:20" target="_blank">20</a>).</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>The Heavenly Host
+    <ol class="alpha">
+<li>The remaining non-distinguished, non-ranking, rank-and-file elect angels comprise the army, an organization of angelic soldiers (<a href="https://www.esv.org/1+Kings+22:19" target="_blank">1 Kings 22:19</a>; <a href="https://www.esv.org/Psalms+148:2" target="_blank">Ps. 148:2</a>; <a href="https://www.esv.org/Luke+2:13" target="_blank">Luke 2:13</a>; <a href="https://www.esv.org/Revelation+5:11" target="_blank">Rev. 5:11</a>). These are the "host of heaven" or "armies" of heaven and lead the elect angels against the demon armies.</li>
+</ol>
+</li>
+</ol>
+<div class="doctrine-tags"><span class="tag" data-tag="Angelology">Angelology</span><span class="tag" data-tag="Theology Proper">Theology Proper</span><span class="tag" data-tag="Doctrine">Doctrine</span></div>
+</section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>

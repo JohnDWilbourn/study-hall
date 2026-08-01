@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine of Divine Essence — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Doctrine of Divine Essence</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="divine-essence">
+<h2>Doctrine of Divine Essence</h2>
+<h2>GENERAL OUTLINE OF THE DOCTRINE</h2>
+<ol class="roman">
+<li>God’s Essential Being</li>
+<li>Definition</li>
+<li>God Reveals Himself</li>
+<li>The Concept of Divine Personality</li>
+<li>Self-Existence</li>
+<li>Divine Attributes Introduced</li>
+<li>The Attributes of God
+        <ol class="alpha">
+<li>Sovereignty</li>
+<li>Righteousness</li>
+<li>Justice</li>
+<li>Love</li>
+<li>Eternal Life</li>
+<li>Omnipresence</li>
+<li>Omniscience</li>
+<li>Omnipotence</li>
+<li>Immutability</li>
+<li>Veracity</li>
+</ol>
+</li>
+<li>Categories of Antitheistic Theories</li>
+</ol>
+
+<div class="section">
+<h1>THE DOCTRINE OF DIVINE ESSENCE</h1>
+<h2>The Integrity of God</h2>
+<div class="page">
+<ol class="alpha">
+<li>
+<h3>God's essential being can never be completely grasped by finite humanity. The limitless perfection (Isa. 5:8–9) of His absolute existence is inapprehensible (Ps. 145:3; Job 11:7–9). If we could comprehend Him in all His fullness, He would cease to be God and become finite (Rom. 11:33–36). The Greek term for "comprehension" means "to seize and master." God is unsubdued, essence means "to be" or "to exist"), spiritual nature, a person, qualities of attributes. These three expressed through divine attributes, but manifested by actions.
+            <p>A. Substance (essence) means "to be" or "to exist"), spiritual nature, a person, qualities of attributes. These three expressed through divine attributes, but manifested by actions.</p>
+<p>B. Immensity and depth of the basic constitution of a material thing and the substance that which underlies all outward manifestation and is not dependent upon anything else while all else is dependent upon it.</p>
+<p>C. God's essence refers to His life or existence and that which characterizes Him and makes Him God and distinguishes Him from all other beings.</p>
+<p>D. Essence is that which makes God a divine, infinite, and perfect being. The sum total of God's attributes. His essence is one, God has three essences, not three in equality with God, exists and by the attributes which belong to His essence are expressed by what He has revealed (Rom. 1:20) by what God is (John 1:18).</p>
+<p>E. God is a spirit (John 4:24). His essential being is a self-existent, self-conscious, self-determining, and spiritual nature.</p>
+<p>F. God is a spirit. His attributes are real, infinite, and eternal. His qualities cannot be perceived by finite human eye. His qualities cannot be perceived by finite human eye through a third system of perception called "faith."</p>
+<p>G. —</p>
+</h3></li>
+<li>
+<h3>The Creator is immaterial.</h3>
+<p>Inasmuch as God created matter, it is contrasted with God (Heb. 11:3; Col. 1:16). Even though God is immaterial, He is real and personal and not merely an invisible force. Although His essence is invisible, He has revealed Himself in many ways, including the incarnation (John 1:14, 18).</p>
+<p>John 1:18 — "No man hath seen God at any time; the only begotten Son, which is in the bosom of the Father, he hath declared him."</p>
+<p>Luke 24:39 — "Behold my hands and my feet, that it is I myself: handle me, and see; for a spirit hath not flesh and bones, as ye see me have."</p>
+<p>1 Tim. 1:17 — "Now unto the King eternal, immortal, invisible, the only wise God..."</p>
+</li>
+</ol>
+</div>
+<div class="page">
+<ol class="alpha" start="3">
+<li>
+<h3>All the attributes of divine essence are present in God at all times.</h3>
+<p>They are not always manifest at the same time. In God all the attributes coexist in perfect harmony. God has never ceased to be what He is, nor will He ever cease to be all that He has been.</p>
+<p>Ex. 3:14 — "And God said unto Moses, I AM THAT I AM..."</p>
+<p>Ps. 102:25–27 — "Of old hast thou laid the foundation of the earth... They shall perish, but thou shalt endure..."</p>
+<p>Mal. 3:6 — "For I am the LORD, I change not..."</p>
+<p>Jas. 1:17 — "Every good gift and every perfect gift is from above..."</p>
+</li>
+<li>
+<h3>When divine persons are distinguished in Scripture, the same essence is revealed in three persons.</h3>
+<p>Although the Scripture persons are distinguished in Scripture, the same essence is revealed in three persons. God is revealed in three persons, but there is only one essence in three persons.</p>
+<p>Matt. 28:19 — "Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost."</p>
+<p>2 Cor. 13:14 — "The grace of the Lord Jesus Christ, and the love of God, and the communion of the Holy Ghost, be with you all. Amen."</p>
+<p>1 Pet. 1:2 — "Elect according to the foreknowledge of God the Father..."</p>
+</li>
+<li>
+<h3>God's essence is simple.</h3>
+<p>God's essence is simple, meaning it is not composed of parts. God is spirit (John 4:24). His essence is spiritual and not material.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="3">
+<li>
+<h3>God Reveals Himself</h3>
+<ol class="alpha">
+<li>The attributes of God are only understood by us on the basis of divine essence that is revealed to us in Scripture. The difficulty in God's constant contemplation and concentration on the finite human mind has unlimited essence of God—the invisible, immaterial, infinite, the infallible Word of God. There is no frame of reference upon our character, or in the life of anyone we know, or in the entire human race that can help us understand or even properly illustrate the perfect character of God. It is totally beyond us, and while there is a parallel between the essence of God and the soul of man, the parallel is limited. The essence of God is unseen; man's soul is unseen. God’s essence is real; man's essence is real. Divine essence has many attributes such as sovereignty, righteousness, justice, love, eternal life, omniscience, omnipresence, omnipotence, immutability, and veracity; man's soul has attributes such as self-consciousness, mentality, and volition. God's essence is invisible and real with attributes; beyond that there is no parallel between divine essence and the human soul.</li>
+<li>God in grace has revealed Himself, and what is revealed of God's essence is revealed to be understood through the ministry of the Holy Spirit. The believer can and must master the information God has provided regarding His attributes.</li>
+</ol>
+</li>
+<li>
+<h3>The Concept of Divine Personality</h3>
+<ol class="alpha">
+<li>Essence is not only what God is by way of His character, but what He is by way of His personality.</li>
+<li>Mankind has personality because he is made in the image of God, that is, having real but invisible attributes (which, of course, are not the same as God's attributes).</li>
+<li>The statement that "God created man in His own image" (Gen. 1:27) does not imply that man was created as a duplication of God, to share either His deity or physical appearance. "God created man in His own image" connotes that man possesses all the attributes of personality, not that man possesses deity.</li>
+<li>Man's personality is based on the essence of his soul. The soul with its characteristics is internal; the personality is external. Personality is a manifestation of how the soul functions.</li>
+<li>There are many people in the human race, but all have the same essence. We might say that mankind is one in essence but multifarious in personality. The Trinity is one in essence but only three in personality. Each member of the Godhead is a personality.</li>
+<li>While mankind is possessed of the essential elements of personality and is capable of their normal exercise within a limited sphere, God is the source and embodiment of these essential elements which He possesses in the sphere of infinity and to an unlimited degree.</li>
+<li>Nearly every page of the Bible asserts the personality of God. We derive our understanding of the personality of God from the manifestation of various combinations of His attributes throughout the Word of God.</li>
+<li>God designs, executes, and empowers; these are activities of His personality.</li>
+<li>God thinks and makes decisions. These are activities of the person of God; the superstructure of His essence.</li>
+<li>The most basic parts of personality are self-consciousness and self-determination. One must first be aware that he exists, then he can make decisions in relationship to that awareness.</li>
+<li>God speaks of Himself as "I" or "I, even I" many times in Scripture (Gen. 6:17; Ex. 20:2; Lev. 26:28; Isa. 43:11, 25). Therefore, God is self-conscious.</li>
+<li>God expresses His thoughts, desires, and decisions, therefore He has self-determination (Ex. 20:2–17; Isa. 55:8–9).</li>
+<li>God requires integrity and perfect rationality. Personality acts with perfect integrity and rationality. Rationality means you think, and integrity means you apply what you think.</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="4">
+<li>
+<ol class="alpha" start="12">
+<li>God's personality is always consistent. He does not change. God is not going to adjust in the least to our personality; we are finite. We adjust to Him. God is infinite personality; we are finite personality. The infinite never adjusts to the finite.</li>
+<li>Man possesses to a limited degree self-consciousness and self-determination. We are therefore capable of having a definite and permanent relationship with God on the basis of grace.</li>
+<li>God's absolute will and absolute perfection characterize His motivation and design as well as execution (Eph. 1:9, 11).</li>
+<li>God is, to an absolute degree, all that constitutes personality.</li>
+<li>God knows Himself to be beyond any comparison with creatures. He never feels threatened by any creature or situation. God has absolute self-respect. This self-respect is not arrogance; it is perfect personality far beyond our imperfect status.</li>
+<li>Knowledge is always a part of the personality of anyone. Since God knows everything, His knowledge is absolute and part of His personality (Isa. 44:6; 45:5–6; 1 Tim. 1:17).</li>
+<li>The divine motive is for His own glory, not for self-praise. This is not arrogance; this is perfectly compatible with His infinite attributes. God recognizes His own glory, and claims His glory in the interest of absolute truth.</li>
+<li>Therefore, all things exist for the glory of God. Apart from this fact all things would not exist; because of this they do (Ex. 33:18; Ps. 19:1; Isa. 6:3; Matt. 6:13; Acts 7:2; Rom. 1:23; 9:23; Heb. 1:3; 1 Pet. 4:14).</li>
+<li>We derive our understanding of the personality of God from His self-revelation of His attributes throughout the infallible Word of God.</li>
+</ol>
+</li>
+<li>
+<h3>Self-Existence</h3>
+<ol class="alpha">
+<li>God exists eternally, unsustained by Himself or by any other source. God has no beginning. His Old Testament name, יהוה (YHWH), Yahweh, means “the self-existent One.” He is the source of sustaining but does not need to be sustained Himself. In other words, He eternally exists as an infinite person who does not need help from anyone. We, on the other hand, must have help from Him; since He is the infinite source with infinite capacity, He provides for our needs.</li>
+<li>God's existence is unalterable. That is why we adjust to Him and He does not adjust to us. Moreover, He is the cause of all existence outside Himself, but He has no cause for Himself. By application of this principle, if God is the source of all energy and caused us to receive His life, He has infinite ability to supply us some of His energy. The source of the energy with which you are thinking right now is God.</li>
+<li>We, as believers, have an eternal relationship with God, and there is no higher relationship in the universe. There is nothing beyond God—relationship with Him is the peak. The Bible categorizes the personal relationships God has with men (Gen. 5:22–24; Ex. 33:11). When we made our first adjustment to His justice by believing in Christ, we entered into the perfect relationship. We are related to the One who has no origin and no cause. He is the cause, but He has no cause. He is, in addition, totally familiar with every secondary cause outside of Himself, which means that He has every attribute necessary to make Him the perfect Supreme Court Judge.</li>
+</ol>
+</li>
+<li>
+<h3>Divine Attributes Introduced</h3>
+<ol class="alpha">
+<li>Attributes are those qualities and perfections which belong to God; “the invisible things of Him [His attributes] . . . are clearly seen, being perspicuous by the things He has made [the act of creation is a function of God as a person]” (Rom. 1:20b, corrected translation). This phraseology portrays the personality of God and, behind His personality, its source in the attributes of His essence.</li>
+<li>Since the grace of God and the work of God are manifestations of His essential qualities—His attributes, it is important to understand who and what God is (that is, to understand His attributes). Moreover, since Jesus Christ is God—the manifest person of the Godhead (John 1:18)—to understand Him we must understand divine essence. After</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<h3>The Attributes of God</h3>
+<ol class="alpha">
+<li>
+<h3>Sovereignty</h3>
+<ol class="numeric">
+<li>The sovereignty of God is His eternal, infinite, unchangeable will expressed in the doctrine of the divine decree in eternity past.<sup>81</sup> As the Supreme Being of the universe (Deut. 4:39), the King of heaven and earth (Ps. 47:2; 93:1–2), God has absolute prerogative and volition.</li>
+<li>God is eternal (Ps. 93:2); God is infinite (Ps. 8:1; Acts 5:39; Heb. 6:13); God is self-determining (Job 9:12; Ps. 115:3; 135:6; Prov. 21:1; Dan. 4:35). Therefore, God’s sovereignty is eternal, infinite, and self-determining.</li>
+<li>By divine decree, the sovereignty of God and the free will of man coexist in human history. Both are invisible, though we can see their results (John 7:17; Phil. 2:13; 2 Pet. 3:9).</li>
+<li>God’s sovereign will from eternity past for the human race is expressed in Ephesians 1:5 (KJV), “Having predestinated us unto the adoption of children by Jesus Christ to himself, according to the good pleasure of his will,” and in 2 Peter 3:9 (KJV), “The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance.”</li>
+<li>The sovereignty of God in the Church Age is expressed in the corrected translation of Colossians 1:27, “To whom God willed to reveal to the Gentiles the glorious riches of this mystery, which is Christ in you, the hope of glory.” God sovereignly willed to reveal to every Church Age believer the unique spiritual life, and not only does He reveal to him the “riches” of that unique spiritual life, but Jesus Christ indwells each Church Age believer as “the hope [confidence] of glory.”</li>
+<li>
+                            The functions of divine sovereignty
+                            <ol class="lower-alpha">
+<li>The sovereignty of God is the final cause of all things; He created and maintains the universe (Col. 1:15–16).</li>
+<li>The sovereign will of God decreed to reveal Himself to us through Bible doctrine (Heb. 4:12).</li>
+<li>The sovereign will of God decreed to deal with us through a policy of grace, and to give Church Age believers the most fantastic and unique plan ever provided to believers in any dispensation.</li>
+<li>The sovereignty of God the Father sent Jesus Christ to the cross to provide our eternal salvation (John 3:16).</li>
+<li>The sovereignty of God always operates for His own glory. Therefore, all things exist for the glory of God (Ex. 33:18; Ps. 19:1; Isa. 6:3; Matt. 6:13; Acts 7:2; Rom. 1:23; 9:23; Heb. 1:3; 1 Pet. 4:14).</li>
+<li>God has never made a bad decision. All divine decisions from the sovereignty of God are made from a position of eternal and infinite strength. All divine decisions are based on His eternal wisdom and omniscience. Therefore, it is impossible for God to make a wrong decision.</li>
+<li>God in His sovereignty expresses supreme rulership, wisdom, and grace in His decisions that relate to us. When it comes time for us to die, the time, manner, and place of our dying are determined by decisions from the sovereignty of God. God has never made a mistake or a bad decision with regard to our living, and He never makes a bad decision with regard to the time, manner, and place in which we depart from this life.</li>
+</ol>
+</li>
+<li>
+                            Principles related to the sovereignty of God
+                            <ol class="lower-alpha">
+<li>The sovereignty of God functions in total compatibility with all His other attributes.</li>
+<li>The sovereignty of God works in conjunction with His omniscience. God has the wisdom to execute</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha">
+<li>
+<ol class="numeric" start="7">
+<li>
+                            Principles related to the sovereignty of God
+                            <ol class="lower-alpha" start="3">
+<li>Since God is eternal and immutable, He has never had to reverse a decision. His decisions were perfect in eternity past and they are perfect in time.</li>
+<li>The sovereignty of God works in conjunction with His omnipotence. God has the power to execute His will under all conditions. God’s sovereign will and power are never arbitrary.</li>
+<li>Divine sovereignty and human responsibility are not contradictory in human history since God has sovereignly decreed the function of the free will of man. This part of God’s plan is designed to resolve the angelic conflict by demonstrating to Satan and all fallen angels that God’s judgment of them in prehistoric times (Matt. 25:41) was absolutely, completely, totally fair.</li>
+<li>God sovereignly wills that all men come to a saving knowledge of Jesus Christ (2 Pet. 3:9). However, the free will of some men will refuse God’s gracious gift of salvation resulting in their eternal condemnation (John 3:18, 36). When a person obeys the will of God by believing in Christ alone, he has eternal salvation (John 3:16). God uses human volition to accomplish His will and purpose, yet God never coerces man’s free will.</li>
+<li>The sovereignty of God does not minimize or compromise human responsibility in history. No one can exist independently of the sovereignty of God. The sovereignty of God imputes soul life to biological life at birth and keeps you alive creating human life at His will. Any human attempt to live independently of God is the quintessence of arrogance.</li>
+<li>Under the sovereignty of God, any person who dies without reaching the point of accountability at God-consciousness is automatically saved because his free will has not yet had the opportunity to accept or reject Christ.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<h3>The authority of God</h3>
+<ol class="lower-alpha">
+<li>God’s authority is derived from all His attributes.</li>
+<li>God has absolute authority over both the possible and the actual.</li>
+<li>Over possible things, God is sovereign in that He leaves them as merely possible or decrees them to become actual at a specific point in the future.</li>
+<li>God renders account to no one. He acts in conformity with His own perfect character and consults no one for advice or encouragement. He is perfect and cannot be less than perfect in any decision He makes.</li>
+<li>All forms of existence are within the scope of God’s dominion. God is the final and absolute Authority (Ps. 145:14; Matt. 20:15; 1 Tim. 6:15).</li>
+<li>God delegates and establishes systems of authority in the human race; we call these systems of delegated authority the laws of divine establishment. Designed for believers and unbelievers alike, these authorities are necessary for the perpetuation of the human race. For example, each individual holds the authority over himself in the function of self-discipline; this is the mechanics of using his God-given free volition. Likewise, in marriage, the man is in authority over the woman; in the family, parents are in authority over their children. Law and law enforcement, as well as the military, are systems of authority under the principle of national entity.</li>
+<li>The authority of God rests in three facts:
+                            <ol class="numeric">
+<li>God is the Creator (Gen. 1:1–3). God gave existence to every creature and to all things;</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="8">
+<li>
+<ol class="lower-alpha" start="7">
+<li>
+                            The authority of God rests in three facts:
+                            <ol class="numeric" start="2">
+<li>God has redeemed us; He purchased us out of the slave market of sin. He freed us at the cross, giving us the right to choose for or against His plan of salvation and, subsequently, to choose for or against Bible doctrine. He bought us with a price; therefore, He has authority over us.</li>
+<li>God has provided Bible doctrine. The authority of God is expressed in doctrine, and our obedience to His authority is related to the amount of doctrine resident in our souls. When we submit to God's authority, there is tremendous blessing, and when we reject His authority, tremendous cursing.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<h3>The freedom of God</h3>
+<ol class="lower-alpha">
+<li>Freedom is not truly an attribute; God's sovereignty is. The only restriction to the freedom of God's will is self-imposed to be consistent with all His other attributes.</li>
+<li>God must be consistent with Himself; He cannot compromise His essence.</li>
+<li>The incarnation and spiritual death of Christ was the only way the sovereignty of God could decree salvation for man. In other words, God is free to bless man only when man is adjusted to His justice, first of all at salvation, then at rebound, and finally at spiritual maturity.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<h3>Righteousness</h3>
+<ol class="numeric">
+<li>God is perfect, both in His person and in His character, therefore all His attributes are perfect (Deut. 32:4; Ps. 7:9; 11:7; 97:6; 113:3; 119:137; Jer. 23:6; John 17:25; Rom. 1:17; 10:3; 1 John 2:29).</li>
+<li>God is totally free from sin. God cannot in any way be involved in sin except to judge it.</li>
+<li>God possesses eternal, unchangeable, and absolute righteousness. His righteousness in combination with His perfect justice is described as holiness or integrity (Ex. 15:11; 19:10–16; Isa. 6:3).</li>
+<li>Righteousness is the principle or standard of divine integrity. All that God does adheres to this measure of perfection.
+                    <ol class="lower-alpha">
+<li>God's righteousness is perfect and demands perfect justice.</li>
+<li>What the righteousness of God demands, the justice of God executes.</li>
+</ol>
+</li>
+<li>Righteousness is the guardian of divine justice.</li>
+<li>All justice is administered from the perfect righteousness of God (Lev. 19:2; 1 Sam. 2:2; Ps. 22:3; 47:8; 119:9; John 17:11; Rev. 3:7; 4:8; 6:10).</li>
+<li>God is absolute good. This is not a moralistic good, not a legalistic good, not a distorted good from the sin nature perspective whereby man tries to impress God and people with how good he is. God's absolute goodness is a good of intrinsic value that is perfect righteousness (Ps. 25:8; 34:8; 86:5; 119:68; Luke 18:19). God is infinitely perfect. He can neither be</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="2">
+<li>
+<ol class="numeric" start="8">
+<li>God cannot be tempted to sin, nor can He sin. Sin has boundaries, standards, and measures, but God is beyond standards and measures and therefore cannot sin. God cannot tempt anyone to sin, but He can recognize sin in us.</li>
+<li>God cannot be more than complicated with ignorance or absurdities, any more than with temptation, sin, or the approval of sin.</li>
+<li>The intellect and character of God are perfect; His perfection involves absolute truth, love, justice, and righteousness.</li>
+<li>God’s very own righteousness is imputed to every believer at the moment of salvation (Gen. 15:6; 2 Cor. 5:21) as the target for blessing from God.</li>
+</ol>
+</li>
+<li>
+<h3>Justice</h3>
+<ol class="numeric">
+<li>God is perfect justice: absolute and incorruptible fairness (Deut. 10:17; Rom. 2:11). It is impossible for God to be unfair in the function of divine justice.</li>
+<li>All three members of the Trinity sit in the Supreme Court of Heaven; therefore, justice involves all three persons of the Godhead. Divine justice administers the system of divine laws that are compatible with divine righteousness and sovereignty. Justice is the function of the integrity of God. As the Judge of mankind, God’s justice renders daily decisions in the Supreme Court of Heaven with regard to all members of the human race.</li>
+<li>God is an incorruptible and fair judge of mankind. It is impossible for perfect God to render a bad decision as judge.</li>
+<li>The justice of God administers the penalties and blessings which are demanded by His perfect righteousness (Deut. 32:4; 2 Chron. 19:7; Job 37:23; Ps. 19:9; 50:6; 58:11; 89:14; Isa. 45:21; Jer. 50:7; Rom. 3:26; Heb. 10:30–31; 12:23).</li>
+<li>God’s penalties are not vindictive but vindicative. With unchangeable sin and evil there is unchangeable condemnation and judgment; thus, God is proven to be consistent.</li>
+<li>The justice of God is portrayed in the most dramatic way at the cross where Christ was judged as a substitute for us. Our Lord never said anything about being judged unfairly for us.
+                            <ol class="lower-alpha">
+<li>Jesus Christ as the Lamb of God was qualified to go to the cross not only because He was born perfect without a sin nature and without the imputation of Adam’s original sin, but also because He remained absolutely perfect, impeccable in His humanity during His thirty-three years on the earth. Not once did He lose His impeccability in being made sin for us (Heb. 12:2).</li>
+<li>Therefore, He was qualified to become the sacrificial lamb, as portrayed by the Old Testament sacrifices. “Behold, the Lamb of God who takes away the sin of the world!” (John 1:29b).</li>
+<li>During the last three hours on the cross, the justice of God imputed all the personal sins ever committed in the human race to the Lord Jesus Christ on the cross and judged every one of them. There never has been a sin committed in the history of the human race that was not judged on the cross.</li>
+<li>Because God’s perfect righteousness demands the judgment of sin, all the sins of the human race had to be judged on the cross.</li>
+<li>The justice and righteousness of God were the points of contact with Jesus Christ in hypostatic union on the cross. His humanity had to be judged for our sins to propitiate divine righteousness. This was why He said, the night before His crucifixion, “This represents My body which is given [as a substitute] for you; take and eat thereof” (Luke 22:19b, corrected translation).</li>
+<li>The justice of God is the guardian of divine essence in dealing with fallen man.</li>
+</ol>
+</li>
+<li>Therefore, from the moment we are born spiritually dead, the justice of God is our point of contact, and continues to be our point of contact after salvation.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="3">
+<li>
+<ol class="numeric" start="8">
+<li>The righteousness of God is the principle of divine integrity; the justice of God is the function of divine integrity. What the righteousness of God demands, the justice of God executes.</li>
+<li>God's grace is extended through His justice. God does everything for man based on the saving work of Jesus Christ on the cross. Mankind can never accomplish or achieve the approbation or favor of God through his own efforts, work, energy, or morality. Because the righteousness of God was propitiated at the cross, His justice and righteousness combined with His love are free to bestow His unmerited favor on sinful mankind.</li>
+</ol>
+</li>
+<li>
+<h3>Love</h3>
+<ol class="numeric">
+<li>Love is the absolute virtue and benevolence of God's thinking and actions. Love is what God is as well as what He does (1 John 3:16; 4:7, 16). As with all the attributes of God, love belongs to the being of God and cannot be disassociated from His eternal being (1 John 4:8). His love never diminishes or improves. His nature is to bestow Himself, to give of Himself (John 3:16; Eph. 1:5; 2:4–7, 10; 1 Pet. 3:18; 1 John 4:9–10).</li>
+<li>God is love whether or not He has a creature to love. His love is an inherent quality that does not require inspiration.</li>
+<li>Throughout eternity God has had a perfect object of His love in Himself. There never was a time when each member of the Trinity did not love His own righteousness and the righteousness of the other two persons in the Godhead. The only object ever worthy of God's love is God's own eternal, unchangeable righteousness. God's love was not less because there were no angelic or human objects, and God's love did not increase once there were creatures to love.</li>
+<li>God's love is infinite and immutable; divine love does not increase or decrease, expand or diminish. No form of creature sinfulness, failure, vacillation, or rejection can change, effect, or elicit a reaction from God's love.</li>
+<li>God's love is different from human love, which God does not possess. Even if we understand human love, that is no guarantee that we understand God's love. Divine love in its totality is beyond our comprehension. His love, for example, contains no emotion. Emotion is wonderful in human love, but infinite God does not have emotion. His love needs no support; ours does. Another difference: In God's love there is no deception—only the inviolable demand of perfect truth and integrity—while our love is often blind. Furthermore, whereas God's love needs no object, our love is not love unless it has an object. God's love is part of His immutable being in spite of objects or opportunities.</li>
+<li>God's love is not emotional or sentimental.
+                            <ol class="lower-alpha">
+<li>Because He is omniscient, His love cannot be complicated with ignorance or absurdities.</li>
+<li>Because He is righteous and just, His love is never partial or biased.</li>
+</ol>
+</li>
+<li>God's love depends on His integrity and is governed by His integrity (Ps. 89:14a; Jer. 9:24).</li>
+<li>
+                            Categories of God's love.
+                            <ol class="lower-alpha">
+<li>Self-love and love toward other members of the Trinity.
+                                    <ol class="numeric">
+<li>God loves His own integrity (Ps. 33:4–5a).</li>
+<li>God's self-love is the perfect and eternal poise, self-confidence, self-possession, and self-assurance possessed by each member of the Trinity. If God did not love Himself, there would be no reason for us to love Him.</li>
+<li>In His infinite knowledge He knows Himself to be completely beyond comparison, worthy of admiration to an infinite degree.</li>
+<li>Not only does each member of the Trinity love Himself, but all three possess the perfect integrity and capacity to love and be loved by the other members of the Trinity.</li>
+<li>There never was a time that God the Father did not love God the Son and God the Holy</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="3">
+<li>
+<ol class="numeric" start="8">
+<li>The righteousness of God is the principle of divine integrity; the justice of God is the function of divine integrity. What the righteousness of God demands, the justice of God executes.</li>
+<li>God's grace is extended through His justice. God does everything for man based on the saving work of Jesus Christ on the cross. Mankind can never accomplish or achieve the approbation or favor of God through his own efforts, work, energy, or morality. Because the righteousness of God was propitiated at the cross, His justice and righteousness combined with His love are free to bestow His unmerited favor on sinful mankind.</li>
+</ol>
+</li>
+<li>
+<h3>Love</h3>
+<ol class="numeric">
+<li>Love is the absolute virtue and benevolence of God's thinking and actions. Love is what God is as well as what He does (1 John 3:16; 4:7, 16). As with all the attributes of God, love belongs to the being of God and cannot be disassociated from His eternal being (1 John 4:8). His love never diminishes or improves. His nature is to bestow Himself, to give of Himself (John 3:16; Eph. 1:5; 2:4–7, 10; 1 Pet. 3:18; 1 John 4:9–10).</li>
+<li>God is love whether or not He has a creature to love. His love is an inherent quality that does not require inspiration.</li>
+<li>Throughout eternity God has had a perfect object of His love in Himself. There never was a time when each member of the Trinity did not love His own righteousness and the righteousness of the other two persons in the Godhead. The only object ever worthy of God's love is God's own eternal, unchangeable righteousness. God's love was not less because there were no angelic or human objects, and God's love did not increase once there were creatures to love.</li>
+<li>God's love is infinite and immutable; divine love does not increase or decrease, expand or diminish. No form of creature sinfulness, failure, vacillation, or rejection can change, effect, or elicit a reaction from God's love.</li>
+<li>God's love is different from human love, which God does not possess. Even if we understand human love, that is no guarantee that we understand God's love. Divine love in its totality is beyond our comprehension. His love, for example, contains no emotion. Emotion is wonderful in human love, but infinite God does not have emotion. His love needs no support; ours does. Another difference: In God's love there is no deception—only the inviolable demand of perfect truth and integrity—while our love is often blind. Furthermore, whereas God's love needs no object, our love is not love unless it has an object. God's love is part of His immutable being in spite of objects or opportunities.</li>
+<li>God's love is not emotional or sentimental.
+                            <ol class="lower-alpha">
+<li>Because He is omniscient, His love cannot be complicated with ignorance or absurdities.</li>
+<li>Because He is righteous and just, His love is never partial or biased.</li>
+</ol>
+</li>
+<li>God's love depends on His integrity and is governed by His integrity (Ps. 89:14a; Jer. 9:24).</li>
+<li>
+                            Categories of God's love.
+                            <ol class="lower-alpha">
+<li>Self-love and love toward other members of the Trinity.
+                                    <ol class="numeric">
+<li>God loves His own integrity (Ps. 33:4–5a).</li>
+<li>God's self-love is the perfect and eternal poise, self-confidence, self-possession, and self-assurance possessed by each member of the Trinity. If God did not love Himself, there would be no reason for us to love Him.</li>
+<li>In His infinite knowledge He knows Himself to be completely beyond comparison, worthy of admiration to an infinite degree.</li>
+<li>Not only does each member of the Trinity love Himself, but all three possess the perfect integrity and capacity to love and be loved by the other members of the Trinity.</li>
+<li>There never was a time that God the Father did not love God the Son and God the Holy</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="4">
+<li>
+<ol class="numeric" start="8">
+<li>
+                            Categories of God's love
+                            <ol class="lower-alpha" start="2">
+<li>
+                                    Love toward mankind. God's love for mankind is classified into two categories: divine personal love and divine impersonal love.
+                                    <ol class="numeric">
+<li>God's infinite, eternal, immutable personal love is only directed toward perfect righteousness.
+                                            <ol class="lower-alpha">
+<li>Divine personal love is therefore conditional; it emphasizes the attractiveness of the object. To be the recipient of divine personal love, the object must possess perfect righteousness.</li>
+<li>God is very particular about whom He personally loves and admits into heaven. Jesus Christ is the only one worthy, and only through His merits are we acceptable. There is absolutely nothing we can do to earn the personal love of God or the right to live with Him forever; we are qualified only by nonmeritorious faith in Christ.</li>
+<li>We become the recipients of God's personal love the moment we believe in Christ and receive the imputation of God's very own righteousness (Gen. 15:6; Rom. 4:3).</li>
+</ol>
+</li>
+<li>God's infinite, eternal, immutable impersonal love does not depend on the merit of the object, but on the merit, the integrity of the subject.
+                                            <ol class="lower-alpha">
+<li>Divine impersonal love is therefore unconditional, based on God's own perfect character and His love for Himself.</li>
+<li>God loves spiritually dead, unbelieving mankind because of who and what He is, not who and what we are.</li>
+<li>The impersonal love of God is the most powerful love that has ever existed; this love provided our so-great salvation (John 3:16).</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>The love of God is expressed through grace. God's gracious gift of His Son is the greatest demonstration of His love toward mankind (Rom. 5:8).
+                            <ol class="lower-alpha">
+<li>Although not an attribute, grace is the expression of divine love and integrity.</li>
+<li>Grace is the policy of God for bestowing His unmerited favor on sinful humanity. Grace is all that God is free to do for mankind on the basis of the saving work of Jesus Christ on the cross. Mankind can never accomplish or achieve the approbation or favor of God through his own efforts, work, energy, or morality. The foundation for grace is the righteousness, justice, and love of God.</li>
+<li>Mercy is grace in action, God's infinite love toward the objects of divine affection (Titus 3:5). Therefore, God's mercy extends as impersonal love toward all His creatures and as personal love toward believers who possess His own perfect righteousness.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<h3>Eternal Life</h3>
+<ol class="numeric">
+<li>God is life (Jer. 10:10; John 1:4; 14:6; 1 Thess. 1:9); God lives. He does not possess life as we do—life that began at some point. There never was a time when God did not live. He always existed; His life is called eternal life. Eternal life has no beginning and no end. In contrast, the eternal life given to the believer is technically called everlasting life; that is, it has no end but began at the moment of salvation through faith alone in Christ alone (John 3:36).</li>
+<li>Like all divine attributes, eternal life applies to the being, the very essence of God. Eternal life means that He has always existed and will always exist; there was never a time when He did not exist. He never had a beginning; no one preceded Him; nothing</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="5">
+<li>
+<ol class="numeric" start="3">
+<li>Because God is the cause and origin of time, He is not subject to time (Deut. 32:40; Ps. 90:2; 102:27; 1 Cor. 2:7; Eph. 1:4; 1 Tim. 1:17). He invented time so He could manifest His eternal life to us, and we adjust to eternal God by possessing His eternal life through faith in Christ. Still, we continue to think in terms of time, and, in fact, we cannot live without time.</li>
+<li>Time, although without substance, is an object of God's creation. Since God was gracious and thoughtful enough to give us time, we must give time back to Him. In other words, basic giving in the Christian way of life is giving of time. Whenever we worship God in any way under the filling of the Holy Spirit, we are giving time to Him. All Christian service, including the giving of money, is secondary. The primary means whereby we give our time is when we set aside time to worship God by learning Bible doctrine. Our eternal life comes in two phases: temporal life on earth and eternal life in heaven. Here on earth, God gives us one day at a time, and we must recognize that a portion of that day belongs to Him for learning His Word.</li>
+<li>God is not subject to time, but time is subject to God.</li>
+<li>God transcends all creation, including time. To Him, “one day is as a thousand years, and a thousand years as one day” (2 Pet. 3:8b).</li>
+<li>God is logical and therefore does not need to be chronological (Rom. 12:2), but He can be chronological if He so chooses. For example, time began with creation, and since the succession of history truly exists, God, who sees according to the truth, recognizes time. Furthermore, God always accomplishes in time what has to be done in time as part of His plan. Thus, the variations of blessing and adversity that come in our day-to-day lives are merely part of an overall plan to bless us in eternity, as well as to provide security and blessing for us in time.</li>
+<li>Time, which is finite, has both succession and duration. The duration of time is measured by its succession; for example, the duration of a day is measured by the succession of minutes or hours.</li>
+<li>In contrast, eternity, which is infinite, has duration only. Duration without succession is still duration, but it is immeasurable. Therefore, infinite, eternal God has duration only. In fact, eternity is infinity in its relation to time. Time is a line of succession as far as man's perspective is concerned, but eternity is beyond man's perception, reaching into infinity.</li>
+<li>The eternal life of God is imputed to all who believe in Christ (John 3:16, 18, 36; 10:10; 14:6; 20:31; 1 John 5:11–12). Jesus Christ is “the way, and the truth, and the life” (John 14:6). He is life; never was there a time when He, in His deity, did not exist (John 1:1). Eternal life has always resided in Him: “This is the record, God has given unto us eternal life, and this life is in His Son. He who has the Son has life; He who has not the Son has not life” (1 John 5:11–12, corrected translation). Furthermore, as the Creator, the Lord Jesus Christ is the source of all life (Heb. 1:2). God the Father is also the source of life, not from the standpoint of creation, but as the one who breathes the “spark of life” into the fetus when it emerges from the womb at birth. Moreover, God the Holy Spirit is the source of life as the agent of regeneration (Titus 3:5) and as the one who places each Church Age believer into union with Christ at the moment of faith in the Gospel. By the baptism of the Holy Spirit at the moment of salvation, the eternal life of Jesus Christ becomes our eternal life. Thus the members of the Trinity are related to life in specific, different ways that never contradict each other and are totally compatible with the operation of the Godhead.</li>
+</ol>
+</li>
+<li>
+<h3>Omnipresence</h3>
+<ol class="numeric">
+<li>God is eternally, wholly, and simultaneously present everywhere (Deut. 4:39; Ps. 139:8; Prov. 15:3; Acts 17:27).</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="6">
+<li>
+<ol class="numeric" start="2">
+<li>This is not pantheism, since pantheism denies the existence of the life and personality of God. Pantheism is the belief that God is in every object thereby making God an impersonal force and deifying nature.</li>
+<li>God is the totality of His essence. Without diffusion, expansion, multiplication, or division, He penetrates and fills the entire universe and everything beyond the universe to infinity (Ps. 139:7; Jer. 23:23–24; Acts 17:27).</li>
+<li>God is free to be local. He was with Moses on the mountain (Ex. 19:18, 20); He resided in the Holy of Holies in the Temple as the Shekinah Glory (Ex. 40:34; Lev. 16:2). He “became flesh, and tabernacled among us” (John 1:14, corrected translation) while at the same time existing throughout all space and beyond all space. He knows firsthand our weaknesses, our problems, our circumstances. He is personally interested in us every moment we are in time, and He is available to help us immediately. He is the perfect counselor—He always has time for everyone simultaneously. Omnipresence means He is personally there, an eyewitness to every activity of our lives and of all human and angelic history.</li>
+<li>Omnipresence describes space in relation to God; immensity describes God in relation to space.
+                            <ol class="lower-alpha">
+<li>God is not subject to the laws of space. God invented and created space just as He invented and created time. Space is large, but not as large as God.</li>
+<li>God cannot be more or less than He is.</li>
+<li>God is the cause of space. He put order into space, which extends for immeasurable light-years. Space is one of two boundaries God has given to creatures, the other being time. Between our salvation and physical death, we as believers operate within both space and time exactly as the unbeliever does. When people travel into outer space, they find themselves in a “timeless” situation, but they are still in time. We can never escape time or space, and it would be a disaster to do so—our entire orientation in life is tied to time and space. For example, when God commands us to “forsake not the assembling of yourselves together [to learn the Word of God]” (Heb. 10:25a, corrected translation), He has to provide us with the means of complying with His order. He gave us space and time so that we could be at the right place at the right time.</li>
+<li>In relation to space, God is immanent—in space, and transcendent—outside of space.
+                                    <ol class="numeric">
+<li>Immanence means His entire essence is always present everywhere in nature, in history, in all the affairs of mankind (Jer. 23:23–24; Acts 17:27–28).</li>
+<li>Transcendence means He is independent of the created universe so that no particular place exclusively contains Him (Ps. 113:5–6; Isa. 55:8–9; John 8:32).</li>
+</ol>
+</li>
+<li>If space were defined as having boundaries, God would exceed those boundaries to infinity because God is the Creator, the cause of space. Since God has the ability to construct time and space and is inside them as well as outside of them, He also has the ability to handle smaller problems such as our adversities and difficulties. Our personal and national problems are not nearly as hard for God to manage as it was for Him to invent the day or the cubic foot. Knowing this, we have no cause for worry.</li>
+<li>God fills space and time with His presence, sustains both, and gives both purpose and value. He is the Lord of both time and history. His omnipresence relates to the fact that Jesus Christ controls history and in time God's plans and purposes are fulfilled.</li>
+</ol>
+</li>
+<li>God may be self-limited, as in the case of the incarnate person of Jesus Christ in hypostatic union. The Greek word κενόω (kenoō) used of Christ in Philippians 2:7</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="6">
+<li>
+<ol class="numeric" start="6">
+<li>describes how He “emptied Himself,” meaning He deprived Himself of the function of deity. Under the doctrine of kenosis, the God-man submitted to the plan of the Father. By taking on true humanity, He voluntarily limited Himself and became the unique person of the universe. Now Christ is not only God, equal with the Father and the Holy Spirit, but He is also true humanity, different from the other members of the Godhead. God's infinity is intensive rather than extensive. That is, God is not to be thought of merely as extending infinitely beyond time and space but possessing within Himself infinite resources. He is the perfect person who passes beyond all phenomena and constitutes the basis for all, as possessing within Himself a boundless supply of the infinite energy of His spiritual life and personality.</li>
+</ol>
+</li>
+<li>
+<h3>Omniscience</h3>
+<ol class="numeric">
+<li>God is wise; He has perfect wisdom. He knows perfectly and eternally all that is knowable, whether actual or merely possible. Everything that has been known or ever will be known—for example, every discovery in the advance of science—has been known to God since eternity past. Never was there a time when He did not know everything that is knowable. In other words, God could pass any examination on any subject at any time or on all subjects at the same time, and He could have done so in eternity past. Moreover, God never learns anything because He has always known everything; He knows the end from the beginning (Ps. 33:13–15; 139:1–4; 147:4–5; Prov. 15:3; Mal. 3:16; Matt. 6:8; 10:29–30; Acts 15:8; Heb. 4:3, 13; 1 John 3:20).</li>
+<li>Omniscience can be categorized three ways:
+                            <ol class="lower-alpha">
+<li>Eternal: Because God is eternal life and omniscient, He has always known everything (Acts 15:18).</li>
+<li>Incomprehensible: The infinite is incomprehensible to us, but because of His infinity, everything is clearly comprehensible to God. The Bible reveals only a small fraction of God's knowledge (Rom. 11:33).</li>
+<li>Wise: Total wisdom as well as total knowledge belong to God's omniscience (Eph. 3:10).</li>
+</ol>
+</li>
+<li>Every detail of all creation and history is in God's mind at all times and always has been from eternity past. This is God's mentality connected with His infinity.</li>
+<li>Therefore, the future is as perspicuous to God as the past.</li>
+<li>God foreknows the future. Since all events take place according to His counsel, the divine decree, He foreknows, but His foreknowledge is not predetermination. He knows every step you will take, but He never interferes with your volition (cf. Appendix B).</li>
+<li>God foreknows the function of every free will; He knows what other beings will choose. He knows we have a free will—in fact He gave us our volition—and He knows which way we will decide in the function of our free volition in every situation in life.</li>
+<li>Although He never interferes with free will, God is gracious and all-wise. Therefore, He does not merely sit on the sidelines. He may determine which choice is made through His gracious influence, for example, through Bible doctrine resident in the soul of the believer or through His control of the variables of life that are beyond human control—often erroneously called fate or luck.</li>
+<li>God's knowledge is not subject to development, reasoning, regretting, or foreboding. His knowledge is always total and perfect; therefore His knowledge cannot develop beyond what it already is. God knows all the conclusions as well as all the premises; hence, even though He is totally reasonable and rational in all things, He never needs to reason things out. This also means that we can never second-guess God; there is no way we can improve on His system. We can simply go along with His perfectly wise policy, which has our best interest in mind. What if</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="7">
+<li>
+<ol class="numeric" start="9">
+<li>we choose not to follow the divine course? His plan goes right along without us.</li>
+<li>Satan is the best illustration of what happens to someone who tries to outsmart God. The devil’s entire strategy boils down to an attempt to outsmart, second-guess, and outmaneuver God. Satan thinks he has a better plan than God’s and wants to put it into effect and take God’s place. The result of Satan’s brilliant though arrogant efforts to improve on the divine plan is the confusion and evil we find in the world today. Eventually Satan’s rival plan will result in his own destruction in the lake of fire forever. While believers will never see the lake of fire, their imperfect and unwise plans can create misery for themselves and others.</li>
+<li>Since God’s thinking is not subject to regrets, foreboding, or depression, all that He knows never makes Him unhappy. If we knew just some of the details God knows, if we could see the future, we would be immediately upset.</li>
+</ol>
+</li>
+<li>
+<h3>Omnipotence</h3>
+<ol class="numeric">
+<li>God is all-powerful; His power is infinite. Omnipotence emphasizes the eternal supremacy of God’s power (Gen. 17:1; 18:14; 2 Chron. 16:9; 25:8; Job 26:7; 42:2; Ps. 24:8; 74:13; 93:1; 147:5; Isa. 40:26; 43:13; 50:2; Jer. 27:5; 32:27; Rev. 19:6, KJV).</li>
+<li>God’s omnipotence guarantees that “nothing will be impossible with God” (Luke 1:37; cf. Matt. 19:26b; Mark 10:27).</li>
+<li>God is able to do all things within the range of His holy character; that is, He can do all things which are not self-contradictory or contradictory to His own nature. For Him to do contradictory things would not imply power but imperfection and impotence.</li>
+<li>God will never make right wrong, nor will He act foolishly. He never abuses His power; His power is perfect and beyond our comprehension (Isa. 44:24; 2 Cor. 4:6; Eph. 1:19–20; 3:20; Heb. 1:3).</li>
+<li>If God is limited at any time, it is because of a self-imposed limitation consistent with His plan and essence.</li>
+<li>God can do all He wills to do, but He may not will to do all He can do.</li>
+<li>Infinite energy and power belong to God (Ps. 8:3). He does not sleep; He never gets tired. After billions of years He is still not worn out, and He never will be. We need to adjust to that: God is compassionate, but He is not absurd—so do not expect Him to sympathize with your lame excuse that you are too tired to take in doctrine and fulfill your responsibilities in life. When you need energy for doing His will, He provides the energy. By applying what we know of the infinity of God, we can see that God will always provide and that we must therefore carry on no matter how we feel. God never condones giving up. When you start making excuses, you begin to develop maladjustments to the grace and power of God.</li>
+<li>The universe is held together by the omnipotence of Jesus Christ (Col. 1:16–17).</li>
+<li>God has made His divine power available to every Church Age believer for the execution of the unique spiritual life (1 Cor. 2:5; Eph. 1:19–20; 3:6; Col. 1:11; 2 Thess. 1:11; 1 Pet. 1:5; 2 Pet. 1:3).
+                            <ol class="lower-alpha">
+<li>the power of the Word of God circulating in our souls;</li>
+<li>the unique assets of the Church Age;</li>
+<li>the filling of the Holy Spirit;</li>
+<li>the function of spiritual gifts.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<h3>Immutability</h3>
+<ol class="numeric">
+<li>God is unchangeable. He cannot change; human beings change (Ps. 33:11; Mal. 3:6; Heb. 13:8; James 1:17).</li>
+<li>God cannot be better or worse than His essence. He never had a day when He was better or worse, in contrast to us, for whom every day is better or worse. There is a vast difference between creature and Creator; you cannot give God a good day or a bad day, but He can certainly give you either.</li>
+<li>Even the anthropopathic representations of the Lord Jesus Christ in Scripture, such as repentance, merely represent His perfect attitude toward variations in</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="9">
+<li>
+<ol class="numeric" start="3">
+<li>man, in history, and in time. God may appear to change but He does not. He is merely expressing His character differently as called for by differences and changes in man or history. As a weathervane does not change its shape while turning with a shift in the wind, so God merely brings into view a different aspect of His unchanging person and plan when we change. He treats each person as an individual and every historical situation according to the facts of the case (Ps. 33:13–15; 139:1–18, 23–24; 147:4–5).</li>
+<li>God has the ability to handle any situation in life with whatever is necessary; therefore, the fact that He meets one set of circumstances with discipline and another set with deliverance does not mean that His immutability is compromised. It means instead that He is wise and just and that He knows when to do what. He does not deal with everything the same way—that would be stupidity, not immutability! God deals with everything according to the information He possesses, which is complete.</li>
+<li>Related specifically to the Supreme Court of Heaven, the Chief Justice is perfect with no contradictions. He is immutable yet able to evaluate different situations in different ways. Since He is unchangeably perfect, His pronouncements are always perfect.</li>
+<li>Immutability is consistent with God's freedom and ceaseless activity. God simultaneously deals with millions and millions of people who come under His special attention. He dictates to us; we do not dictate to Him. For specified activities, He has delegated some of His authority to pastor-teachers (all sorts of male believers are given this spiritual gift at the moment of salvation), and we adjust to God's infinite, immutable, ceaselessly active authority by adjusting to the right pastor-teacher's authority.</li>
+<li>God is free to act according to His essence. The fact that He is immutable means that He cannot change His own nature, not that He cannot act as His divine nature dictates. Therefore, God is always at His best. There is a false doctrine which states that because man failed in the Garden, salvation is God's second best. Supposedly His first best was to perpetuate that perfect environment. The ultimate conclusion of such false teaching is that if we are nice and good enough, we might someday deserve God's first best, and He will establish another Eden. That is not only blasphemous and legalistic, it is satanic evil. God is always at His best. No characteristic of God can change; His justice, the watchdog over all His attributes, makes certain of that when He deals with man.</li>
+<li>From God's immutability stems His faithfulness.
+                            <ol class="lower-alpha">
+<li>He is faithful to forgive (1 John 1:9).</li>
+<li>He is faithful to keep us saved (2 Tim. 2:12–13).</li>
+<li>He is faithful to deliver in pressure (1 Cor. 10:13).</li>
+<li>He is faithful in suffering (1 Pet. 4:19).</li>
+<li>He is faithful in providing a partnership with Christ, faithful in His plan (1 Cor. 1:9).</li>
+<li>He is faithful to provide eternity (1 Thess. 5:24).</li>
+<li>He is faithful to stabilize the believer (2 Thess. 3:3).</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<h3>Veracity</h3>
+<ol class="numeric">
+<li>Veracity means that God is absolute truth, the expression of His integrity (Deut. 32:4b). His veracity is manifest in His ways, His modus operandi (Ps. 25:5, 10; 86:15; Rev. 15:3); His works (Ps. 33:4; 111:7–8; Dan. 4:37); and by His Word (2 Sam. 7:28; 1 Kings 17:24; Ps. 19:9; 119:142, 151; 138:2; John 8:45; 17:17; 2 Cor. 6:7; Eph. 1:13).</li>
+<li>The veracity of the Godhead
+                            <ol class="lower-alpha">
+<li>The Father (Ps. 31:5; Isa. 65:16; Jer. 10:10a; John 3:33; 17:3; Rom. 3:4)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="10">
+<li>
+<ol class="numeric" start="2">
+<li>
+                            The veracity of the Godhead
+                            <ol class="lower-alpha" start="2">
+<li>The Son (John 1:14; 8:32; 14:6; 1 John 5:20; Rev. 16:7; 19:11)</li>
+<li>The Holy Spirit (John 14:27; 15:26; 16:13; 1 John 5:6)</li>
+</ol>
+</li>
+<li>Not merely true to other beings, God is true to Himself. The fact that God is veracity toward others is secondary. The primary fact is that in eternity past before any creature existed, each member of the Trinity was true to Himself and therefore had perfect integrity. Each Member always possessed perfect integrity based on truth. Man says, “I am telling the truth”; God says, “I am . . . the truth” (John 14:6). Man often finds it easy to adjust to others by lies and deceit, but God has never made such an adjustment.</li>
+<li>God does not hold the truth as being something He acquired; He is the truth from eternity past. The truth has never been diminished or compromised in Him; God is the source of truth. Therefore, God is the source of Bible doctrine. From the truth that God is comes the truth we have in writing. Every form of knowledge, every truth, dwells in God in absoluteness, thus the dogmatism of Bible doctrine. The divine attribute of veracity guarantees that divine revelation in any form—spoken (precanon) or written (Canon)—is accurate, perfect, and absolute (Deut. 32:4; John 6:32; Heb. 8:2; 1 John 5:20).</li>
+<li>There is a vast amount of truth that will not be revealed until we get to heaven, but whatever God has revealed for us in time is designed to be learned and understood. If we are to adjust to the justice of God, we must acquire truth in our souls through the daily function of the grace apparatus for perception (GAP). We do not naturally possess the truth within ourselves; we are born liars because the sin nature resides in us (Rom. 3:4). Therefore, whatever integrity we have cannot be compared with the integrity of God.</li>
+<li>Although people often adjust to each other by lying, we cannot deceive God; we must adjust to His justice through truth: the truth of the Gospel, the truth of rebound, and the truth of Bible doctrine.</li>
+<li>
+                            Veracity and Faithfulness
+                            <ol class="lower-alpha">
+<li>God is infinite perfection in veracity and faithfulness, which are expressed to us in Bible doctrine.</li>
+<li>In veracity, God honors Bible doctrine resident in the soul of the believer. This is one of the great principles to be derived from the doctrine of divine essence: God is veracity as an attribute and He therefore must honor truth resident in our souls. God honors His Word wherever it is found; maximum doctrine in the soul constitutes maturity adjustment to the justice of God or harmonious rapport with the integrity of God. From this it should be obvious why we cannot grow by our works or good deeds, not even by such normally legitimate works as witnessing, giving, prayer, etc. As a matter of God's veracity, spiritual growth can be achieved only by the consistent, persistent intake of Bible doctrine (2 Pet. 3:18). Since God honors His Word, His Word in the souls of believers is the only thing that will deliver the nation from reversionism and the cycles of discipline.<sup>83</sup></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<h3>Categories of Antitheistic Theories</h3>
+<!-- Section VIII starts here but image cuts off; no content captured beyond footnote reference -->
+</li>
+</ol>
+</div>
+</div>
+<div class="section">
+<h2>The Integrity of God (Conclusion)</h2>
+<div class="page">
+<ol class="roman" start="7">
+<li>
+<ol class="alpha" start="10">
+<li>
+<ol class="numeric" start="7">
+<li>
+                            Veracity and Faithfulness
+                            <ol class="lower-alpha" start="3">
+<li>In faithfulness God fulfills all His promises; this is the basis of our confidence in Him (Deut. 7:9; 1 Cor. 1:9; 10:13; 2 Thess. 3:3; 1 John 1:9). God honors doctrine in our souls and provides divine logistics to support us on earth during our period of spiritual growth. Thus we are able to continue in history and continue in GAP no matter what the historical climate happens to be. Even in a period of national decline and destruction, God faithfully takes care of us: Death cannot touch the believer until God is ready to take him home. Not only is the believer protected in a time of disaster, but one of the blessings to the mature believer is historical impact. The believer whose soul is saturated with doctrine, who is fully adjusted to the justice of God, who possesses harmonious rapport with God, is like an Atlas supporting the world. This is the case, whether known or unknown to those around him.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<h3>Categories of Antitheistic Theories</h3>
+<p>Satan has many approaches by which he tries to destroy our understanding of the character of God.</p>
+<ol class="alpha">
+<li>Polytheism is the belief in a plurality of gods, as in the Phoenician, Greek, and Roman pantheons.</li>
+<li>Pantheism is the philosophy that God and the universe are one, that the universe conceived of as a whole is God. It denies the transcendency of God, the fact that God exists outside the universe. This puts boundaries on God. Pantheism also denies the personality of God, claiming instead that He exists only as the sum total of all the forces and laws of the existing universe. This is the belief of Hindus. Pantheism falsely asserts that since God does not go beyond the universe, He did not create the universe.</li>
+<li>Materialism is that form of atheism that denies the existence of God and claims instead that material substance is the basis of and explanation for all things. Materialism contends that instead of soul life being imputed by God to biological life, human life is a product of what is material. This is a philosophy of communism.</li>
+<li>Deism asserts that God is personal, infinite, holy, and the Creator of the universe, but claims that He personally abandoned His creation when completed. Thus, He intended the universe to be self-sustaining and self-promoting by the forces resident in it. Deism rejects the Word of God and any suggestion that He intervenes in human affairs. As a rationalistic movement of the seventeenth and eighteenth centuries, deism’s adherents included Thomas Paine, David Hume, Thomas Jefferson, Edward Gibbon, and Voltaire.</li>
+<li>Idealism is a system of thought which contends that the mind is the only entity and that the material universe is no more than an impression or illusion of the mind. Some idealists believe in God but deny His creation of material things. Their philosophy spawns asceticism.</li>
+<li>Evolution states that the cosmos has developed from a crude, homogenous material into its present heterogeneous and advanced state by means of its own resident forces.
+                    <ol class="numeric">
+<li>Theistic evolution claims that although God is the Creator of the original materials, evolution is the method by which all development has been accomplished from a supposed primordial state into one of completeness.</li>
+<li>Atheistic evolution rejects the existence of God and claims that matter is eternal and self-developing.</li>
+</ol>
+</li>
+<li>Positivism is a system of thought which accepts as true only what can be verified by literally pointing to it. This school of philosophy claims that reasoning is mere redundancy, and it attempts to squeeze all thinking into a system like mathematics. Positivism disregards both God and the human soul.</li>
+<li>Monism takes the view that there is only one kind of substance or reality instead of two (for example, mind and matter—dualism) or more (for example, a plurality of independent substances—pluralism).
+                    <ol class="numeric">
+<li>Monotheism, in the strictest sense, is the belief that there is only one god. For example, monotheism is the view of Islam, Sikhs, and Judaism. In contrast, biblical theism believes in one God in essence but three in personality: God the Father, God the Son, and God the Holy Spirit.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+<!-- Styles -->
+<style>
+.doctrine-standalone-wrapper {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #1f2937;
+    line-height: 1.8;
+}
+
+.doctrine-content h1 {
+    color: #1e40af;
+    font-size: 2em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    border-bottom: 3px solid #3b82f6;
+    padding-bottom: 0.5em;
+}
+
+.doctrine-content h2 {
+    color: #1e40af;
+    font-size: 1.6em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    border-bottom: 2px solid #4299e1;
+    padding-bottom: 0.3em;
+}
+
+.doctrine-content h3 {
+    color: #374151;
+    font-size: 1.3em;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+}
+
+.doctrine-content p {
+    margin: 1em 0;
+    text-align: justify;
+}
+
+.doctrine-content ol, .doctrine-content ul {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+.doctrine-content li {
+    margin: 0.8em 0;
+}
+
+.doctrine-content ol.roman {
+    list-style-type: upper-roman;
+}
+
+.doctrine-content ol.alpha {
+    list-style-type: upper-alpha;
+}
+
+.doctrine-content a[href*="esv.org"], 
+.doctrine-content a[href*="biblegateway"] {
+    color: #2563eb;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.doctrine-content a[href*="esv.org"]:hover, 
+.doctrine-content a[href*="biblegateway"]:hover {
+    color: #1d4ed8;
+    text-decoration: none;
+}
+
+/* Search Results Styling */
+#searchResults {
+    font-weight: 500;
+    font-size: 1.05em;
+    padding: 0.5em;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#searchResults.search-success {
+    color: #059669;
+    background: #d1fae5;
+}
+
+#searchResults.search-error {
+    color: #dc2626;
+    background: #fee2e2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .doctrine-standalone-wrapper {
+        padding: 1em 0.5em;
+    }
+    
+    .doctrine-content {
+        padding: 1em;
+    }
+    
+    h1 {
+        font-size: 1.8em !important;
+    }
+    
+    .doctrine-content h1 {
+        font-size: 1.5em;
+    }
+    
+    .doctrine-content h2 {
+        font-size: 1.3em;
+    }
+    
+    #doctrineSearch {
+        width: 95% !important;
+    }
+}
+</style>
+<script>
+// Verse Preview Tooltip System
+(function() {
+    const API_CONFIG = {
+        enabled: false,  // Set to true and add apiKey to enable ESV API
+        apiKey: '',
+        provider: 'esv'  // 'esv' or 'biblegateway'
+    };
+    
+    const verseCache = new Map();
+    let tooltip = null;
+    
+    function createTooltip() {
+        if (tooltip) return tooltip;
+        tooltip = document.createElement('div');
+        tooltip.id = 'verseTooltip';
+        tooltip.style.cssText = `
+            position: absolute;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 0.75em 1em;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 10000;
+            max-width: 400px;
+            font-size: 0.9em;
+            line-height: 1.5;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        `;
+        document.body.appendChild(tooltip);
+        return tooltip;
+    }
+    
+    function showTooltip(verse, x, y) {
+        const tip = createTooltip();
+        tip.textContent = `Loading ${verse}...`;
+        tip.style.left = x + 'px';
+        tip.style.top = (y - 10) + 'px';
+        tip.style.opacity = '1';
+        
+        // Check cache
+        if (verseCache.has(verse)) {
+            tip.textContent = verseCache.get(verse);
+            return;
+        }
+        
+        // For now, just show verse reference
+        // In production, this would call ESV API
+        tip.textContent = `${verse} - Click to view full text`;
+        verseCache.set(verse, tip.textContent);
+    }
+    
+    function hideTooltip() {
+        if (tooltip) {
+            tooltip.style.opacity = '0';
+        }
+    }
+    
+    // Add hover listeners to scripture links
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a[href*="esv.org"], a[href*="biblegateway"]');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', function(e) {
+                const verse = this.textContent.trim();
+                showTooltip(verse, e.pageX, e.pageY);
+            });
+            link.addEventListener('mouseleave', hideTooltip);
+            link.addEventListener('mousemove', function(e) {
+                if (tooltip) {
+                    tooltip.style.left = e.pageX + 'px';
+                    tooltip.style.top = (e.pageY - 10) + 'px';
+                }
+            });
+        });
+    });
+})();
+</script>
+<script>
+// Search Functionality
+(function() {
+    const searchInput = document.getElementById('doctrineSearch');
+    const searchResults = document.getElementById('searchResults');
+    
+    if (!searchInput) return;
+    
+    function performSearch(query) {
+        if (!query || query.length < 2) {
+            searchResults.textContent = '';
+            searchResults.className = '';
+            return;
+        }
+        
+        const lowerQuery = query.toLowerCase();
+        const sections = document.querySelectorAll('section, h2, h3, p, li');
+        let matches = 0;
+        
+        sections.forEach(section => {
+            const text = section.textContent.toLowerCase();
+            if (text.includes(lowerQuery)) {
+                matches++;
+                section.style.backgroundColor = matches === 1 ? '#fef3c7' : '';
+            } else {
+                section.style.backgroundColor = '';
+            }
+        });
+        
+        if (matches > 0) {
+            searchResults.textContent = `Found ${matches} matching section${matches > 1 ? 's' : ''}`;
+            searchResults.className = 'search-success';
+            
+            // Scroll to first match
+            const firstMatch = document.querySelector('section[style*="background-color"], h2[style*="background-color"], h3[style*="background-color"]');
+            if (firstMatch) {
+                firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        } else {
+            searchResults.textContent = 'No matches found';
+            searchResults.className = 'search-error';
+        }
+    }
+    
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            performSearch(this.value);
+        }, 300);
+    });
+    
+    // ESC to clear
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            this.value = '';
+            performSearch('');
+        }
+    });
+})();
+</script>
+<script>
+// Cross-Reference Panel (Simplified)
+(function() {
+    // This would normally load cross-reference data
+    // For standalone pages, we'll just show a message
+    const scriptureLinks = document.querySelectorAll('a[href*="esv.org"], a[href*="biblegateway"]');
+    
+    scriptureLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const verse = this.textContent.trim();
+            // In full version, this would show cross-references
+            // For now, just allow normal link behavior
+        });
+    });
+})();
+</script>
+<div class="doctrine-tags"><span class="tag" data-tag="Theology Proper">Theology Proper</span><span class="tag" data-tag="God">God</span><span class="tag" data-tag="Doctrine">Doctrine</span></div>
+</section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>

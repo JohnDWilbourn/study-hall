@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine of Happiness — Library of Christian Doctrines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #f4ecd8;
+  --ink: #2a2118;
+  --gold: #b8973a;
+  --gold-dim: #8a7129;
+  --border: #d9cba8;
+  --ink-soft: #3a2e1a;
+  --section-bg: #fdfbf5;
+  --code-bg: #ede2c6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 0;
+}
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(244,236,216,0.7);
+  font-style: italic;
+}
+.home-bar {
+  background: var(--ink-soft);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.home-bar a {
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.home-bar a:hover { color: var(--parchment); }
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+section[id] {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+section[id] h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+section[id] h2.outline-title {
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+section[id] h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0.3rem 0;
+  display: inline;
+}
+ol.roman, ol.alpha, ol.decimal, ol.lower-alpha {
+  padding-left: 1.6rem;
+  margin: 0.4rem 0;
+}
+ol.roman { list-style-type: upper-roman; }
+ol.alpha { list-style-type: lower-alpha; }
+ol.decimal { list-style-type: decimal; }
+ol.lower-alpha { list-style-type: lower-alpha; }
+li { margin-bottom: 0.35rem; }
+li > ol { margin-top: 0.35rem; }
+.doctrine-tags {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.tag {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+.verse-preview-tooltip {
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+p.footnote {
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+sup { font-size: 0.7em; color: var(--gold-dim); }
+a { color: var(--gold-dim); }
+a:hover { color: var(--ink); }
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.back-link:hover { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .main-wrap { padding: 1rem 0.75rem 3rem; }
+  section[id] { padding: 1rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="home-bar">
+  <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
+  <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
+  <a href="doctrine-library.html">Doctrine Library</a>
+</div>
+<header class="site-header">
+  <h1>Doctrine of Happiness</h1>
+  <p class="subtitle">Library of Christian Doctrines — IntelligenceReport.info</p>
+</header>
+<div class="main-wrap">
+<section id="happiness">
+<h2>Doctrine of Happiness</h2>
+<ol class="roman">
+<li>
+            General Definition
+            <ol class="alpha">
+<li>Happiness is defined by Webster's Third New International Dictionary as "a state of well-being characterized by relative permanence, by dominantly agreeable emotion ranging in value from mere contentment to intense joy in living and by a natural desire for its continuation; a pleasurable or enjoyable experience. . . . Happiness is the general term denoting enjoyment of or pleasurable satisfaction in well-being, security or fulfillment of wishes."</li>
+<li>The common perception of happiness centers around emotional stimulation derived from pleasant experience and "fulfillment of wishes." Human beings typically regard favorable environment, personal success and recognition, harmonious relationships, and the general absence of adversity as necessary for attaining the state of happiness. Marked by "relative permanence," this happiness endures only as long as the pleasant circumstances remain.</li>
+</ol>
+</li>
+<li>
+            Biblical Perspective of Happiness
+            <ol class="alpha">
+<li>Genuine happiness is not emotional stimulation but a way of thinking formed from truth in the soul. As such truth replaces arrogance with humility, there results stability of mind, an attitude of contentment, a sense of honor and appreciation for life, and freedom from fear and anxiety, even under pressure. These characteristics translate to the mental attitude of happiness as described in Scripture.</li>
+<li>God provides truth for genuine happiness in two categories: the laws of divine establishment, for all mankind, and Bible doctrine, for spiritual growth of the believer in Jesus Christ.<sup>13</sup>
+<ol class="decimal">
+<li>Both believer and unbeliever grounded in divine establishment truth can experience genuine happiness on a limited basis.</li>
+<li>The believer oriented to the spiritual truths in God's Word can possess maximum genuine happiness. This greatest happiness is attained by consistent residence in God's grace plan, utilizing the power of God the Holy Spirit and applying metabolized doctrine to life.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            The Happiness of God
+            <ol class="alpha">
+<li>God exists permanently in a state of perfect happiness (Rom. 1:25b). God's own happiness reflects His essence and is therefore based solely on who and what God is. Since God is eternal and immutable and possesses absolute righteousness, His happiness is never-ending, unchanging, and perfect in nature.</li>
+<li>God's happiness cannot be tarnished or in any way challenged or destroyed. He can never be saddened, disappointed, or dissatisfied. Neither the failure of angels or man nor their rejection of God and His provision can cause unhappiness in Him.</li>
+<li>God is the source of true happiness (Ps. 43:4a). In eternity past, God designed a grace plan whereby He can share His perfect happiness with man in time. This is possible only through man's regeneration and subsequent perception of Bible doctrine (<a href="https://www.esv.org/Habakkuk+3:18" target="_blank">Hab. 3:18</a>;<a href="https://www.esv.org/Matthew+4:4" target="_blank"> Matt. 4:4</a>;<a href="https://www.esv.org/John+17:17" target="_blank"> John 17:17</a>; cf. 13:17;<a href="https://www.esv.org/James+1:25" target="_blank"> James 1:25</a>).</li>
+</ol>
+</li>
+<li>
+            Three Categories of Happiness for Man
+            <ol class="alpha">
+<li>Neutral Happiness—Neutral H
+                    <ol class="decimal">
+<li>Neutral happiness (neutral H) belongs to the person who possesses humility derived from the laws of divine establishment. Compliance with the laws of establishment allows the person to move beyond basic morality to a place of human honor and integrity. Self-discipline, personal responsibility, courage, respect for authority, patriotism, and other establishment-oriented virtues characterize the person with neutral happiness.</li>
+<li>Neutral H, though genuine, is a limited, temporary happiness dependent upon the virtue of the individual and the perpetuation of establishment principles within his environment.</li>
+<li>Neutral H is available to both believer and unbeliever for honorable function within certain establishment-related areas of life.
+                            <ol class="lower-alpha">
+<li>The unbeliever can enjoy being married to someone with whom he has mental and physical compatibility and can also find satisfaction in the honorable execution of a job or profession (<a href="https://www.esv.org/Ecclesiastes+9:9" target="_blank">Eccl. 9:9</a>).</li>
+<li>Parents who teach their children establishment principles will be gratified and honored by the virtue of their offspring (<a href="https://www.esv.org/Proverbs+23:24-25" target="_blank">Prov. 23:24–25</a>).</li>
+<li>Both believer and unbeliever who live under the laws of divine establishment can find neutral happiness in national freedom and prosperity and in the role of military victory (<a href="https://www.esv.org/Psalms+89:15-18" target="_blank">Ps. 89:15–18</a>; 144:15).</li>
+</ol>
+</li>
+<li>Where regard for establishment principles does not exist, neutral H cannot exist, because there is no authority orientation present to restrain arrogance (<a href="https://www.esv.org/Proverbs+29:18" target="_blank">Prov. 29:18</a>).</li>
+<li>Neutral happiness has no perpetuation beyond the grave. Regardless of the honor and happiness attained in the temporal life, the unbeliever, lacking the imputed righteousness of God from faith in Jesus Christ, is consigned upon death to eternity in the lake of fire (<a href="https://www.esv.org/Revelation+20:15" target="_blank">Rev. 20:15</a>).</li>
+</ol>
+</li>
+<li>Pseudohappiness—Minus H
+                    <ol class="decimal">
+<li>Pseudohappiness (minus H) is the superficial, fleeting pleasure and emotional stimulation derived from environment, human accomplishments, circumstances, wealth, possessions, or people.</li>
+<li>Lacking a foundation in spiritual or establishment truth, pseudohappiness is volatile, transient, and frustrating, incapable of providing real solutions or sustaining anyone through the challenges and adversities of life.</li>
+<li>Satan, through his cosmic system, encourages pseudohappiness as a substitute for the genuine happiness that only God can provide.<sup>14</sup> Satan lures people from the plan of God with systems of stimulation and self-indulgence that either counterfeit or cancel out genuine happiness.
+                            <ol class="lower-alpha">
+<li>The cosmic system appeals to man's sin nature with the myth that the details of life—money, success, pleasure, social life, relationships, sex, material things, human approbation, status symbols, health—can alleviate unhappiness and provide lasting fulfillment.</li>
+<li>Satan's most effective pseudohappiness lure is religion—empty rituals, human works, emotion-based worship, and strict behavior through which Christians ignorant of doctrine seek happiness.</li>
+</ol>
+</li>
+<li>Pseudohappiness describes the believer who rejects the spiritual life and embarks on a frantic search for happiness in the details of life.<sup>15</sup>
+<ol class="lower-alpha">
+<li>Believers on a frantic search are described in <a href="https://www.esv.org/2+Timothy+3:4" target="_blank">2 Timothy 3:4</a> as "lovers of pleasure rather than lovers of God." With desire for stimulation exceeding their desire for Bible doctrine, they build their lives around pleasure goals and neglect goals related to spiritual advance.</li>
+<li>The believer frantically searching for happiness caters to the lust patterns of the sin nature; he indulges in a lifestyle of self-gratification through legalism, licentiousness, or both (<a href="https://www.esv.org/Galatians+5:16" target="_blank">Gal. 5:16</a>).<sup>16</sup></li>
+</ol>
+</li>
+<li>Pseudohappiness is a source of self-induced misery as well as a guarantee for divine discipline (<a href="https://www.esv.org/Psalms+7:14-16" target="_blank">Ps. 7:14–16</a>).
+                            <ol class="lower-alpha">
+<li>The search for happiness apart from God and His plan is a vicious cycle that always arrives back at the same place—boredom, restlessness, instability, confusion, and emptiness (<a href="https://www.esv.org/Proverbs+14:14" target="_blank">Prov. 14:14</a>;<a href="https://www.esv.org/Ecclesiastes+1:5-9" target="_blank"> Eccl. 1:5–9</a>; <a href="https://www.esv.org/2+Timothy+3:7" target="_blank">2 Tim. 3:7</a>). Bad decisions made in every frenzied pursuit of happiness only intensify the misery that motivated the search in the first place.</li>
+<li>The believer immersed in pseudohappiness warrants God the Father's corrective discipline, administered to encourage rebound and spiritual advance (<a href="https://www.esv.org/Proverbs+3:12" target="_blank">Prov. 3:12</a>;<a href="https://www.esv.org/Hebrews+12:6" target="_blank"> Heb. 12:6</a>). Persistent failure to respond to divine punitive measures results in the sin unto death: the believer who lives with minus H will die with minus H; no dying grace, just misery in dying (<a href="https://www.esv.org/Proverbs+14:12-13" target="_blank">Prov. 14:12–13</a>; 1 John 5:16b).</li>
+</ol>
+</li>
+<li>Since pseudohappiness is rooted in neither divine establishment nor the Christian way of life, its perpetuation within society eventuates in the destruction of the national entity.</li>
+</ol>
+</li>
+<li>Plus H (+H)—Sharing the Happiness of God
+                    <ol class="decimal">
+<li>Plus H, fully described as "sharing the happiness of God," is the maximum genuine happiness attained by the believer who reaches spiritual maturity. This happiness is an enduring state of inner peace, confidence, and contentment unrelated to any detail or circumstance of life. The believer with plus H has the happiness of God residing in his soul.</li>
+<li>God shares His happiness with the believer by sharing His thinking, which is revealed in His Word (<a href="https://www.esv.org/John+15:11" target="_blank">John 15:11</a>; cf. 17:17).
+                            <ol class="lower-alpha">
+<li>True happiness is a mental attitude based on divine viewpoint. When God's thinking becomes the believer's thinking, the believer shares in God's happiness (<a href="https://www.esv.org/Jeremiah+15:16" target="_blank">Jer. 15:16</a>;<a href="https://www.esv.org/Romans+12:3" target="_blank"> Rom. 12:3</a>; <a href="https://www.esv.org/2+Peter+1:3" target="_blank">2 Pet. 1:3</a>).</li>
+<li>Wisdom is the basis for happiness: "How blessed [ashere, happy] is the man [believer] who finds wisdom, And the man who gains understanding [of doctrine]" (<a href="https://www.esv.org/Proverbs+3:13" target="_blank">Prov. 3:13</a>). The believer who finds wisdom is the believer who learns and metabolizes doctrine and applies it to experience.</li>
+<li>The Bible uses the term πληρόω, pleroo, translated "made full" and "complete," to indicate that attaining happiness is a process (<a href="https://www.esv.org/John+15:11" target="_blank">John 15:11</a>; 17:<a href="https://www.esv.org/John+17:13" target="_blank">13</a>; <a href="https://www.esv.org/1+John+1:4" target="_blank">1 John 1:4</a>). Completed happiness is spiritual maturity. The believer who functions under consistent post-salvation epistemological rehabilitation will eventually achieve this enduring genuine happiness.</li>
+<li>Psalm 119:2 describes believers whose priority is Bible doctrine: "How blessed [happy] are those who observe His testimonies [mandates], Who seek Him with all their heart [soul]."</li>
+</ol>
+</li>
+<li>Plus H is the happiness found in the humanity of Jesus Christ.
+                            <ol class="lower-alpha">
+<li>To sustain the humanity of Christ throughout the First Advent, God the Father designed a system for learning and applying the Word and attaining spiritual maturity by means of a divine power source. In His humanity, our Lord had perfect happiness through consistent residence inside this divine power system. He maintained that happiness even while on the cross (<a href="https://www.esv.org/Hebrews+12:2" target="_blank">Heb. 12:2</a>).<sup>17</sup></li>
+<li>Every Church Age believer has the potential to share in this happiness by utilizing the same divine power system that sustained the humanity of Jesus Christ (<a href="https://www.esv.org/Ephesians+1:19-20" target="_blank">Eph. 1:19–20</a>; 3:20–21).</li>
+<li>John 15:11 reveals the relationship between Christ's happiness and the Church Age believer's happiness: "I have taught you these things [mandates of Bible doctrine], in order that My happiness [+H] might be in you, and that your happiness might be completed [fulfilled]."</li>
+</ol>
+</li>
+<li>The Holy Spirit is the power source for sharing in God's happiness (<a href="https://www.esv.org/John+14:26" target="_blank">John 14:26</a>; 16:<a href="https://www.esv.org/John+16:13" target="_blank">13</a>;<a href="https://www.esv.org/Romans+14:17" target="_blank"> Rom. 14:17</a>; 15:<a href="https://www.esv.org/Romans+15:13" target="_blank">13</a>;<a href="https://www.esv.org/Galatians+5:22" target="_blank"> Gal. 5:22</a>).
+                            <ol class="lower-alpha">
+<li>At salvation, the Holy Spirit enters the Church Age believer into eternal union with Christ, creating a new spiritual species (<a href="https://www.esv.org/2+Corinthians+5:17" target="_blank">2 Cor. 5:17</a>;<a href="https://www.esv.org/Ephesians+2:10" target="_blank"> Eph. 2:10</a>). Only the "new creature" in Christ is capable of sharing in divine happiness.</li>
+<li>Under the Holy Spirit's filling ministry, the believer is in fellowship with God, functioning inside the divine power system; his soul is controlled by the Holy Spirit rather than the sin nature (<a href="https://www.esv.org/Galatians+5:16" target="_blank">Gal. 5:16</a>, <a href="https://www.esv.org/Galatians+5:22–25" target="_blank">22–25</a>;<a href="https://www.esv.org/Ephesians+5:18" target="_blank"> Eph. 5:18</a>).<sup>18</sup></li>
+<li>The Holy Spirit is the mentor who teaches the believer Bible doctrine (<a href="https://www.esv.org/John+14:26" target="_blank">John 14:26</a>; 15:<a href="https://www.esv.org/John+15:26" target="_blank">26</a>; 16:<a href="https://www.esv.org/John+16:13" target="_blank">13</a>). The filling of the Spirit makes spiritual truth communicated by a pastor-teacher understandable and usable, so that the believer can advance to maturity to share in God's perfect happiness.</li>
+</ol>
+</li>
+<li>Contentment is a biblical synonym for plus H.
+                            <ol class="lower-alpha">
+<li>New Testament Greek terms for contentment describe the state of inner peace, satisfaction, and self-sufficiency that the believer can experience in even the most difficult pressures and circumstances.
+                                    <ol class="decimal">
+<li>"If we have food and covering [basic necessities], with these we shall be content [ἀρκέω, arkeo, content, satisfied]" (<a href="https://www.esv.org/1+Timothy+6:8" target="_blank">1 Tim. 6:8</a>).</li>
+<li>"Therefore I am well content [εὐδοκέω, eudokeo, pleased, delighted] with weaknesses, with insults, with distresses, with persecutions, with difficulties, for Christ's sake; for when I am weak, then I am strong" (<a href="https://www.esv.org/2+Corinthians+12:10" target="_blank">2 Cor. 12:10</a>).</li>
+<li>"Not that I speak from want; for I have learned to be content [αὐτάρκης, autarkes, content, self-sufficient] in whatever circumstances I am" (<a href="https://www.esv.org/Philippians+4:11" target="_blank">Phil. 4:11</a>).</li>
+</ol>
+</li>
+<li>Hebrews 13:5 exhorts believers to be "content with what you have," based on the rationale, "For He Himself has said, 'I WILL NEVER DESERT YOU, NOR WILL I EVER FORSAKE YOU.'"</li>
+</ol>
+</li>
+<li>Characteristics of Sharing the Happiness of God (+H).
+                            <ol class="lower-alpha">
+<li>Contentment and tranquility of soul.</li>
+<li>Honor, virtue, and resultant stability for any situation in life.</li>
+<li>Prevention of stress in the soul.</li>
+<li>Capacity for life, love, gratitude, and enjoyment of the details of life (<a href="https://www.esv.org/Psalms+9:1-2" target="_blank">Ps. 9:1–2</a>; 97:12;<a href="https://www.esv.org/Philippians+4:11-12" target="_blank"> Phil. 4:11–12</a>; <a href="https://www.esv.org/1+Thessalonians+5:18" target="_blank">1 Thess. 5:18</a>; <a href="https://www.esv.org/1+John+4:19" target="_blank">1 John 4:19</a>).</li>
+<li>A true sense of security concerning temporal and eternal life (<a href="https://www.esv.org/1+Peter+1:8" target="_blank">1 Pet. 1:8</a>).</li>
+<li>Insulation against arrogance controlling the soul.</li>
+<li>Freedom from fear, worry, anxiety, doubt, and apprehension.</li>
+<li>Strength in the face of adverse circumstances, legalistic criticism, evil, threat, or persecution (<a href="https://www.esv.org/Psalms+5:11" target="_blank">Ps. 5:11</a>; <a href="https://www.esv.org/2+Corinthians+12:10" target="_blank">2 Cor. 12:10</a>;<a href="https://www.esv.org/James+1:2-4" target="_blank"> James 1:2–4</a>).</li>
+<li>Ability to endure anything in life, as proved by Jesus Christ, "who for the joy [happiness] set before Him endured the cross" (<a href="https://www.esv.org/Hebrews+12:2" target="_blank">Heb. 12:2</a>).</li>
+</ol>
+</li>
+<li>Plus H is designed for every category of existence after salvation (<a href="https://www.esv.org/Psalms+16:11" target="_blank">Ps. 16:11</a>).
+                            <ol class="lower-alpha">
+<li>The believer who attains plus H for living will have plus H in dying (<a href="https://www.esv.org/Philippians+1:21" target="_blank">Phil. 1:21</a>).</li>
+<li>The mature believer carries his happiness into the eternal state, where it is parlayed into eternal rewards at the judgment seat of Christ (<a href="https://www.esv.org/2+Corinthians+5:10" target="_blank">2 Cor. 5:10</a>; <a href="https://www.esv.org/2+Timothy+4:7-8" target="_blank">2 Tim. 4:7–8</a>;<a href="https://www.esv.org/Revelation+22:12-14" target="_blank"> Rev. 22:12–14</a>). Although there is happiness for all believers throughout eternity, the mature believer has a greater happiness from the "surpassing riches of His grace," above and beyond the normal blessings of heaven (<a href="https://www.esv.org/Ephesians+2:7" target="_blank">Eph. 2:7</a>).</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+            Biblical Mandates to Happiness
+            <ol class="alpha">
+<li>"Do not be grieved [unhappy], for the joy [happiness] of the LORD is your strength [power]" (Neh. 8:10b).</li>
+<li>"Be glad [happy] in the LORD, you righteous ones [believers]; And give thanks to [the memory of] His holy name [His holiness, integrity]" (<a href="https://www.esv.org/Psalms+97:12" target="_blank">Ps. 97:12</a>).</li>
+<li>"Finally, my brethren, rejoice [keep on having happiness] in the Lord. To write the same things [mandates] again is no trouble to me, and it [inner happiness] is a safeguard for you" (<a href="https://www.esv.org/Philippians+3:1" target="_blank">Phil. 3:1</a>).</li>
+<li>"Rejoice [keep on having happiness] in the Lord always; again I will say, rejoice [keep on having happiness]!" (<a href="https://www.esv.org/Philippians+4:4" target="_blank">Phil. 4:4</a>).</li>
+</ol>
+</li>
+</ol>
+<p>A detailed study of the doctrine of happiness is presented in the 1985 Ephesians series, lessons 427–37. Audio and video recordings are available without charge from R. B. Thieme, Jr., Bible Ministries, Houston, Texas.</p>
+<p class="footnote"><sup>13</sup> Divine establishment consists of the principles of authority, morality, ethics, and the rule of law ordained by God for the survival, stability, protection, and perpetuation of the human race, believers and unbelievers alike, throughout human history. These laws establish temporal authority that protects self-determination, privacy, property, and human life—the basic components of human freedom (<a href="https://www.esv.org/Romans+13:1-7" target="_blank">Rom. 13:1–7</a>). The foundation of divine establishment lies in the Mosaic Law, specifically the Ten Commandments and civil statutes outlined in codices I and III (<a href="https://www.esv.org/Exodus+20:1-17" target="_blank">Ex. 20:1–17</a>; 21:1—24:11). See Thieme, <em>Freedom through Military Victory</em>, 4–6.</p>
+<p class="footnote"><sup>14</sup> The cosmic system is Satan's orderly, cohesive, and multifaceted system of thinking, which includes a purpose, strategy, and structure of authority designed to subvert the human race and control the world he now rules (<a href="https://www.esv.org/Ephesians+2:2" target="_blank">Eph. 2:2</a>). Satan's cosmic system, his alternative to the perfect plan of God, is the classroom for communicating Satan's false doctrines. See Thieme, <em>Christian Integrity</em>, 173–86; <em>Satan and Demonism</em>, 12–15.</p>
+<p class="footnote"><sup>15</sup> Thieme, <em>Reversionism</em>, 24–25.</p>
+<p class="footnote"><sup>16</sup> Thieme, <em>Rebound and Keep Moving!</em>, 9–10.</p>
+<p class="footnote"><sup>17</sup> Thieme, <em>Christian Integrity</em> (2002), 9–14.</p>
+<p class="footnote"><sup>18</sup> Every believer is filled with the Spirit at the moment of salvation. The filling of the Spirit is lost when the believer sins but is recovered through rebound, privately naming known sins to God the Father (<a href="https://www.esv.org/1+John+1:9" target="_blank">1 John 1:9</a>).</p>
+<div class="doctrine-tags"><span>Tags:</span><span class="tag" data-tag="Angels">Angels</span><span class="tag" data-tag="Christ">Christ</span><span class="tag" data-tag="Church Age">Church Age</span><span class="tag" data-tag="Divine Attributes">Divine Attributes</span><span class="tag" data-tag="Divine Discipline">Divine Discipline</span><span class="tag" data-tag="Doctrine">Doctrine</span><span class="tag" data-tag="Faith">Faith</span><span class="tag" data-tag="Grace">Grace</span><span class="tag" data-tag="Happiness">Happiness</span><span class="tag" data-tag="Holy Spirit">Holy Spirit</span><span class="tag" data-tag="Mental Attitude">Mental Attitude</span><span class="tag" data-tag="Salvation">Salvation</span><span class="tag" data-tag="Sin">Sin</span><span class="tag" data-tag="Spiritual Growth">Spiritual Growth</span></div></section>
+  <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
+</div>
+</body>
+</html>
