@@ -280,7 +280,24 @@ a:hover { color: var(--ink); }
     } else if (type === 'pdf') {
       window.print();
     } else if (type === 'image') {
-      flash('Select Print > Save as PDF, then use an image converter.');
+      const section = document.querySelector('section[id]');
+      if (!section) { flash('Nothing to capture.'); return; }
+      flash('Preparing image…');
+      import('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.esm.min.js')
+        .then(mod => {
+          const h2c = mod.default || mod;
+          return h2c(section, { backgroundColor: '#fdfbf5', scale: 2, useCORS: true });
+        })
+        .then(canvas => {
+          const link = document.createElement('a');
+          link.download = (document.querySelector('.site-header h1') ?
+            document.querySelector('.site-header h1').textContent.trim().replace(/\s+/g, '-').toLowerCase()
+            : 'doctrine') + '.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+          flash('Image downloaded!');
+        })
+        .catch(() => flash('Image export failed. Try PDF instead.'));
     }
   }
   window.docAction = docAction;
