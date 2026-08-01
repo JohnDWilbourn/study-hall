@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6580,8 +6580,8 @@ td:nth-child(3) {
 
 <script>
 (function() {
-  const API_KEY = '2ff0f1743ba8fc2e6ccb4e8c941970cd44c5e465';
-  const API_BASE = 'https://api.esv.org/v3/passage/text/';
+  const PROXY_BASE = 'https://esv-proxy.johndwilbourn.workers.dev';
+  
   const CACHE = {};
   const RATE = { min: [], hour: [], day: [] };
   const LIMITS = { min: 60, hour: 1000, day: 5000 };
@@ -6608,9 +6608,9 @@ td:nth-child(3) {
     if (!canRequest()) return { error: 'Rate limit reached — try again shortly.' };
     recordRequest();
     try {
-      const url = API_BASE + '?q=' + encodeURIComponent(ref) +
+      const url = PROXY_BASE + '?q=' + encodeURIComponent(ref);
         '&include-headings=false&include-footnotes=false&include-verse-numbers=false&include-short-copyright=false';
-      const res = await fetch(url, { headers: { 'Authorization': 'Token ' + API_KEY } });
+      const res = await fetch(url);
       if (!res.ok) return { error: 'Could not load verse.' };
       const data = await res.json();
       const text = data.passages && data.passages[0]
