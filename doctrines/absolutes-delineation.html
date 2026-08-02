@@ -211,6 +211,31 @@ a:hover { color: var(--ink); }
   .doc-btn .btn-label { display: none; }
 }
 
+
+.verse-tooltip {
+  position: fixed;
+  z-index: 9999;
+  background: var(--ink);
+  color: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: none;
+  pointer-events: none;
+}
+.verse-tooltip-reference {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
 </style>
 </head>
 <body>
@@ -329,5 +354,52 @@ a:hover { color: var(--ink); }
 <div class="doctrine-tags"><span>Tags:</span><span class="tag" data-tag="Christ">Christ</span><span class="tag" data-tag="Church Age">Church Age</span><span class="tag" data-tag="Faith">Faith</span><span class="tag" data-tag="Holy Spirit">Holy Spirit</span><span class="tag" data-tag="Salvation">Salvation</span><span class="tag" data-tag="Sin">Sin</span></div></section>
   <a class="back-link" href="doctrine-library.html">&#8592; Return to Doctrine Library</a>
 </div>
+
+<div class="verse-tooltip" id="verseTooltip"></div>
+<script>
+(function() {
+  const PROXY = 'https://esv-proxy.johndwilbourn.workers.dev';
+  const CACHE = {};
+  const tooltip = document.getElementById('verseTooltip');
+
+  async function fetchVerse(ref) {
+    if (CACHE[ref]) return CACHE[ref];
+    try {
+      const res = await fetch(PROXY + '?q=' + encodeURIComponent(ref));
+      const data = await res.json();
+      const text = (data.passages && data.passages[0]) ? data.passages[0].trim() : 'Could not load verse.';
+      CACHE[ref] = text;
+      return text;
+    } catch(e) { return 'Could not load verse.'; }
+  }
+
+  function show(e, ref, display) {
+    tooltip.innerHTML = '<div class="verse-tooltip-reference">' + display + '</div>Loading…';
+    tooltip.style.display = 'block';
+    position(e);
+    fetchVerse(ref).then(t => {
+      tooltip.innerHTML = '<div class="verse-tooltip-reference">' + display + '</div>' + t;
+    });
+  }
+
+  function position(e) {
+    const m = 14;
+    let x = e.clientX + m, y = e.clientY + m;
+    if (x + 440 > window.innerWidth) x = e.clientX - 440 - m;
+    if (y + 180 > window.innerHeight) y = e.clientY - 180 - m;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+  }
+
+  document.querySelectorAll('a[href*="esv.org"]').forEach(a => {
+    const display = a.textContent.trim();
+    const ref = decodeURIComponent(a.getAttribute('href').replace('https://www.esv.org/', '').replace(/\+/g, ' '));
+    a.addEventListener('mouseenter', e => show(e, ref, display));
+    a.addEventListener('mousemove', position);
+    a.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+  });
+})();
+</script>
+
 </body>
 </html>
