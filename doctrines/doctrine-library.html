@@ -151,6 +151,60 @@ footer {
 }
 .doc-link-hidden { display: none !important; }
 
+
+.page-wrap {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.doctrine-col {
+  flex: 1;
+  min-width: 0;
+}
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  display: none;
+}
+.sidebar.active { display: block; }
+.sidebar-section {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 3px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+}
+.sidebar-section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.6rem;
+}
+.sidebar-link {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.4;
+  transition: color 0.15s;
+}
+.sidebar-link:last-child { border-bottom: none; }
+.sidebar-link:hover { color: var(--gold-dim); }
+.sidebar-empty {
+  font-size: 0.88rem;
+  color: var(--stone, #8C8070);
+  font-style: italic;
+}
+@media (max-width: 768px) {
+  .page-wrap { flex-direction: column; }
+  .sidebar { width: 100%; }
+}
+
 </style>
 </head>
 <body>
@@ -169,7 +223,7 @@ footer {
 </header>
 <div class="search-bar"><input type="text" id="docSearch" placeholder="Search doctrines..." autocomplete="off"><span id="searchCount"></span></div><script>(function(){document.getElementById("docSearch").addEventListener("input",function(){var q=this.value.toLowerCase().trim();var links=document.querySelectorAll(".doctrine-list li a");var blocks=document.querySelectorAll(".cat-block");var total=0;links.forEach(function(a){var match=!q||a.textContent.toLowerCase().includes(q)||(a.dataset.tags&&a.dataset.tags.includes(q));a.parentElement.classList.toggle("doc-link-hidden",!match);if(match)total++;});blocks.forEach(function(b){var v=b.querySelectorAll("li:not(.doc-link-hidden)").length;b.style.display=v?"":"none";});document.getElementById("searchCount").textContent=q?total+" result"+(total!==1?"s":""):"";});})();</script>
 
-<div class="main-wrap">
+<div class="main-wrap"><div class="page-wrap"><div class="doctrine-col">
 
   <div class="cat-block">
     <div class="cat-header"><h2>Christology (Christ)</h2></div>
