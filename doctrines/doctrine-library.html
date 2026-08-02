@@ -158,133 +158,133 @@ footer {
 <div class="home-bar">
   <a href="https://home.intelligencereport.info/">&#8592; Temple Door</a>
   <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
-  <a href="../index.html">Study Hall</a>
+  <a href="../index.html" data-tags="">Study Hall</a>
   <span style="color:var(--gold-dim);font-size:0.8rem;">|</span>
-  <a href="index.html">Doctrines</a>
+  <a href="index.html" data-tags="">Doctrines</a>
 </div>
 
 <header class="site-header">
   <h1>Library of Christian Doctrines</h1>
   <p class="subtitle">A systematic reference library — indexed and cross-referenced</p>
 </header>
-<div class="search-bar"><input type="text" id="docSearch" placeholder="Search doctrines..." autocomplete="off"><span id="searchCount"></span></div><script>(function(){document.getElementById("docSearch").addEventListener("input",function(){var q=this.value.toLowerCase().trim();var links=document.querySelectorAll(".doctrine-list li a");var blocks=document.querySelectorAll(".cat-block");var total=0;links.forEach(function(a){var match=!q||a.textContent.toLowerCase().includes(q);a.parentElement.classList.toggle("doc-link-hidden",!match);if(match)total++;});blocks.forEach(function(b){var v=b.querySelectorAll("li:not(.doc-link-hidden)").length;b.style.display=v?"":"none";});document.getElementById("searchCount").textContent=q?total+" result"+(total!==1?"s":""):"";});})();</script>
+<div class="search-bar"><input type="text" id="docSearch" placeholder="Search doctrines..." autocomplete="off"><span id="searchCount"></span></div><script>(function(){document.getElementById("docSearch").addEventListener("input",function(){var q=this.value.toLowerCase().trim();var links=document.querySelectorAll(".doctrine-list li a");var blocks=document.querySelectorAll(".cat-block");var total=0;links.forEach(function(a){var match=!q||a.textContent.toLowerCase().includes(q)||(a.dataset.tags&&a.dataset.tags.includes(q));a.parentElement.classList.toggle("doc-link-hidden",!match);if(match)total++;});blocks.forEach(function(b){var v=b.querySelectorAll("li:not(.doc-link-hidden)").length;b.style.display=v?"":"none";});document.getElementById("searchCount").textContent=q?total+" result"+(total!==1?"s":""):"";});})();</script>
 
 <div class="main-wrap">
 
   <div class="cat-block">
     <div class="cat-header"><h2>Christology (Christ)</h2></div>
     <ul class="doctrine-list">
-      <li><a href="sustaining-ministry.html">Doctrine of the Sustaining Ministry of God the Holy Spirit to the Incarnate Christ</a></li>
+      <li><a href="sustaining-ministry.html" data-tags="christ doctrine holy spirit mental attitude sin">Doctrine of the Sustaining Ministry of God the Holy Spirit to the Incarnate Christ</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>Pneumatology (Holy Spirit)</h2></div>
     <ul class="doctrine-list">
-      <li><a href="holy-spirit-ministry.html">Doctrine of the Ministry of the Holy Spirit</a></li>
+      <li><a href="holy-spirit-ministry.html" data-tags="christ church age doctrine faith holy spirit priesthood salvation sin">Doctrine of the Ministry of the Holy Spirit</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>Theology Proper (God)</h2></div>
     <ul class="doctrine-list">
-      <li><a href="divine-essence.html">Doctrine of Divine Essence</a></li>
-      <li><a href="divine-decree.html">Doctrine of the Divine Decree</a></li>
-      <li><a href="elect-angel-organization.html">Elect Angel Organization</a></li>
-      <li><a href="angel-yahweh.html">Doctrine of the Angel of Yahweh</a></li>
+      <li><a href="divine-essence.html" data-tags="theology proper god doctrine">Doctrine of Divine Essence</a></li>
+      <li><a href="divine-decree.html" data-tags="theology proper god doctrine sovereignty">Doctrine of the Divine Decree</a></li>
+      <li><a href="elect-angel-organization.html" data-tags="angelology theology proper doctrine">Elect Angel Organization</a></li>
+      <li><a href="angel-yahweh.html" data-tags="angels christ doctrine sin">Doctrine of the Angel of Yahweh</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>Soteriology (Salvation)</h2></div>
     <ul class="doctrine-list">
-      <li><a href="imputation.html">Doctrine of Imputation</a></li>
-      <li><a href="grace.html">Doctrine of Grace</a></li>
-      <li><a href="justification.html">Doctrine of Justification</a></li>
-      <li><a href="unlimited-atonement.html">Doctrine of Unlimited Atonement</a></li>
-      <li><a href="position-in-christ.html">Doctrine of Position in Christ</a></li>
-      <li><a href="propitiation.html">Doctrine of Propitiation</a></li>
-      <li><a href="reconciliation.html">Doctrine of Reconciliation</a></li>
-      <li><a href="blood-of-christ.html">Doctrine of the Blood of Christ</a></li>
-      <li><a href="eternal-security.html">Doctrine of Eternal Security</a></li>
-      <li><a href="regeneration.html">Doctrine of Regeneration</a></li>
-      <li><a href="absolutes.html">Thirty-Nine Irrevocable Absolutes and One Revocable Absolute</a></li>
-      <li><a href="absolutes-delineation.html">Delineation of Irrevocable and Revocable Absolutes</a></li>
+      <li><a href="imputation.html" data-tags="christ church age doctrine faith salvation sin">Doctrine of Imputation</a></li>
+      <li><a href="grace.html" data-tags="christ church age doctrine faith giving grace holy spirit salvation sin spiritual growth">Doctrine of Grace</a></li>
+      <li><a href="justification.html" data-tags="christ church age doctrine faith grace salvation">Doctrine of Justification</a></li>
+      <li><a href="unlimited-atonement.html" data-tags="christ church age doctrine faith salvation sin">Doctrine of Unlimited Atonement</a></li>
+      <li><a href="position-in-christ.html" data-tags="christ church age divine attributes doctrine faith holy spirit sin">Doctrine of Position in Christ</a></li>
+      <li><a href="propitiation.html" data-tags="christ doctrine faith salvation sin">Doctrine of Propitiation</a></li>
+      <li><a href="reconciliation.html" data-tags="christ church age doctrine faith holy spirit salvation sin">Doctrine of Reconciliation</a></li>
+      <li><a href="blood-of-christ.html" data-tags="christ doctrine faith holy spirit sin">Doctrine of the Blood of Christ</a></li>
+      <li><a href="eternal-security.html" data-tags="christ church age divine attributes doctrine faith grace holy spirit priesthood salvation sin">Doctrine of Eternal Security</a></li>
+      <li><a href="regeneration.html" data-tags="doctrine holy spirit salvation">Doctrine of Regeneration</a></li>
+      <li><a href="absolutes.html" data-tags="angels christ church age divine attributes faith grace holy spirit priesthood salvation sin">Thirty-Nine Irrevocable Absolutes and One Revocable Absolute</a></li>
+      <li><a href="absolutes-delineation.html" data-tags="christ church age faith holy spirit salvation sin">Delineation of Irrevocable and Revocable Absolutes</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>Hamartiology (Sin &amp; Redemption)</h2></div>
     <ul class="doctrine-list">
-      <li><a href="rebound.html">Doctrine of Rebound</a></li>
-      <li><a href="defilement-association.html">Doctrine of Defilement by Association</a></li>
-      <li><a href="repentance.html">Doctrine of Repentance</a></li>
-      <li><a href="evil.html">Doctrine of Evil</a></li>
-      <li><a href="seven-deaths.html">Seven Deaths</a></li>
-      <li><a href="sin-unto-death.html">Doctrine of the Sin Unto Death</a></li>
-      <li><a href="devils-seven.html">Doctrine of the Devil's Seven</a></li>
+      <li><a href="rebound.html" data-tags="christ church age doctrine faith grace holy spirit salvation sin">Doctrine of Rebound</a></li>
+      <li><a href="defilement-association.html" data-tags="sin mental attitude spiritual life">Doctrine of Defilement by Association</a></li>
+      <li><a href="repentance.html" data-tags="christ church age doctrine faith holy spirit mental attitude salvation sin">Doctrine of Repentance</a></li>
+      <li><a href="evil.html" data-tags="angels christ church age divine discipline doctrine faith grace happiness holy spirit mental attitude sin spiritual growth">Doctrine of Evil</a></li>
+      <li><a href="seven-deaths.html" data-tags="christ church age divine discipline doctrine faith holy spirit mental attitude sin">Seven Deaths</a></li>
+      <li><a href="sin-unto-death.html" data-tags="church age doctrine faith mental attitude sin">Doctrine of the Sin Unto Death</a></li>
+      <li><a href="devils-seven.html" data-tags="angels doctrine satan sin spiritual warfare">Doctrine of the Devil's Seven</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>Spiritual Life</h2></div>
     <ul class="doctrine-list">
-      <li><a href="mental-attitude.html">Doctrine of Mental Attitude</a></li>
-      <li><a href="heart.html">Doctrine of the Heart</a></li>
-      <li><a href="conscience.html">Doctrine of the Conscience</a></li>
-      <li><a href="divine-guidance.html">Doctrine of Divine Guidance</a></li>
-      <li><a href="happiness.html">Doctrine of Happiness</a></li>
-      <li><a href="prayer.html">Categorical Doctrine of Prayer</a></li>
-      <li><a href="giving.html">Doctrine of Giving</a></li>
+      <li><a href="mental-attitude.html" data-tags="church age doctrine faith grace mental attitude sin">Doctrine of Mental Attitude</a></li>
+      <li><a href="heart.html" data-tags="church age doctrine faith grace happiness holy spirit mental attitude sin spiritual growth">Doctrine of the Heart</a></li>
+      <li><a href="conscience.html" data-tags="doctrine mental attitude">Doctrine of the Conscience</a></li>
+      <li><a href="divine-guidance.html" data-tags="christ church age doctrine faith holy spirit mental attitude">Doctrine of Divine Guidance</a></li>
+      <li><a href="happiness.html" data-tags="angels christ church age divine attributes divine discipline doctrine faith grace happiness holy spirit mental attitude salvation sin spiritual growth">Doctrine of Happiness</a></li>
+      <li><a href="prayer.html" data-tags="doctrine holy spirit prayer spiritual growth">Categorical Doctrine of Prayer</a></li>
+      <li><a href="giving.html" data-tags="christ church age doctrine faith giving grace happiness holy spirit mental attitude sin">Doctrine of Giving</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>Ecclesiology (Church)</h2></div>
     <ul class="doctrine-list">
-      <li><a href="witnessing.html">Doctrine of Witnessing</a></li>
-      <li><a href="operation-footstool.html">Doctrine of Operation Footstool</a></li>
-      <li><a href="royal-family.html">Doctrine of the Royal Family of God</a></li>
+      <li><a href="witnessing.html" data-tags="angels christ church age divine attributes doctrine faith grace happiness holy spirit prayer prophecy salvation sin">Doctrine of Witnessing</a></li>
+      <li><a href="operation-footstool.html" data-tags="angels christ church age doctrine faith holy spirit sin">Doctrine of Operation Footstool</a></li>
+      <li><a href="royal-family.html" data-tags="christ church age doctrine holy spirit position in christ">Doctrine of the Royal Family of God</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>Discipline &amp; Testing</h2></div>
     <ul class="doctrine-list">
-      <li><a href="divine-discipline.html">Doctrine of Divine Discipline</a></li>
-      <li><a href="levitical-priesthood.html">Doctrine of the Levitical Priesthood</a></li>
+      <li><a href="divine-discipline.html" data-tags="church age divine discipline doctrine faith happiness mental attitude sin">Doctrine of Divine Discipline</a></li>
+      <li><a href="levitical-priesthood.html" data-tags="doctrine priesthood salvation sin">Doctrine of the Levitical Priesthood</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>Practical Theology</h2></div>
     <ul class="doctrine-list">
-      <li><a href="money.html">Doctrine of Money</a></li>
-      <li><a href="fifth-part.html">Doctrine of the Fifth Part</a></li>
-      <li><a href="salt.html">Doctrine of Salt in Scripture</a></li>
+      <li><a href="money.html" data-tags="church age doctrine faith grace happiness holy spirit salvation">Doctrine of Money</a></li>
+      <li><a href="fifth-part.html" data-tags="grace spiritual life doctrine">Doctrine of the Fifth Part</a></li>
+      <li><a href="salt.html" data-tags="typology spiritual life doctrine salvation">Doctrine of Salt in Scripture</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>Eschatology &amp; Prophecy</h2></div>
     <ul class="doctrine-list">
-      <li><a href="days.html">Doctrine of Days</a></li>
-      <li><a href="interpretations-history.html">Doctrine of the Interpretations of History</a></li>
+      <li><a href="days.html" data-tags="christ church age doctrine faith salvation">Doctrine of Days</a></li>
+      <li><a href="interpretations-history.html" data-tags="doctrine history prophecy sovereignty">Doctrine of the Interpretations of History</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>Apologetics</h2></div>
     <ul class="doctrine-list">
-      <li><a href="science-bible.html">Science and the Bible</a></li>
-      <li><a href="scientific-laws.html">Doctrine of Scientific Laws and the Universe</a></li>
+      <li><a href="science-bible.html" data-tags="angels holy spirit">Science and the Bible</a></li>
+      <li><a href="scientific-laws.html" data-tags="angels christ church age doctrine faith">Doctrine of Scientific Laws and the Universe</a></li>
     </ul>
   </div>
 
   <div class="cat-block">
     <div class="cat-header"><h2>History &amp; Interpretation</h2></div>
     <ul class="doctrine-list">
-      <li><a href="interpretations-history.html">Doctrine of the Interpretations of History</a></li>
+      <li><a href="interpretations-history.html" data-tags="doctrine history prophecy sovereignty">Doctrine of the Interpretations of History</a></li>
     </ul>
   </div>
 
