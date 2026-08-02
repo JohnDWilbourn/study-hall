@@ -223,7 +223,7 @@ footer {
 </header>
 <div class="search-bar"><input type="text" id="docSearch" placeholder="Search doctrines..." autocomplete="off"><span id="searchCount"></span></div><script>(function(){document.getElementById("docSearch").addEventListener("input",function(){var q=this.value.toLowerCase().trim();var links=document.querySelectorAll(".doctrine-list li a");var blocks=document.querySelectorAll(".cat-block");var total=0;links.forEach(function(a){var match=!q||a.textContent.toLowerCase().includes(q)||(a.dataset.tags&&a.dataset.tags.includes(q));a.parentElement.classList.toggle("doc-link-hidden",!match);if(match)total++;});blocks.forEach(function(b){var v=b.querySelectorAll("li:not(.doc-link-hidden)").length;b.style.display=v?"":"none";});document.getElementById("searchCount").textContent=q?total+" result"+(total!==1?"s":""):"";});})();</script>
 
-<div class="main-wrap"><div class="page-wrap"><div class="doctrine-col">
+<div class="main-wrap"><div class="page-wrap"><div class="doctrine-col"><div class="page-wrap"><div class="doctrine-col">
 
   <div class="cat-block">
     <div class="cat-header"><h2>Christology (Christ)</h2></div>
@@ -360,5 +360,61 @@ footer {
 })();
 </script>
 
+<script>
+(function() {
+  var contentIndex = null;
+  fetch('/content-index.json')
+    .then(r => r.json())
+    .then(data => {
+      contentIndex = data;
+      var input = document.getElementById('docSearch');
+      if (input && input.value.trim()) updateSidebar(input.value.trim());
+    })
+    .catch(function(e) { console.log('content-index load failed', e); });
+
+  function updateSidebar(q) {
+    var sidebar = document.getElementById('contentSidebar');
+    if (!q || !contentIndex) { sidebar.classList.remove('active'); return; }
+    var ql = q.toLowerCase();
+    function filter(items) {
+      return (items||[]).filter(function(item) {
+        return item.title.toLowerCase().includes(ql) ||
+          item.tags.some(function(t) { return t.toLowerCase().includes(ql); });
+      });
+    }
+    function renderLinks(items, containerId) {
+      var el = document.getElementById(containerId);
+      el.innerHTML = '';
+      items.slice(0,6).forEach(function(item) {
+        var a = document.createElement('a');
+        a.href = item.url; a.className = 'sidebar-link';
+        a.target = '_blank'; a.textContent = item.title;
+        el.appendChild(a);
+      });
+    }
+    var lessons = filter(contentIndex.lessons);
+    var illums = filter(contentIndex.illuminations);
+    var watchman = filter(contentIndex.watchman);
+    document.getElementById('sidebarLessons').style.display = lessons.length ? '' : 'none';
+    document.getElementById('sidebarIlluminations').style.display = illums.length ? '' : 'none';
+    document.getElementById('sidebarWatchman').style.display = watchman.length ? '' : 'none';
+    renderLinks(lessons, 'sidebarLessonLinks');
+    renderLinks(illums, 'sidebarIllumLinks');
+    renderLinks(watchman, 'sidebarWatchLinks');
+    sidebar.classList.toggle('active', !!(lessons.length || illums.length || watchman.length));
+  }
+
+  window.updateSidebar = updateSidebar;
+
+  var input = document.getElementById('docSearch');
+  if (input) {
+    input.addEventListener('input', function() { updateSidebar(this.value.trim()); });
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var tag = params.get('tag');
+  if (tag) { setTimeout(function() { updateSidebar(tag); }, 500); }
+})();
+</script>
 </body>
 </html>
