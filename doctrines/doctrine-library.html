@@ -342,6 +342,20 @@ footer {
     </ul>
   </div>
 
+<div id="contentSidebar" class="sidebar">
+  <div class="sidebar-section" id="sidebarLessons" style="display:none">
+    <div class="sidebar-section-title">Lessons</div>
+    <div id="sidebarLessonLinks"></div>
+  </div>
+  <div class="sidebar-section" id="sidebarIlluminations" style="display:none">
+    <div class="sidebar-section-title">Illuminations</div>
+    <div id="sidebarIllumLinks"></div>
+  </div>
+  <div class="sidebar-section" id="sidebarWatchman" style="display:none">
+    <div class="sidebar-section-title">The Watchman</div>
+    <div id="sidebarWatchLinks"></div>
+  </div>
+</div>
   <footer>JohnDavid Wilbourn</footer>
 
 </div>
@@ -363,7 +377,7 @@ footer {
 <script>
 (function() {
   var contentIndex = null;
-  fetch('/content-index.json')
+  fetch('https://study.intelligencereport.info/content-index.json')
     .then(r => r.json())
     .then(data => {
       contentIndex = data;
