@@ -167,6 +167,7 @@ footer {
   <h1>Library of Christian Doctrines</h1>
   <p class="subtitle">A systematic reference library — indexed and cross-referenced</p>
 </header>
+<div class="search-bar"><input type="text" id="docSearch" placeholder="Search doctrines..." autocomplete="off"><span id="searchCount"></span></div><script>(function(){document.getElementById("docSearch").addEventListener("input",function(){var q=this.value.toLowerCase().trim();var links=document.querySelectorAll(".doctrine-list li a");var blocks=document.querySelectorAll(".cat-block");var total=0;links.forEach(function(a){var match=!q||a.textContent.toLowerCase().includes(q);a.parentElement.classList.toggle("doc-link-hidden",!match);if(match)total++;});blocks.forEach(function(b){var v=b.querySelectorAll("li:not(.doc-link-hidden)").length;b.style.display=v?"":"none";});document.getElementById("searchCount").textContent=q?total+" result"+(total!==1?"s":""):"";});})();</script>
 
 <div class="main-wrap">
 
