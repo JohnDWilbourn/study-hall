@@ -8350,8 +8350,9 @@ td:nth-child(3) {
     let visible = 0;
     rows.forEach(row => {
       const text = row.textContent.toLowerCase();
+      const composite = ((row.cells[0] ? row.cells[0].textContent.trim() : "") + " " + (row.cells[1] ? row.cells[1].textContent.trim() : "")).toLowerCase();
       const rowBook = row.cells[0] && row.cells[0].textContent.trim();
-      const matchQ = !q || text.includes(q);
+      const matchQ = !q || text.includes(q) || composite.includes(q.toLowerCase());
       const matchBook = !book || rowBook === book;
       if (matchQ && matchBook) {
         row.classList.remove('row-hidden');
