@@ -291,5 +291,20 @@ footer {
   <footer>JohnDavid Wilbourn</footer>
 
 </div>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var tag = params.get('tag');
+  if (tag) {
+    var input = document.getElementById('docSearch');
+    if (input) {
+      input.value = tag;
+      input.dispatchEvent(new Event('input'));
+    }
+  }
+})();
+</script>
+
 </body>
 </html>
